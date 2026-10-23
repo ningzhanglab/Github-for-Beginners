@@ -4,7 +4,7 @@
 
 This guide is for students, researchers, and anyone who has never used GitHub. You do **not** need to know programming.
 
-> **What is the difference?** **GitHub.com** is where your project is shared online. **GitHub Desktop** is an app that helps you manage and update a copy on your computer. You still edit documents in your usual editor (for example, VS Code, Word-compatible text editors, or a Markdown editor).
+> **What is the difference?** **GitHub.com** is where your project is shared online. **GitHub Desktop** is an app that helps you manage and update a copy on your computer. You still edit documents in your usual editor (for example, VS Code or another plain-text editor).
 
 ## Choose where to start
 
