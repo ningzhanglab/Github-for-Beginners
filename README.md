@@ -31,7 +31,7 @@ This is a tutorial for people who want to manage actual project files—not beco
 ## Repository guide
 
 ```text
-GitHub-for-Beginners/
+Github-for-Beginners/
 ├── README.md
 ├── 00_Start_Here/
 │   └── First_15_Minutes.md
