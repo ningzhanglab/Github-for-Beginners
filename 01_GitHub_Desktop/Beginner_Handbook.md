@@ -1,5 +1,9 @@
 # GitHub Desktop Beginner Handbook
 
+![Annotated illustration of GitHub Desktop controls](../assets/illustrations/desktop-controls-econ.svg)
+
+**First-time reader?** Try the [Economics Research Visual Walkthrough](../00_Start_Here/Why_GitHub_Matters_Examples.md) and its real [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) / [PR #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) examples.
+
 This handbook teaches the everyday **graphical workflow**, not command-line Git. It is for managing research files, class projects, documentation, and code—especially when another person or an AI agent makes changes.
 
 ## 1. The four things in your workflow

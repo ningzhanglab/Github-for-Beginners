@@ -1,5 +1,7 @@
 # First 15 Minutes: GitHub Desktop, No Terminal
 
+**Want to understand why you'd use GitHub before touching buttons?** See [Why GitHub Matters — Economics Examples](Why_GitHub_Matters_Examples.md) with diagrams and real teaching PRs.
+
 **Goal:** make a small change to this learning repository through the graphical interface and see it appear on GitHub. Do not start with the command line.
 
 > You need a GitHub account, [GitHub Desktop](https://desktop.github.com/), and any text editor (VS Code is optional). Both Windows and macOS are supported. **Practice on your own fork/copy or a practice repository**, not directly on a shared teaching repository unless you have permission.

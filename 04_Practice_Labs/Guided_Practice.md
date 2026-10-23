@@ -1,5 +1,7 @@
 # Guided Practice: GitHub Desktop + AI Agent
 
+**Example before practice:** [Learn GitHub with an illustrated economics research project](../00_Start_Here/Why_GitHub_Matters_Examples.md). You can study [a real economics PR](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) without making any changes.
+
 Four small exercises. No command line. Use **your own private or public practice repository** and only non-sensitive material. These exercises do not require a paid AI plan; for the agent labs, an advice-only assistant can be used instead of one that edits directly.
 
 ## Lab 1 — Your first change (10–15 minutes)

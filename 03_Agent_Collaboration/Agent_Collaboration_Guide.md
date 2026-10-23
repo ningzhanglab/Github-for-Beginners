@@ -1,5 +1,9 @@
 # How to Collaborate With an AI Agent Using GitHub Desktop
 
+![Where local and remote agent edits appear](../assets/illustrations/agent-local-cloud-econ.svg)
+
+For a concrete research example, follow [Agent Reviews an Economics Dataset](../07_Econ_Research/Econ_Agent_Workflow.md), including a real GitHub Issue and reviewed Pull Request using synthetic values.
+
 **Audience:** people who want AI help on an existing GitHub project, without typing Git commands.
 
 The central idea is simple: **the agent proposes or edits on a controlled workspace; you verify the result before it becomes part of the shared project.**

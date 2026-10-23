@@ -6,10 +6,35 @@ This is a tutorial for people who want to manage actual project files—not beco
 
 > **Scope:** GitHub Desktop on Windows or macOS, plus the GitHub website for issues, pull requests (PRs), and reviews. **No terminal commands or command-line Git tutorials.** GitHub Desktop uses version control behind the scenes; you only need the visual workflow.
 
+## Start here: See why GitHub is useful (with an economics example)
+
+**Imagine an economics paper with multiple result tables, coauthors, and an AI agent.** GitHub helps you know which files changed, what each change did, and which proposed edits were actually approved.
+
+[**Open the visual walkthrough: Why GitHub? →**](00_Start_Here/Why_GitHub_Matters_Examples.md)
+
+![Why economics researchers use GitHub rather than confusing final-version filenames](assets/illustrations/why-github-econ.svg)
+
+### See the real demonstration, not only explanations
+
+| Real teaching artifact | What it teaches |
+|---|---|
+| [Initial economics research commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) | **Commit / History** — preserve a first draft with synthetic data |
+| [Economics Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) | **Issues** — request a concrete change to the data dictionary |
+| [Economics Pull Request #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) | **Branch / Diff / Review / Merge** — see what was actually added and accepted |
+| [Illustrated Desktop controls](assets/illustrations/desktop-controls-econ.svg) | **Desktop** — where to click for Branch, Changes, Commit and Fetch/Pull |
+| [Local vs cloud agent guide](07_Econ_Research/Econ_Agent_Workflow.md) | **AI agent collaboration** — review real file modifications rather than trusting a completion message |
+
+**These are real GitHub Issues, commits, and pull requests for a fictional economics project.** All data are synthetic, and no statistical or causal result is being claimed.
+
+![Follow one change through Issue, Branch, Commit, PR, Merge and Desktop Pull](assets/illustrations/econ-issue-to-merge.svg)
+
+For the economic research-specific feature guide, see [GitHub Features Through Economics Research Examples](07_Econ_Research/GitHub_Features_Through_Econ_Examples.md). For practical agent instructions, see [Economics Research + Agent Walkthrough](07_Econ_Research/Econ_Agent_Workflow.md).
+
 ## Learn by doing
 
 | Time | Where to start | What you will be able to do |
 |---|---|---|
+| 10 minutes | [Why GitHub Matters — Illustrated Examples](00_Start_Here/Why_GitHub_Matters_Examples.md) | See why economists use GitHub and understand its main features |
 | 15 minutes | [First 15 Minutes](00_Start_Here/First_15_Minutes.md) | Clone, edit, commit, and push one file |
 | 30–60 minutes | [Desktop Beginner Handbook](01_GitHub_Desktop/Beginner_Handbook.md) | Understand changes, history, branches, PRs, and syncing |
 | 10 minutes | [Visual Workflow Maps](01_GitHub_Desktop/Visual_Workflows.md) | Choose the right workflow for your situation |
@@ -34,6 +59,7 @@ This is a tutorial for people who want to manage actual project files—not beco
 Github-for-Beginners/
 ├── README.md
 ├── 00_Start_Here/
+│   ├── Why_GitHub_Matters_Examples.md
 │   └── First_15_Minutes.md
 ├── 01_GitHub_Desktop/
 │   ├── Beginner_Handbook.md
@@ -51,6 +77,13 @@ Github-for-Beginners/
 │   └── Recovery_and_Common_Problems.md
 ├── 06_Reference/
 │   └── Glossary_and_Official_Links.md
+├── 07_Econ_Research/
+│   ├── GitHub_Features_Through_Econ_Examples.md
+│   └── Econ_Agent_Workflow.md
+├── 08_Live_Demo/
+│   ├── econ-research-project/
+│   └── mini-research-project/
+├── assets/illustrations/  # 4 SVG diagrams
 ├── .github/
 │   ├── ISSUE_TEMPLATE/agent-task.md
 │   └── PULL_REQUEST_TEMPLATE.md
