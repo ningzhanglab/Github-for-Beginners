@@ -1,0 +1,39 @@
+# Instructions for AI Agents Working on This Teaching Repository
+
+This repository teaches **GitHub Desktop graphical workflows** to complete beginners, including safe collaboration with AI agents.
+
+## Scope and style
+
+- Focus on **GitHub Desktop on macOS/Windows** and the GitHub website only where needed for Issues, PR reviews, comments, and merging.
+- Do **not** introduce command-line Git, terminal commands, installation scripts, raw Git internals, or developer-only workflows as a beginner requirement.
+- Define technical terms using plain language; make every tutorial usable without programming experience.
+- Keep examples small, non-sensitive, and useful for documentation/research projects.
+- Prefer accurate GUI menu labels and link to official GitHub Desktop documentation for up-to-date UI behavior.
+- Do not fabricate screenshots, build/test results, live feature access, or supported agent capabilities.
+
+## Edits and branch safety
+
+- First inspect the existing structure and requested files.
+- Work only within explicitly authorized files; do not reorganize the repository unasked.
+- Never delete unrelated teaching material or overwrite existing content merely to "simplify."
+- For normal agent tasks, use a dedicated feature branch and a PR; do not directly modify `main` unless the human explicitly instructs and the tooling permits.
+- Do not force push, rewrite published history, change access rules, or merge a PR automatically.
+- Preserve relative links. After edits, check internal links in any changed Markdown files.
+- Clearly report changed files, actual checks performed, limitations, and unresolved items.
+
+## Content and privacy
+
+- Never commit credentials, tokens, private research records, student/client data, or unauthorized copyrighted content.
+- Distinguish local folder agent work from remote/cloud PR work.
+- Cloud agent capabilities vary by product, plan, configuration, and repository permissions; avoid guarantees.
+- A PR merge requires human review; "agent finished" alone is not approval.
+
+## Recommended agent completion note
+
+1. Files changed
+2. What changed and why
+3. Branch/PR/commit link if one exists
+4. Checks performed: passed / failed / not run / not applicable
+5. Remaining issues and assumptions
+
+Read [Agent Collaboration Guide](03_Agent_Collaboration/Agent_Collaboration_Guide.md) before proposing workflows.
