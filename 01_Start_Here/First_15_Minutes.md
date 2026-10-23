@@ -1,80 +1,112 @@
-# First 15 Minutes: GitHub Desktop, No Terminal
+# Your First 15 Minutes with GitHub Desktop
 
-**Want to understand why you'd use GitHub before touching buttons?** See [Why GitHub Matters — Economics Examples](Why_GitHub.md) with diagrams and real teaching PRs.
+**Goal:** create a small personal project, make one change, and see it appear on GitHub.com. No command line, no code, no branches, and no pull requests yet.
 
-**Goal:** make a small change to this learning repository through the graphical interface and see it appear on GitHub. Do not start with the command line.
+**You need:** a free [GitHub account](https://github.com/signup), the [GitHub Desktop app](https://desktop.github.com/), and any simple text editor. GitHub Desktop works on supported Windows and macOS computers.
 
-> You need a GitHub account, [GitHub Desktop](https://desktop.github.com/), and any text editor (VS Code is optional). Both Windows and macOS are supported. **Practice on your own fork/copy or a practice repository**, not directly on a shared teaching repository unless you have permission.
+> **Start with your own project**, not this teaching repository. That way you won't accidentally change someone else's files.
 
-## 1. What you are looking at (2 minutes)
+![A simplified drawing showing the main areas of GitHub Desktop](../assets/illustrations/desktop-controls-econ.svg)
 
-There are three different places:
+*Illustration, not a screenshot. The buttons may be arranged a little differently on your screen.*
 
-| Place | Meaning | Example |
-|---|---|---|
-| GitHub.com, in your browser | Shared online project | `https://github.com/owner/project` |
-| The folder on your computer | Your local project copy | A folder you can open in Finder/File Explorer |
-| GitHub Desktop app | Visual control center | Shows what changed and syncs with GitHub |
+## Step 1 — Open GitHub Desktop and sign in
 
-GitHub Desktop is not where you type your document. Edit in your normal editor; use Desktop to check what changed.
+Install GitHub Desktop, open it, and sign into your GitHub.com account when asked. The app is free.
 
-## 2. Sign in and clone (3 minutes)
+If you have no GitHub account yet, create one first. **You do not need to install Git separately or open a terminal.**
 
-1. Install and open GitHub Desktop.
-2. Sign into your GitHub.com account when asked (on Mac, check **GitHub Desktop → Settings**; on Windows, **File → Options** if you need to revisit authentication).
-3. Select **File → Clone Repository…**.
-4. On the **GitHub.com** tab select your own practice repository; or select **URL** and paste a repository URL.
-5. Choose a **Local Path** that is easy to find, then select **Clone**.
-6. Select **Repository → Show in Finder** (Mac) or **Show in Explorer** (Windows) and confirm the files exist.
+## Step 2 — Make your first project folder
 
-**Clone** means "make a connected copy on my computer." **Download ZIP** is a one-time download and does not give you the same convenient sync workflow.
+In GitHub Desktop, select **File → New repository…** (on the welcome screen you may see **Create a New Repository on your Hard Drive…**).
 
-## 3. Create a safe branch (2 minutes)
+Use these example settings:
 
-1. Select **Current Branch → New Branch**.
-2. Name it `practice/my-first-edit` (or `practice/your-name`).
-3. Choose the default branch as the starting point, then **Create Branch**.
+| Field | Enter or choose |
+|---|---|
+| Name | `my-first-notes` |
+| Description | `A simple practice project` |
+| Local Path | A place you will remember, such as Documents |
+| Initialize with a README | **Select this option** |
+| Git ignore / License | Leave the optional defaults for this exercise |
 
-A branch is a separate workspace for a change. Work on your practice branch rather than directly on `main` in a collaborative repository.
+Click **Create repository**. GitHub Desktop creates a project folder **on your computer**, including a `README.md` file.
 
-## 4. Edit and save one file (3 minutes)
+**What did you just do?** You created a *repository*: a project folder that can remember its saved changes.
 
-1. Select **Repository → Open in your editor**, or open the local folder in your editor manually.
-2. Create `practice-notes.md` containing:
+## Step 3 — Change one sentence
+
+In GitHub Desktop, choose **Repository → Show in Finder** (Mac) or **Show in Explorer** (Windows). Open `README.md` in your text editor.
+
+Replace or add this simple example and **save** it:
 
 ```markdown
-# My first GitHub Desktop note
+# My First Notes
 
-Today I changed a file locally.
+This is my practice project.
 
-- I know where the project folder is.
-- I can review changes before uploading.
+- Today I learned how to save a change.
+- Next I want to learn how to work with an AI assistant.
 ```
 
-3. Save the file.
-4. Return to GitHub Desktop. Under **Changes**, you should see `practice-notes.md`.
-5. Click the file to see the added lines. If you see unexpected files, investigate before committing.
+Go back to GitHub Desktop. Click **Changes** on the left.
 
-## 5. Save, upload, and open a PR (5 minutes)
+You should see `README.md`. Click it and look at the added or removed lines. If you don't see the file, check that you edited the **same folder** and saved the file.
 
-1. In Desktop, check the box beside the file you want to include.
-2. In the **Summary** field enter `Add first practice note`.
-3. Click **Commit to practice/my-first-edit**. This saves a named checkpoint **locally**.
-4. Click **Publish branch** (first time) or **Push origin** to send it to GitHub.
-5. Click **Preview Pull Request** (or use the repository's GitHub website → **Pull requests → New pull request**).
-6. Confirm the base is `main`, verify the diff, and open a **draft PR** if you only want to practice.
+**What did you just do?** You edited a file in an ordinary editor. GitHub Desktop noticed it and showed the difference.
 
-**Stop before merging** if this is not your repository or you have not reviewed the change. A pull request is a proposed change and discussion; it is not automatically merged.
+## Step 4 — Save a checkpoint
 
-## Success checklist
+At the bottom of the **Changes** panel, type this in **Summary**:
 
-- [ ] I know where the local project folder lives.
-- [ ] Desktop shows the correct repository and branch.
-- [ ] My file appears in the **Changes** list.
-- [ ] I can explain the difference between **Commit** and **Push**.
-- [ ] My practice branch appears online.
-- [ ] I can open a PR without immediately merging.
+```text
+Add my first practice note
+```
 
-**Next:** [Desktop Beginner Handbook](../02_GitHub_Desktop/Desktop_Guide.md) or [Agent Collaboration Guide](../03_Work_With_AI/AI_Guide.md).
+Click **Commit to main**.
 
-**Official:** [Clone a repository](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop); [First repository tutorial](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop).
+**What did you just do?** A *commit* is a named checkpoint. You can find it later by clicking **History**.
+
+At this point, your change is saved in the project **on your computer**. It may not yet be on GitHub.com.
+
+## Step 5 — Put it on GitHub.com
+
+Click **Publish repository** in GitHub Desktop.
+
+In the publish window:
+
+1. Keep the repository name `my-first-notes`.
+2. For a personal exercise, select **Keep this code private** unless you deliberately want everyone to see it.
+3. Click **Publish Repository**.
+
+Then use **Repository → View on GitHub** to open the project in your browser. You should see the README containing the sentence you added.
+
+**What did you just do?** You published the project so your saved files can be accessed on GitHub.com with the visibility you chose.
+
+## Success! You only need these four concepts
+
+| Word | What it means |
+|---|---|
+| **Repository** | The whole project folder and its saved history |
+| **Changes** | What is different from the last saved checkpoint |
+| **Commit** | Save a checkpoint on your computer |
+| **Publish / Push** | Send the project or new checkpoints to GitHub.com |
+
+**Try a second change:** Edit the README again and save it. In GitHub Desktop use **Changes → Commit to main → Push origin**. Then refresh GitHub.com. This is your everyday routine for a simple personal project.
+
+## What if I already have a GitHub project?
+
+Instead of **New repository**, use **File → Clone Repository…** to make a connected copy of a repository you can access. Then open the folder, edit, commit, and **Push origin** if you have permission. For shared projects, it's better to learn branches and review pages before editing `main`.
+
+Our [fictional economics research example](../examples/economics/) is available for **reading and inspection**. Do not try to push changes to this shared teaching repository as a beginner exercise.
+
+## What should I learn next?
+
+- [**See what the most important Desktop buttons do**](../02_GitHub_Desktop/README.md)
+- [**Why branches and review pages matter**](Why_GitHub.md)
+- [**Let an AI assistant help without losing control**](../03_Work_With_AI/README.md)
+- [**If something goes wrong**](../05_Help/README.md)
+
+[Back to Start Here](README.md) · [Back to Home](../README.md)
+
+*Steps based on GitHub's [official first-repository guide](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop). Menu labels can vary slightly by app version.*
