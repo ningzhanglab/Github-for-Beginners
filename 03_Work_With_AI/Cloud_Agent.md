@@ -91,4 +91,4 @@ Remember: a cloud agent's branch does not instantly update your local `main`.
 
 **Official resources:** [Viewing PR in Desktop](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop) · [Copilot cloud-agent overview](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview).
 
-Return to [Agent Collaboration Guide](Agent_Collaboration_Guide.md).
+Return to [Agent Collaboration Guide](AI_Guide.md).

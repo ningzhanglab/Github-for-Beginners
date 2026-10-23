@@ -1,8 +1,8 @@
 # GitHub Features Through Economics Research Examples
 
-Start with the [visual tutorial](../00_Start_Here/Why_GitHub_Matters_Examples.md) for annotated diagrams. This chapter answers the recurring question: **"Why would an economics researcher need each GitHub feature?"**
+Start with the [visual tutorial](../01_Start_Here/Why_GitHub.md) for annotated diagrams. This chapter answers the recurring question: **"Why would an economics researcher need each GitHub feature?"**
 
-All hypothetical analyses below are **examples**. The [live repository exercise](../08_Live_Demo/econ-research-project/) uses entirely synthetic observations, not real economic evidence.
+All hypothetical analyses below are **examples**. The [live repository exercise](../examples/economics) uses entirely synthetic observations, not real economic evidence.
 
 ## Case 1 — You are revising a regression table
 
@@ -34,7 +34,7 @@ The data use unemployment rates in percent, but your result table interprets a *
 
 An agent adds a data dictionary and updates the result description. How do you know it did not change the underlying data?
 
-**Real teaching record:** [PR #4 → Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). It shows **four changed files**, while the [synthetic CSV](../08_Live_Demo/econ-research-project/synthetic_county_panel.csv) was left untouched.
+**Real teaching record:** [PR #4 → Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). It shows **four changed files**, while the [synthetic CSV](../examples/economics/synthetic_county_panel.csv) was left untouched.
 
 **Why useful:** a PR collects proposed changes in a single place, with before/after diffs, comments, and a merge decision.
 
@@ -58,7 +58,7 @@ The agent may have committed to an online branch, opened a PR, drafted a file in
 
 **Why useful:** evidence replaces claims. Verify the actual file diff, test result, and PR status. Once merged, open Desktop on `main` and **Fetch / Pull** to update your local files.
 
-See [agent walkthrough](Econ_Agent_Workflow.md).
+See [agent walkthrough](Economics_AI_Example.md).
 
 ## Case 8 — You want a replication package others can follow
 
@@ -101,4 +101,4 @@ For actual research, do not commit restricted microdata, credentials, or files f
 | Investigate an older result or undo a shared mistake | **History**, potentially **Revert** |
 | Mark a documented, approved submission milestone | **Release or tag** (optional) |
 
-**Next:** [Economics agent collaboration example](Econ_Agent_Workflow.md) · [Desktop annotated controls](../assets/illustrations/desktop-controls-econ.svg).
+**Next:** [Economics agent collaboration example](Economics_AI_Example.md) · [Desktop annotated controls](../assets/illustrations/desktop-controls-econ.svg).

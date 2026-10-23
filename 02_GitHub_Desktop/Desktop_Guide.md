@@ -2,7 +2,7 @@
 
 ![Annotated illustration of GitHub Desktop controls](../assets/illustrations/desktop-controls-econ.svg)
 
-**First-time reader?** Try the [Economics Research Visual Walkthrough](../00_Start_Here/Why_GitHub_Matters_Examples.md) and its real [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) / [PR #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) examples.
+**First-time reader?** Try the [Economics Research Visual Walkthrough](../01_Start_Here/Why_GitHub.md) and its real [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) / [PR #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) examples.
 
 This handbook teaches the everyday **graphical workflow**, not command-line Git. It is for managing research files, class projects, documentation, and code—especially when another person or an AI agent makes changes.
 
@@ -120,7 +120,7 @@ Recommended rules:
 - If the agent and you are changing the same files, pause one side of the work until the other commits and syncs.
 - Never paste private data, credentials, or unreleased datasets into a public repo or an unapproved agent.
 
-See the [Agent Collaboration Guide](../03_Agent_Collaboration/Agent_Collaboration_Guide.md).
+See the [Agent Collaboration Guide](../03_Work_With_AI/AI_Guide.md).
 
 ## 10. Three common mistakes to avoid
 

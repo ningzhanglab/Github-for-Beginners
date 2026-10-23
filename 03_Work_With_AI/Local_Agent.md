@@ -80,4 +80,4 @@ For a simple beginner project, **one agent task at a time** is easiest. When two
 
 [Worktree docs](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-worktrees-in-github-desktop) · [Desktop change review](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop).
 
-Return to [Agent Collaboration Guide](Agent_Collaboration_Guide.md).
+Return to [Agent Collaboration Guide](AI_Guide.md).

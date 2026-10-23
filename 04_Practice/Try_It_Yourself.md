@@ -1,6 +1,6 @@
 # Guided Practice: GitHub Desktop + AI Agent
 
-**Example before practice:** [Learn GitHub with an illustrated economics research project](../00_Start_Here/Why_GitHub_Matters_Examples.md). You can study [a real economics PR](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) without making any changes.
+**Example before practice:** [Learn GitHub with an illustrated economics research project](../01_Start_Here/Why_GitHub.md). You can study [a real economics PR](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) without making any changes.
 
 Four small exercises. No command line. Use **your own private or public practice repository** and only non-sensitive material. These exercises do not require a paid AI plan; for the agent labs, an advice-only assistant can be used instead of one that edits directly.
 
@@ -81,4 +81,4 @@ Prerequisite: a cloud agent or connected service that can submit a PR in a repos
 - [ ] I can say **what I actually verified** instead of trusting "done."
 - [ ] I know to stop before destructive actions.
 
-Continue with [Agent Collaboration Guide](../03_Agent_Collaboration/Agent_Collaboration_Guide.md) or [Recovery and Common Problems](../05_Troubleshooting/Recovery_and_Common_Problems.md).
+Continue with [Agent Collaboration Guide](../03_Work_With_AI/AI_Guide.md) or [Recovery and Common Problems](../05_Help/Fix_Problems.md).

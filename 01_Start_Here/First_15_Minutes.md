@@ -1,6 +1,6 @@
 # First 15 Minutes: GitHub Desktop, No Terminal
 
-**Want to understand why you'd use GitHub before touching buttons?** See [Why GitHub Matters — Economics Examples](Why_GitHub_Matters_Examples.md) with diagrams and real teaching PRs.
+**Want to understand why you'd use GitHub before touching buttons?** See [Why GitHub Matters — Economics Examples](Why_GitHub.md) with diagrams and real teaching PRs.
 
 **Goal:** make a small change to this learning repository through the graphical interface and see it appear on GitHub. Do not start with the command line.
 
@@ -75,6 +75,6 @@ Today I changed a file locally.
 - [ ] My practice branch appears online.
 - [ ] I can open a PR without immediately merging.
 
-**Next:** [Desktop Beginner Handbook](../01_GitHub_Desktop/Beginner_Handbook.md) or [Agent Collaboration Guide](../03_Agent_Collaboration/Agent_Collaboration_Guide.md).
+**Next:** [Desktop Beginner Handbook](../02_GitHub_Desktop/Desktop_Guide.md) or [Agent Collaboration Guide](../03_Work_With_AI/AI_Guide.md).
 
 **Official:** [Clone a repository](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop); [First repository tutorial](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop).

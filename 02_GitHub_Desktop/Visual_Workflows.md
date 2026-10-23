@@ -82,4 +82,4 @@ A remote agent's work does not immediately appear in your local folder. **Sync i
 | Agent is running locally in your folder | Watch Desktop **Changes** / **History** |
 | Two contributors edited the same file | Pause, sync, resolve conflict deliberately |
 
-Read: [Beginner Handbook](Beginner_Handbook.md) · [Cloud Agent Workflow](../03_Agent_Collaboration/Cloud_Agent_Workflow.md).
+Read: [Beginner Handbook](Desktop_Guide.md) · [Cloud Agent Workflow](../03_Work_With_AI/Cloud_Agent.md).

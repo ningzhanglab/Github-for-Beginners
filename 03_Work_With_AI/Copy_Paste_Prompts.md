@@ -65,4 +65,4 @@ Add this paragraph to any prompt when the stakes are higher:
 | "I fixed the data." | "Replaced one provisional field, with a source URL; two mappings remain unverified." |
 | "Cleaned up files." | "Renamed two specified files; updated all three references; did not delete other files." |
 
-**Next:** [Local Agent Workflow](Local_Agent_Workflow.md) · [Cloud Agent Workflow](Cloud_Agent_Workflow.md).
+**Next:** [Local Agent Workflow](Local_Agent.md) · [Cloud Agent Workflow](Cloud_Agent.md).

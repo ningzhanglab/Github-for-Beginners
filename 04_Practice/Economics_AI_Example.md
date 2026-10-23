@@ -32,10 +32,10 @@ The example proposed four changes:
 
 | Proposed change | Review question |
 |---|---|
-| Add [data_dictionary.md](../08_Live_Demo/econ-research-project/data_dictionary.md) | Are units and variable meanings consistent with CSV? |
-| Add [verification_checklist.md](../08_Live_Demo/econ-research-project/verification_checklist.md) | Are calculations correctly distinguished from model estimates? |
-| Update [draft_results.md](../08_Live_Demo/econ-research-project/draft_results.md) | Are changes described in percentage points versus percent? |
-| Update [research_log.md](../08_Live_Demo/econ-research-project/research_log.md) | Does the log distinguish actual checks from claims? |
+| Add [data_dictionary.md](../examples/economics/data_dictionary.md) | Are units and variable meanings consistent with CSV? |
+| Add [verification_checklist.md](../examples/economics/verification_checklist.md) | Are calculations correctly distinguished from model estimates? |
+| Update [draft_results.md](../examples/economics/draft_results.md) | Are changes described in percentage points versus percent? |
+| Update [research_log.md](../examples/economics/research_log.md) | Does the log distinguish actual checks from claims? |
 
 **This is a real GitHub PR, not a separate independent AI experiment:** [PR #4 — Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). ChatGPT created it using authorized GitHub tools in response to the tutorial-building request. It illustrates the review workflow; no separate econometric analysis agent was run.
 

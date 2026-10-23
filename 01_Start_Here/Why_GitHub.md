@@ -2,7 +2,7 @@
 
 **No command line.** This visual tutorial shows what GitHub is actually useful for when writing research papers, editing tables, keeping notebooks, and collaborating with human colleagues or AI agents.
 
-The example is a **fictional economics project** using only [synthetic county-year data](../08_Live_Demo/econ-research-project/synthetic_county_panel.csv). It does not report real research findings or causal effects.
+The example is a **fictional economics project** using only [synthetic county-year data](../examples/economics/synthetic_county_panel.csv). It does not report real research findings or causal effects.
 
 ## 1. Why GitHub instead of saving ten copies of a file?
 
@@ -45,7 +45,7 @@ All GitHub records below actually exist. The economics project and observations 
 | Initial dataset and draft | [Initial research commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) | **Commit / History:** exactly when first research files were saved |
 | Question to solve | [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) | **Issue:** define missing variable definitions as one actionable task |
 | Proposed edits | [Pull Request #4 — Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) | **Branch / Diff / Review:** what was added, deleted, or rewritten |
-| Accepted version | [Current economics project](../08_Live_Demo/econ-research-project/) | **Merge / main:** reviewed files become the main project version |
+| Accepted version | [Current economics project](../examples/economics) | **Merge / main:** reviewed files become the main project version |
 
 Follow this exact chain:
 
@@ -122,7 +122,7 @@ Other useful features: **README** describes the project; **Issues** track tasks;
 
 > In my economics research repository, add a `data_dictionary.md` explaining units and variable definitions. Only edit that file and the README links. Work on a new `agent/data-dictionary` branch, never directly on `main`. Keep all data values unchanged. Check relative links, disclose what was not tested, and open a draft PR if you have authorized GitHub access. Do not merge it.
 
-See the [Economics Research + Agent Walkthrough](../07_Econ_Research/Econ_Agent_Workflow.md) for a deeper example.
+See the [Economics Research + Agent Walkthrough](../04_Practice/Economics_AI_Example.md) for a deeper example.
 
 ## 8. Try it yourself
 
@@ -131,6 +131,6 @@ See the [Economics Research + Agent Walkthrough](../07_Econ_Research/Econ_Agent_
 - **20 minutes:** Ask an agent to review the table units on a separate branch and check the diff.
 - **After merge:** pull the accepted branch locally and compare it with your starting file.
 
-Next lessons: [Feature Tour for Economists](../07_Econ_Research/GitHub_Features_Through_Econ_Examples.md) · [First 15 Minutes](First_15_Minutes.md) · [Recovery Guide](../05_Troubleshooting/Recovery_and_Common_Problems.md).
+Next lessons: [Feature Tour for Economists](../04_Practice/Economics_Examples.md) · [First 15 Minutes](First_15_Minutes.md) · [Recovery Guide](../05_Help/Fix_Problems.md).
 
 *Official reference: [GitHub Desktop overview](https://docs.github.com/en/desktop), [Branches](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), [Pull request viewing](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop).*
