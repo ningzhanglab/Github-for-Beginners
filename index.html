@@ -27,6 +27,26 @@
 @media(max-width:1150px){.shell{grid-template-columns:225px minmax(0,1fr)}.content{padding:28px 28px 44px}.sim-layout{grid-template-columns:1fr}.helper-panel{padding:19px}}
 @media(max-width:760px){.shell{display:block}.sidebar{position:relative;height:auto;padding:14px 16px 16px;overflow:visible}.brand{padding:4px 2px 8px}.side-label{display:none}.lesson-nav{display:flex;overflow:auto;gap:6px;padding-bottom:4px}.nav-btn{min-width:115px;flex:0 0 auto;font-size:11px;padding:8px}.nav-num{width:24px;height:24px}.side-bottom{margin-top:10px;padding:4px;font-size:11px}.side-bottom a{display:none}.content{padding:23px 18px 40px}.topbar{margin-bottom:26px}.pill{display:none}.grid2,.grid3,.map-panel,.glossary{grid-template-columns:1fr}.collab-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:20px}.mock-body{padding:17px}.hero p{font-size:16px}.footer-nav{margin-top:28px}.footer-nav .button{font-size:13px}.button{padding:10px 14px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Beginner-friendly navigation and visible practice guidance */
+.launch-panel{background:linear-gradient(125deg,#193955,#27588e);color:#fff;border-radius:20px;padding:24px 28px;margin:0 0 28px;box-shadow:0 15px 45px rgba(23,52,82,.15)}
+.launch-panel h2{font-size:25px;letter-spacing:-.025em;margin:8px 0}.launch-panel p{color:#e0ebf8;font-size:15px;max-width:690px;margin:0}
+.launch-panel .button{background:#f3c678;color:#17324d}.launch-panel .button.secondary{background:transparent;color:#fff;border-color:#7595b4}
+.launch-kicker{font-size:11px;letter-spacing:.14em;color:#ffdb96;font-weight:800}
+.launch-benefits{display:flex;gap:12px;flex-wrap:wrap;margin-top:15px;font-size:12px;color:#c7dced}
+.launch-benefits span{background:#ffffff14;padding:6px 10px;border-radius:99px}
+.practice-toolbar{display:flex;align-items:center;gap:11px;flex-wrap:wrap;background:#eaf0f8;border:1px solid #d7e4f2;border-radius:12px;padding:11px 15px;margin-bottom:16px}
+.practice-toolbar strong{font-size:13px}.practice-toolbar .aside-note{margin-left:auto;font-size:12px;color:#546c82}
+.platform-option{border:1px solid #b5c8dd;border-radius:9px;background:#fff;padding:7px 13px;font-size:13px;font-weight:800;color:#45617e}
+.platform-option.active{background:#173e65;color:#fff;border-color:#173e65}
+.hint-card{border:1px dashed #a9c3e3;border-radius:10px;padding:13px 14px;margin-top:12px;background:#fff;font-size:13px;color:#41607f}
+.sim-guidance{display:grid;gap:8px;margin-top:15px}
+.real-app-action{background:#fff;padding:12px;border-radius:11px;border:1px solid #d9e5f2;font-size:13px}
+.real-app-action b{display:block;color:#426388;font-size:11px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px}
+.takeaway{display:flex;gap:12px;align-items:start;background:#eaf5ed;border-left:4px solid #2b8d6f;padding:14px 17px;border-radius:9px;margin:22px 0;color:#276751;font-size:14px}
+.takeaway strong{display:block;color:#176749;margin-bottom:2px}
+.extra-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 2px}
+@media(max-width:760px){.launch-panel{padding:20px}.launch-panel .actions{display:grid;grid-template-columns:1fr}.launch-panel .button{width:100%}.practice-toolbar .aside-note{margin-left:0;width:100%}}
 </style>
 </head>
 <body>
@@ -49,12 +69,14 @@
   <div class="topbar"><span class="eyebrow">BEGINNER COURSE · NO TERMINAL</span><div class="topbar-right"><span class="pill">Interactive practice · safe simulation</span><button class="restart" id="resetCourse">↻ Reset course</button></div></div>
 
   <section class="chapter active" id="chapter-0" aria-labelledby="title-0">
-    <div class="hero"><div class="kicker">✦ LESSON 01 · THE BIG PICTURE</div><h1 id="title-0">Stop naming files <span class="highlight">final_final_v3.</span></h1><p>GitHub helps you organize a project and see what changed over time. You don't need to write code to benefit from it.</p></div>
+    <div class="hero"><div class="kicker">✦ LESSON 01 · THE BIG PICTURE</div><h1 id="title-0">Never lose track of <span class="highlight">your work again.</span></h1><p>Imagine having five versions of the same paper. GitHub helps you see which changes were saved and what is different — even if you've never written code.</p></div>
+    <div class="launch-panel"><div class="launch-kicker">WELCOME · START WHERE YOU FEEL COMFORTABLE</div><h2>See it. Try it. Understand it.</h2><p>You'll learn using a simple research note — not programming. Every example happens on this page, and the practice never touches your real files.</p><div class="launch-benefits"><span>✓ No installation needed to explore</span><span>✓ Safe, simulated buttons</span><span>✓ Around 15–20 minutes</span></div><div class="actions"><button class="button" type="button" data-go="2">Try the clickable practice →</button><button class="button secondary" type="button" data-go="1">Start with the basics →</button></div></div>
     <div class="grid2">
       <div class="card"><div class="mini-label">WITHOUT A CLEAR HISTORY</div><h3>Which file is the right one?</h3><div class="file-row"><span class="file-icon">▤</span><span class="file-name">paper_final.docx</span></div><div class="file-row"><span class="file-icon">▤</span><span class="file-name">paper_final_new.docx</span></div><div class="file-row"><span class="file-icon">▤</span><span class="file-name">paper_final_NEW2.docx</span></div><p class="helper">It's hard to remember what changed and which version was approved.</p></div>
       <div class="card"><div class="mini-label">WITH A GITHUB PROJECT</div><h3>One project, saved checkpoints</h3><div class="timeline"><span class="timeline-point"></span><span><strong>Today</strong> · Added variable explanations</span></div><div class="timeline"><span class="timeline-point"></span><span><strong>Yesterday</strong> · Checked the result table</span></div><div class="timeline"><span class="timeline-point"></span><span><strong>Monday</strong> · Created the first draft</span></div><button class="button secondary small" id="showDiff">See an example of “what changed” ↓</button><div id="introDiff" hidden><div class="diff"><div class="diff-line minus">− Wages rose by 1 percent.</div><div class="diff-line plus">+ In this toy example, wages rose by 4%.</div></div><p class="helper">GitHub shows the difference between saved versions. It does not decide whether the research claim is true.</p></div></div>
     </div>
     <div class="section-space card soft"><span class="mini-label">A REAL-LIFE EXAMPLE</span><h3>You're writing a small economics paper.</h3><p>You write the first draft. A classmate edits a paragraph. An AI assistant suggests a clearer definition for an unemployment-rate variable. GitHub helps you see <strong>who changed what</strong> and whether to keep that change.</p><div class="grid3"><div><div class="big-icon">🕘</div><strong>History</strong><p class="helper">See earlier checkpoints.</p></div><div><div class="big-icon">🌿</div><strong>Branch</strong><p class="helper">Try something without replacing your approved work.</p></div><div><div class="big-icon">✅</div><strong>Review</strong><p class="helper">Decide whether to accept a proposed edit.</p></div></div></div>
+    <div class="takeaway"><span aria-hidden="true">💡</span><div><strong>Remember one idea:</strong> GitHub helps you review how a project changes. Start with one small text file; you can learn the extra features later.</div></div>
     <div class="note"><strong>When should you NOT use GitHub?</strong> Google Docs is often easier for simultaneous Word-style editing. GitHub is especially helpful for text files, project history, documentation, scripts, and controlled collaboration. Don't put private research data in a public repository.</div>
   </section>
 
@@ -66,14 +88,17 @@
       <button class="concept-choice" data-place="2"><span class="concept-emoji">🌐</span><span><b>3. GitHub.com</b><small>Your shared project on the website</small></span></button>
       <div class="note">Important: You write and edit files with a text editor, <strong>not</strong> inside GitHub Desktop.</div>
     </div><div class="concept-detail" id="placeDetail" aria-live="polite"><div class="mini-label" style="color:#91b9ec">1 / YOUR COMPUTER</div><h3>Project folder</h3><p>Your notes, tables, research plan, and README live here. Open the files in any plain-text editor to make changes.</p><div class="path">Documents / my-econ-notes / README.md</div></div></div>
+    <div class="takeaway"><span aria-hidden="true">💡</span><div><strong>Three different jobs:</strong> Edit in your folder, review and sync in GitHub Desktop, and share or review on GitHub.com.</div></div>
     <div class="section-space card"><h3>Your everyday routine</h3><div class="comparison"><span class="token">Edit a file</span>→<span class="token">Review changes</span>→<span class="token">Commit = save checkpoint</span>→<span class="token">Push = upload</span></div><p style="margin:14px 0 0">If a teammate updates GitHub.com, <strong>Pull</strong> brings those online changes into your local project.</p></div>
   </section>
 
   <section class="chapter" id="chapter-2" aria-labelledby="title-2">
-    <div class="hero"><div class="kicker">✦ LESSON 03 · HANDS-ON PRACTICE</div><h1 id="title-2">Your first <span class="highlight">GitHub Desktop</span> project.</h1><p>Try the real sequence of actions with this clickable practice simulator. Nothing is uploaded, deleted, or changed in your real GitHub account.</p></div>
+    <div class="hero"><div class="kicker">✦ LESSON 03 · HANDS-ON PRACTICE</div><h1 id="title-2">Make your first project, <span class="highlight">one click at a time.</span></h1><p>Follow the buttons below as if you were using GitHub Desktop. You'll create a small note, see what changed, save it, and practice publishing. Nothing here uploads or changes real files.</p></div>
     <div class="note green">🛡️ <strong>Safe practice mode.</strong> This is an interactive illustration, not the actual GitHub Desktop app. After practicing, repeat these steps in <a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop ↗</a>.</div>
+    <div class="practice-toolbar" role="group" aria-label="Instructions for your computer"><strong>My computer:</strong><button type="button" class="platform-option active" data-platform="mac" aria-pressed="true">Mac</button><button type="button" class="platform-option" data-platform="windows" aria-pressed="false">Windows</button><span class="aside-note">Choose to see the matching instructions.</span></div>
     <div class="steps" id="simSteps" aria-label="Simulator progress"></div>
     <div class="sim-layout"><div class="app-mock"><div class="app-titlebar"><span>GitHub Desktop <span style="opacity:.65;font-weight:400">/ interactive practice</span></span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div><div class="mock-body" id="simBody" aria-live="polite"></div></div><aside class="helper-panel" id="simHelp"><h3>Step 1: Make a project</h3><p>A repository is like a folder with a history. Start by creating one for your research notes.</p></aside></div>
+    <div class="takeaway"><span aria-hidden="true">💡</span><div><strong>Your goal:</strong> Make one small edit, check what changed, save with Commit, then Publish. Later edits use Push rather than Publish.</div></div>
     <p class="link-line">Official instructions: <a href="https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop" target="_blank" rel="noopener">Creating your first repository in GitHub Desktop ↗</a>.</p>
   </section>
 
@@ -86,12 +111,14 @@
       <button class="collab-btn" data-collab="3"><span class="num">STEP 04</span><strong>✅ Merge</strong><small>Accept the change</small></button>
     </div>
     <div class="collab-display" id="collabDisplay" aria-live="polite"></div>
+    <div class="takeaway"><span aria-hidden="true">💡</span><div><strong>You remain in control.</strong> Issue = task; Branch = separate workspace; Pull Request = ask for review; Merge = accept a change.</div></div>
     <div class="note green"><strong>Real teaching example:</strong> We created an <a href="https://github.com/ningzhanglab/Github-for-Beginners/issues/3" target="_blank" rel="noopener">Issue #3 ↗</a> and a <a href="https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files" target="_blank" rel="noopener">Pull Request #4 ↗</a> for a fictional economics dataset. You can view them, but you don't need to open them to understand this lesson.</div>
   </section>
 
   <section class="chapter" id="chapter-4" aria-labelledby="title-4">
     <div class="hero"><div class="kicker">✦ LESSON 05 · AI AS A CONTRIBUTOR</div><h1 id="title-4">Let AI help. <span class="highlight">You still approve.</span></h1><p>AI can draft explanations and propose file changes. The important part is making the task small and checking what it changed.</p></div>
     <div class="card"><h3>Where is your AI assistant working?</h3><div class="agent-mode"><button class="mode active" data-mode="local">💻 My computer</button><button class="mode" data-mode="cloud">☁️ On GitHub</button><button class="mode" data-mode="chat">💬 Only in chat</button></div><div id="agentModeText" class="agent-context" aria-live="polite"></div><div class="mini-label">A COPY-READY AGENT INSTRUCTION</div><div class="prompt-box" id="agentPrompt">Explain the columns in my sample economics dataset. Only edit the data dictionary on a separate branch. Do not change the CSV, publish secrets, or merge anything. Report the files changed and what you checked. If you cannot edit the repository, return a draft instead.</div><div class="actions"><button class="button secondary small" id="copyPrompt">Copy the instruction</button><span class="helper" id="copyStatus" role="status"></span></div></div>
+    <div class="takeaway"><span aria-hidden="true">💡</span><div><strong>Before accepting AI work:</strong> Compare the actual files and lines changed. A completion message alone isn't proof.</div></div>
     <div class="card section-space"><span class="mini-label">A TINY INTERACTIVE REVIEW EXERCISE</span><h3>An agent says “Done.” What should you do?</h3><p>It was asked to explain the dataset columns. Examine the *actual proposed file changes* below. Would you accept this work?</p><div id="agentReview" class="review-area" aria-live="polite"></div></div>
   </section>
 
@@ -116,7 +143,7 @@
 var current=0, total=6, visited=new Set([0]), maxReached=0;
 var SIM_DEFAULT='# My Economics Notes\n\nA small project about economic research.';
 var sim={step:0,name:'my-econ-notes',draft:SIM_DEFAULT,private:true,commit:''};
-var agentMode='local',reviewStage=0;
+var agentMode='local',reviewStage=0,platform='mac';
 var concepts=[
  {title:'Project folder',small:'This is where your actual files live.',desc:'Open a README, note, or document in your usual editor. Change and save it there; the GitHub Desktop app will notice the changed file.',path:'Documents / my-econ-notes / README.md'},
  {title:'GitHub Desktop',small:'This app shows what changed.',desc:'Select your project, inspect the Changes tab, save a named checkpoint with Commit, and share it using Push or Publish repository.',path:'GitHub Desktop → Changes → Commit → Push'},
@@ -156,6 +183,11 @@ function goto(n){n=Math.max(0,Math.min(total-1,n));current=n;visited.add(n);maxR
 }
 try{var saved=JSON.parse(localStorage.getItem('gh-course-visited')||'[]');if(Array.isArray(saved)){saved.forEach(function(n){if(Number.isInteger(n)&&n>=0&&n<total)visited.add(n)})}var stored=Number(localStorage.getItem('gh-course-current'));if(Number.isInteger(stored)&&stored>=0&&stored<total)current=stored}catch(ex){}
 document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){goto(Number(b.getAttribute('data-go')))})});
+document.querySelectorAll('[data-platform]').forEach(function(b){b.addEventListener('click',function(){
+ platform=b.getAttribute('data-platform');
+ document.querySelectorAll('[data-platform]').forEach(function(x){var active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))});
+ updatePracticeHelp(sim.step);
+})});
 $id('prev').addEventListener('click',function(){goto(current-1)});
 $id('next').addEventListener('click',function(){goto(current===total-1?0:current+1)});
 $id('resetCourse').addEventListener('click',function(){if(!confirm('Restart lessons and clear practice progress on this device?'))return;visited=new Set([0]);sim={step:0,name:'my-econ-notes',draft:SIM_DEFAULT,private:true,commit:''};reviewStage=0;agentMode='local';renderSim();renderReview();goto(0)});
@@ -163,6 +195,18 @@ $id('showDiff').addEventListener('click',function(){var box=$id('introDiff');box
 document.querySelectorAll('[data-place]').forEach(function(btn){btn.addEventListener('click',function(){var i=Number(btn.getAttribute('data-place')),item=concepts[i];document.querySelectorAll('[data-place]').forEach(function(b){b.classList.toggle('selected',b===btn)});$id('placeDetail').innerHTML='<div class="mini-label" style="color:#91b9ec">'+(i+1)+' / SELECTED PLACE</div><h3>'+e(item.title)+'</h3><p>'+e(item.desc)+'</p><div class="path">'+e(item.path)+'</div>'})});
 function renderCollab(n){document.querySelectorAll('[data-collab]').forEach(function(b){b.classList.toggle('active',Number(b.getAttribute('data-collab'))===n)});var item=collabs[n];$id('collabDisplay').innerHTML='<div class="mini-label">'+e(item.label)+'</div><h3>'+e(item.title)+'</h3><p>'+e(item.detail)+'</p><div class="note green" style="margin-bottom:0">'+e(item.extra)+'</div><div class="actions">'+(n>0?'<button class="button secondary small" data-cprev="'+(n-1)+'">← Back</button>':'')+(n<3?'<button class="button small" data-cnext="'+(n+1)+'">See next step →</button>':'<button class="button secondary small" data-cnext="0">Replay example ↺</button>')+'</div>';document.querySelectorAll('[data-cnext],[data-cprev]').forEach(function(b){b.addEventListener('click',function(){renderCollab(Number(b.getAttribute('data-cnext')||b.getAttribute('data-cprev')))})})}
 document.querySelectorAll('[data-collab]').forEach(function(b){b.addEventListener('click',function(){renderCollab(Number(b.getAttribute('data-collab')))})});
+var platformHelp={
+ mac:['File → New repository…','Repository → Show in Finder','GitHub Desktop → Changes','GitHub Desktop → Commit to main','GitHub Desktop → Publish repository'],
+ windows:['File → New repository…','Repository → Show in Explorer','GitHub Desktop → Changes','GitHub Desktop → Commit to main','GitHub Desktop → Publish repository']
+};
+var practiceHints=[
+ 'Use a short name such as my-econ-notes. In the real app, select “Initialize this repository with a README”.',
+ 'Add one sentence describing your project, then Save. A README is simply a plain-text introduction to your project.',
+ 'Green means added text; red means removed text. If something is wrong, click Edit again before saving a checkpoint.',
+ 'Try “Add my research note” as the Summary. A Commit saves a checkpoint locally but does not upload it.',
+ 'Keep the private checkbox selected for practice. Publishing sends the repository to GitHub.com in the real app.',
+ 'Nice! Next time: edit a file → review it → Commit → Push origin. You only Publish the repository the first time.'
+];
 var simHelps=[
  ['1 · Create a repository','In the actual app, use File → New repository…. Choose a name and initialize it with a README. This is a folder on your computer, not yet online.'],
  ['2 · Edit your README','Open README.md in your normal text editor and save it. For this practice, edit the text in the simulated editor.'],
@@ -171,21 +215,30 @@ var simHelps=[
  ['5 · Publish privately','Click Publish repository. Choose “Keep this code private” for a personal practice project before publishing.'],
  ['Practice complete!','Your simulated project is online only inside this exercise. Repeat in the real app to create an actual GitHub repository.']
 ];
+function updatePracticeHelp(st){
+ var menus=platformHelp[platform],menu=st<=4?menus[st]:'Repository → View on GitHub';
+ $id('simHelp').innerHTML='<div class="mini-label">WHAT TO DO IN THE REAL APP</div><h3>'+e(simHelps[st][0])+'</h3><p>'+e(simHelps[st][1])+'</p><div class="sim-guidance"><div class="real-app-action"><b>Actual menu or button</b>'+e(menu)+'</div></div><div class="extra-actions"><button class="button secondary small" type="button" id="showSimHint" aria-expanded="false">💡 Show me a hint</button></div><div class="hint-card" id="simHintText" hidden>'+e(practiceHints[st])+'</div><p class="helper" style="margin-top:15px">This is a simulation: it never connects to GitHub.</p>';
+ $id('showSimHint').addEventListener('click',function(){var box=$id('simHintText');box.hidden=!box.hidden;this.setAttribute('aria-expanded',String(!box.hidden));this.textContent=box.hidden?'💡 Show me a hint':'Hide hint ↑'});
+}
 function renderSim(){var st=sim.step,b=$id('simBody'),labels=['Create','Edit','Review','Commit','Publish','Done'];
   $id('simSteps').innerHTML=labels.map(function(label,i){return '<span class="step-circle '+(i<st?'passed':i===st?'current':'')+'">'+(i<st?'✓ ':(i+1)+'. ')+e(label)+'</span>'}).join('');
-  $id('simHelp').innerHTML='<div class="mini-label">WHAT THIS MEANS IN THE REAL APP</div><h3>'+e(simHelps[st][0])+'</h3><p>'+e(simHelps[st][1])+'</p><p class="helper">This training simulator never connects to GitHub.</p>';
+  updatePracticeHelp(st);
   if(st===0)b.innerHTML='<div class="mini-label">FILE → NEW REPOSITORY…</div><h3>Create a project folder</h3><label for="repoName">Project name</label><input id="repoName" class="field" value="'+e(sim.name)+'" maxlength="36"><div class="mock-path">Your computer / Documents / <span id="repoFolderName">'+e(sim.name)+'</span></div><label class="check-row"><input type="checkbox" checked disabled> Initialize with README (recommended)</label><div class="mock-footer"><button class="button" id="createRepo">Create repository →</button></div><div class="error" id="simError" role="status"></div>';
-  if(st===1)b.innerHTML='<div class="mini-label">EDIT IN YOUR NORMAL TEXT EDITOR</div><h3>Write one sentence in README.md</h3><p class="helper">A README introduces your project. Change or add a line in the box below.</p><label for="editorText">README.md</label><textarea class="field" id="editorText" spellcheck="false">'+e(sim.draft)+'</textarea><div class="mock-footer"><button class="button" id="saveEdit">Save file →</button></div><div class="error" id="simError" role="status"></div>';
+  if(st===1)b.innerHTML='<div class="mini-label">EDIT IN YOUR NORMAL TEXT EDITOR</div><h3>Write one sentence in README.md</h3><p class="helper">A README introduces your project. Change or add a line in the box below.</p><label for="editorText">README.md</label><textarea class="field" id="editorText" spellcheck="false">'+e(sim.draft)+'</textarea><div class="extra-actions"><button class="button secondary small" type="button" id="fillExample">Use an example sentence</button><span class="helper">Or type your own sentence above.</span></div><div class="mock-footer"><button class="button secondary small" type="button" id="backToCreate">← Previous step</button><button class="button" id="saveEdit">Save file →</button></div><div class="error" id="simError" role="status"></div>';
   if(st===2){var diff=diffLines(SIM_DEFAULT,sim.draft);b.innerHTML='<div class="mini-label">GITHUB DESKTOP → CHANGES</div><h3>Review what you changed</h3><p class="helper">Green = new lines. Red = removed lines. Does the change look right?</p><div class="file-row">▤ <strong>README.md</strong> <span class="tag">Modified</span></div><div class="diff">'+diff+'</div><div class="mock-footer"><button class="button secondary small" id="editAgain">← Edit again</button><button class="button" id="reviewDone">Looks right →</button></div>'}
   if(st===3)b.innerHTML='<div class="mini-label">GITHUB DESKTOP → COMMIT</div><h3>Save a checkpoint</h3><p>GitHub Desktop saves your changes to the local project history. This does <strong>not</strong> upload them yet.</p><label for="commitSummary">Summary (what did you change?)</label><input class="field" id="commitSummary" value="Update my research notes"><div class="mock-path">Branch: main · File changed: README.md</div><div class="mock-footer"><button class="button" id="commitNow">Commit to main →</button></div><div class="error" id="simError" role="status"></div>';
   if(st===4)b.innerHTML='<div class="mini-label">GITHUB DESKTOP → PUBLISH REPOSITORY</div><h3>Share your project online</h3><p>Your checkpoint was saved locally. Now publish the repository to GitHub.com.</p><div class="file-row">✓ <strong>'+e(sim.name)+'</strong><span class="tag">1 local commit</span></div><label class="check-row"><input type="checkbox" id="makePrivate" '+(sim.private?'checked':'')+'> Keep this code private</label><p class="helper">For your first practice project, private is a good default.</p><div class="mock-footer"><button class="button" id="publishNow">Publish repository →</button></div><div id="privacyWarning" class="error" role="status"></div>';
-  if(st===5)b.innerHTML='<div class="mini-label">CONGRATULATIONS</div><h3>🎉 You completed the practice!</h3><div class="mock-online"><strong>Simulated GitHub.com project</strong><code>your-account / '+e(sim.name)+' / README.md</code><p style="margin:10px 0 0">✓ Your README was edited<br>✓ Saved checkpoint: '+e(sim.commit)+'<br>✓ Published '+(sim.private?'privately':'publicly')+' (in simulation only)</p></div><p class="helper">You can now try the real sequence in GitHub Desktop. Next, learn how another person can propose a change safely.</p><div class="mock-footer"><button class="button secondary small" id="restartSim">Replay exercise ↺</button><button class="button" id="afterSim">Next lesson →</button></div>';
+  if(st===5)b.innerHTML='<div class="mini-label">CONGRATULATIONS</div><h3>🎉 You completed the practice!</h3><div class="mock-online"><strong>Simulated GitHub.com project</strong><code>your-account / '+e(sim.name)+' / README.md</code><p style="margin:10px 0 0">✓ Your README was edited<br>✓ Saved checkpoint: '+e(sim.commit)+'<br>✓ Published '+(sim.private?'privately':'publicly')+' (in simulation only)</p></div><p class="helper">You can now repeat the same sequence in the real GitHub Desktop app. For your <strong>second</strong> edit, you will usually click <strong>Commit</strong> and then <strong>Push origin</strong> (not Publish repository again).</p><div class="mock-footer"><button class="button secondary small" id="restartSim">Replay exercise ↺</button><button class="button" id="afterSim">Next lesson →</button></div>';
   bindSim(st);
 }
 function diffLines(oldText,newText){var olds=oldText.split('\n'),news=newText.split('\n'),out=[];olds.forEach(function(line){if(!news.includes(line))out.push('<div class="diff-line minus">− '+e(line||' ')+'</div>')});news.forEach(function(line){out.push('<div class="diff-line '+(olds.includes(line)?'neutral':'plus')+'">'+(olds.includes(line)?'  ':'+ ')+e(line||' ')+'</div>')});return out.join('')}
 function bindSim(st){
  if(st===0){$id('repoName').addEventListener('input',function(){var a=$id('repoFolderName');if(a)a.textContent=this.value});$id('createRepo').addEventListener('click',function(){var name=$id('repoName').value.trim();if(!/^[a-z0-9][a-z0-9._-]{1,35}$/i.test(name))return status('simError','Choose a name with 2–36 letters, numbers, dots, underscores, or dashes.');sim.name=name;sim.step=1;renderSim()})}
- if(st===1)$id('saveEdit').addEventListener('click',function(){var t=$id('editorText').value;if(t.trim()===SIM_DEFAULT.trim()||!t.trim())return status('simError','Try changing at least one sentence before saving.');sim.draft=t;sim.step=2;renderSim()});
+ if(st===1){
+   $id('fillExample').addEventListener('click',function(){var box=$id('editorText');if(!box.value.includes('I use GitHub to track changes in my notes.'))box.value=box.value.trimEnd()+'\n\nI use GitHub to track changes in my notes.';box.focus()});
+   $id('backToCreate').addEventListener('click',function(){sim.draft=$id('editorText').value;sim.step=0;renderSim()});
+   $id('saveEdit').addEventListener('click',function(){var t=$id('editorText').value;if(t.trim()===SIM_DEFAULT.trim()||!t.trim())return status('simError','Try changing at least one sentence before saving.');sim.draft=t;sim.step=2;renderSim()});
+ }
  if(st===2){$id('editAgain').addEventListener('click',function(){sim.step=1;renderSim()});$id('reviewDone').addEventListener('click',function(){sim.step=3;renderSim()})}
  if(st===3)$id('commitNow').addEventListener('click',function(){var s=$id('commitSummary').value.trim();if(!s)return status('simError','Write a short Summary describing your change.');sim.commit=s;sim.step=4;renderSim()});
  if(st===4){$id('makePrivate').addEventListener('change',function(){sim.private=this.checked;status('privacyWarning',sim.private?'':'If you publish publicly, anyone can read the project. For practice, private is safer.')});$id('publishNow').addEventListener('click',function(){sim.step=5;renderSim()})}
