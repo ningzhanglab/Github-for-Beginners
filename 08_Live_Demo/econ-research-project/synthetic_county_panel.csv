@@ -1,0 +1,9 @@
+county,year,unemployment_rate_pct,mean_hourly_wage_usd
+Alpha,2024,5.0,25.0
+Alpha,2025,4.5,26.0
+Beta,2024,6.0,24.0
+Beta,2025,5.7,24.6
+Gamma,2024,4.2,30.0
+Gamma,2025,4.4,30.3
+Delta,2024,5.5,27.0
+Delta,2025,5.0,28.1
