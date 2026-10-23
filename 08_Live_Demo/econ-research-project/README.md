@@ -16,15 +16,15 @@ This project demonstrates basic descriptive research, version history, collabora
 | [research_question.md](research_question.md) | Question, limitations, and descriptive scope |
 | [draft_results.md](draft_results.md) | Initial descriptive result, still needing review |
 | [research_log.md](research_log.md) | Simple record of milestones |
-| data_dictionary.md | Proposed in a later PR to explain columns and units |
-| verification_checklist.md | Proposed in a later PR for human/agent review |
+| [data_dictionary.md](data_dictionary.md) | Added and reviewed in teaching PR #4; explains all columns |
+| [verification_checklist.md](verification_checklist.md) | Added in teaching PR #4; shows arithmetic and review limits |
 
 ## GitHub teaching story
 
 1. A researcher writes the question and commits a first draft.
 2. An Issue identifies missing variable definitions.
-3. An AI assistant *could* draft the documentation on a separate branch.
-4. The researcher reviews the proposed changes in a Pull Request.
-5. Once merged, GitHub Desktop can pull the accepted version onto the researcher's computer.
+3. An AI assistant *could* draft the documentation on a separate branch; in this demonstration ChatGPT prepared the edits using authorized GitHub tools.
+4. The reviewer inspects the proposed files through [teaching PR #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files).
+5. After merge, GitHub Desktop can pull the accepted version onto the researcher's computer.
 
 **The repository actions here are real GitHub records; the research project, people, and dataset are fictional.** See the [economics tutorial](../../00_Start_Here/Why_GitHub_Matters_Examples.md) for annotated steps.

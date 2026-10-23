@@ -10,7 +10,7 @@ This is a tutorial for people who want to manage actual project files—not beco
 
 **Imagine an economics paper with multiple result tables, coauthors, and an AI agent.** GitHub helps you know which files changed, what each change did, and which proposed edits were actually approved.
 
-[**Open the visual walkthrough: Why GitHub? →**](00_Start_Here/Why_GitHub_Matters_Examples.md)
+[**Open the visual walkthrough: Why GitHub? →**](00_Start_Here/Why_GitHub_Matters_Examples.md) · [**Browse all four illustrated examples**](00_Start_Here/Visual_Feature_Gallery.md)
 
 ![Why economics researchers use GitHub rather than confusing final-version filenames](assets/illustrations/why-github-econ.svg)
 
@@ -60,6 +60,7 @@ Github-for-Beginners/
 ├── README.md
 ├── 00_Start_Here/
 │   ├── Why_GitHub_Matters_Examples.md
+│   ├── Visual_Feature_Gallery.md
 │   └── First_15_Minutes.md
 ├── 01_GitHub_Desktop/
 │   ├── Beginner_Handbook.md
