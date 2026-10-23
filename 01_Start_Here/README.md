@@ -10,6 +10,17 @@ Imagine an economics assignment with five files named `final`, `final2`, and `fi
 
 **GitHub.com** stores a shared online copy of a project. **GitHub Desktop** helps you manage your working copy on your computer. **Your editor** is where you actually change the document.
 
+## When is GitHub a good choice?
+
+| What you want to do | Is GitHub useful? |
+|---|---|
+| Keep versions of research notes, Markdown, LaTeX, scripts, or small text-based datasets | **Yes** — you can see changes and older checkpoints |
+| Ask another person or AI assistant to propose a change, then review it | **Yes** — branches and review pages help |
+| Write a document together at the same time, like in Google Docs | **Not usually the best tool** — a collaborative document editor is easier |
+| Store large videos, huge datasets, or confidential research records | **Often no** — use appropriate storage and approved security controls |
+
+You can still keep Word documents or PDFs in a repository, but GitHub usually can't show their edits as clearly as it can for ordinary text files.
+
 ## Learn in this order
 
 1. **[Why GitHub? A visual economics example](Why_GitHub.md)** — an explained story using a fictional research paper, real GitHub commits, and a reviewed change. *Read only the first few sections if you're brand new.*
