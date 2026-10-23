@@ -14,7 +14,7 @@ A student writes a draft about county unemployment and nominal wages. They want 
 
 ### The exact prompt
 
-> Work on `ningzhanglab/Github-for-Beginners`, restricted to `08_Live_Demo/econ-research-project/`. Create a separate branch called `demo/econ-review-checklist`. Explain all variables in the CSV and their units. Check Alpha's unemployment-rate change (5.0% to 4.5%) and nominal wage growth ($25 to $26). Do not alter the underlying CSV, other folders, or `main`. Do not estimate a model or make causal claims. Provide a readable checklist, state what remains unverified, and open a PR for human review if the GitHub connection allows it. Do not merge automatically.
+> Work on `ningzhanglab/Github-for-Beginners`, restricted to `examples/economics/`. Create a separate branch called `demo/econ-review-checklist`. Explain all variables in the CSV and their units. Check Alpha's unemployment-rate change (5.0% to 4.5%) and nominal wage growth ($25 to $26). Do not alter the underlying CSV, other folders, or `main`. Do not estimate a model or make causal claims. Provide a readable checklist, state what remains unverified, and open a PR for human review if the GitHub connection allows it. Do not merge automatically.
 
 This is deliberately **small and testable**. A good AI agent response lists actual files changed and verifiable evidence, not merely "finished".
 
