@@ -89,7 +89,7 @@ The wage calculation is `(26 / 25 − 1) × 100 = 4.0%`. There is **no regressio
 2. Open **File → Clone Repository…**. Use the URL `https://github.com/ningzhanglab/Github-for-Beginners`.
 3. Choose a local folder; click **Clone**.
 4. In Desktop click **Repository → Show in Finder** (Mac) or **Show in Explorer** (Windows).
-5. Open `08_Live_Demo/econ-research-project/` to view the CSV, results, and research log.
+5. Open `examples/economics/` to view the CSV, results, and research log.
 6. In Desktop select **History** and click an earlier commit to inspect what files changed.
 7. On GitHub.com, open **[PR #4 → Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files)** to see the exact proposed edits.
 8. In Desktop choose **Current Branch → Pull Requests** if you want to examine a PR branch that is still open. Our example PR is **already merged**, so use its archived web diff and the History tab instead.
