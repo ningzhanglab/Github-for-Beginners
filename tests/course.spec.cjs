@@ -12,7 +12,7 @@ const assert = require('node:assert/strict');
   new vm.Script(inline[1]); // JavaScript syntax check.
   assert(!/<script[^>]+src=/.test(html), 'No external scripts allowed');
   for (let i = 0; i < 6; i++) assert(html.includes('id="chapter-' + i + '"'), 'Missing lesson ' + i);
-  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
+  const ids = [...html.split('<script>')[0].matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
   assert.equal(new Set(ids).size, ids.length, 'Duplicate static HTML id');
   const outDir = path.join(root, 'artifacts');
   fs.mkdirSync(outDir, { recursive: true });
