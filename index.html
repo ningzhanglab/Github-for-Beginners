@@ -143,7 +143,7 @@
 var current=0, total=6, visited=new Set([0]), maxReached=0;
 var SIM_DEFAULT='# My Economics Notes\n\nA small project about economic research.';
 var sim={step:0,name:'my-econ-notes',draft:SIM_DEFAULT,private:true,commit:''};
-var agentMode='local',reviewStage=0;
+var agentMode='local',reviewStage=0,platform='mac';
 var concepts=[
  {title:'Project folder',small:'This is where your actual files live.',desc:'Open a README, note, or document in your usual editor. Change and save it there; the GitHub Desktop app will notice the changed file.',path:'Documents / my-econ-notes / README.md'},
  {title:'GitHub Desktop',small:'This app shows what changed.',desc:'Select your project, inspect the Changes tab, save a named checkpoint with Commit, and share it using Push or Publish repository.',path:'GitHub Desktop → Changes → Commit → Push'},
@@ -183,6 +183,11 @@ function goto(n){n=Math.max(0,Math.min(total-1,n));current=n;visited.add(n);maxR
 }
 try{var saved=JSON.parse(localStorage.getItem('gh-course-visited')||'[]');if(Array.isArray(saved)){saved.forEach(function(n){if(Number.isInteger(n)&&n>=0&&n<total)visited.add(n)})}var stored=Number(localStorage.getItem('gh-course-current'));if(Number.isInteger(stored)&&stored>=0&&stored<total)current=stored}catch(ex){}
 document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){goto(Number(b.getAttribute('data-go')))})});
+document.querySelectorAll('[data-platform]').forEach(function(b){b.addEventListener('click',function(){
+ platform=b.getAttribute('data-platform');
+ document.querySelectorAll('[data-platform]').forEach(function(x){var active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))});
+ updatePracticeHelp(sim.step);
+})});
 $id('prev').addEventListener('click',function(){goto(current-1)});
 $id('next').addEventListener('click',function(){goto(current===total-1?0:current+1)});
 $id('resetCourse').addEventListener('click',function(){if(!confirm('Restart lessons and clear practice progress on this device?'))return;visited=new Set([0]);sim={step:0,name:'my-econ-notes',draft:SIM_DEFAULT,private:true,commit:''};reviewStage=0;agentMode='local';renderSim();renderReview();goto(0)});
@@ -190,6 +195,18 @@ $id('showDiff').addEventListener('click',function(){var box=$id('introDiff');box
 document.querySelectorAll('[data-place]').forEach(function(btn){btn.addEventListener('click',function(){var i=Number(btn.getAttribute('data-place')),item=concepts[i];document.querySelectorAll('[data-place]').forEach(function(b){b.classList.toggle('selected',b===btn)});$id('placeDetail').innerHTML='<div class="mini-label" style="color:#91b9ec">'+(i+1)+' / SELECTED PLACE</div><h3>'+e(item.title)+'</h3><p>'+e(item.desc)+'</p><div class="path">'+e(item.path)+'</div>'})});
 function renderCollab(n){document.querySelectorAll('[data-collab]').forEach(function(b){b.classList.toggle('active',Number(b.getAttribute('data-collab'))===n)});var item=collabs[n];$id('collabDisplay').innerHTML='<div class="mini-label">'+e(item.label)+'</div><h3>'+e(item.title)+'</h3><p>'+e(item.detail)+'</p><div class="note green" style="margin-bottom:0">'+e(item.extra)+'</div><div class="actions">'+(n>0?'<button class="button secondary small" data-cprev="'+(n-1)+'">← Back</button>':'')+(n<3?'<button class="button small" data-cnext="'+(n+1)+'">See next step →</button>':'<button class="button secondary small" data-cnext="0">Replay example ↺</button>')+'</div>';document.querySelectorAll('[data-cnext],[data-cprev]').forEach(function(b){b.addEventListener('click',function(){renderCollab(Number(b.getAttribute('data-cnext')||b.getAttribute('data-cprev')))})})}
 document.querySelectorAll('[data-collab]').forEach(function(b){b.addEventListener('click',function(){renderCollab(Number(b.getAttribute('data-collab')))})});
+var platformHelp={
+ mac:['File → New repository…','Repository → Show in Finder','GitHub Desktop → Changes','GitHub Desktop → Commit to main','GitHub Desktop → Publish repository'],
+ windows:['File → New repository…','Repository → Show in Explorer','GitHub Desktop → Changes','GitHub Desktop → Commit to main','GitHub Desktop → Publish repository']
+};
+var practiceHints=[
+ 'Use a short name such as my-econ-notes. In the real app, select “Initialize this repository with a README”.',
+ 'Add one sentence describing your project, then Save. A README is simply a plain-text introduction to your project.',
+ 'Green means added text; red means removed text. If something is wrong, click Edit again before saving a checkpoint.',
+ 'Try “Add my research note” as the Summary. A Commit saves a checkpoint locally but does not upload it.',
+ 'Keep the private checkbox selected for practice. Publishing sends the repository to GitHub.com in the real app.',
+ 'Nice! Next time: edit a file → review it → Commit → Push origin. You only Publish the repository the first time.'
+];
 var simHelps=[
  ['1 · Create a repository','In the actual app, use File → New repository…. Choose a name and initialize it with a README. This is a folder on your computer, not yet online.'],
  ['2 · Edit your README','Open README.md in your normal text editor and save it. For this practice, edit the text in the simulated editor.'],
@@ -198,9 +215,14 @@ var simHelps=[
  ['5 · Publish privately','Click Publish repository. Choose “Keep this code private” for a personal practice project before publishing.'],
  ['Practice complete!','Your simulated project is online only inside this exercise. Repeat in the real app to create an actual GitHub repository.']
 ];
+function updatePracticeHelp(st){
+ var menus=platformHelp[platform],menu=st<=4?menus[st]:'Repository → View on GitHub';
+ $id('simHelp').innerHTML='<div class="mini-label">WHAT TO DO IN THE REAL APP</div><h3>'+e(simHelps[st][0])+'</h3><p>'+e(simHelps[st][1])+'</p><div class="sim-guidance"><div class="real-app-action"><b>Actual menu or button</b>'+e(menu)+'</div></div><div class="extra-actions"><button class="button secondary small" type="button" id="showSimHint" aria-expanded="false">💡 Show me a hint</button></div><div class="hint-card" id="simHintText" hidden>'+e(practiceHints[st])+'</div><p class="helper" style="margin-top:15px">This is a simulation: it never connects to GitHub.</p>';
+ $id('showSimHint').addEventListener('click',function(){var box=$id('simHintText');box.hidden=!box.hidden;this.setAttribute('aria-expanded',String(!box.hidden));this.textContent=box.hidden?'💡 Show me a hint':'Hide hint ↑'});
+}
 function renderSim(){var st=sim.step,b=$id('simBody'),labels=['Create','Edit','Review','Commit','Publish','Done'];
   $id('simSteps').innerHTML=labels.map(function(label,i){return '<span class="step-circle '+(i<st?'passed':i===st?'current':'')+'">'+(i<st?'✓ ':(i+1)+'. ')+e(label)+'</span>'}).join('');
-  $id('simHelp').innerHTML='<div class="mini-label">WHAT THIS MEANS IN THE REAL APP</div><h3>'+e(simHelps[st][0])+'</h3><p>'+e(simHelps[st][1])+'</p><p class="helper">This training simulator never connects to GitHub.</p>';
+  updatePracticeHelp(st);
   if(st===0)b.innerHTML='<div class="mini-label">FILE → NEW REPOSITORY…</div><h3>Create a project folder</h3><label for="repoName">Project name</label><input id="repoName" class="field" value="'+e(sim.name)+'" maxlength="36"><div class="mock-path">Your computer / Documents / <span id="repoFolderName">'+e(sim.name)+'</span></div><label class="check-row"><input type="checkbox" checked disabled> Initialize with README (recommended)</label><div class="mock-footer"><button class="button" id="createRepo">Create repository →</button></div><div class="error" id="simError" role="status"></div>';
   if(st===1)b.innerHTML='<div class="mini-label">EDIT IN YOUR NORMAL TEXT EDITOR</div><h3>Write one sentence in README.md</h3><p class="helper">A README introduces your project. Change or add a line in the box below.</p><label for="editorText">README.md</label><textarea class="field" id="editorText" spellcheck="false">'+e(sim.draft)+'</textarea><div class="mock-footer"><button class="button" id="saveEdit">Save file →</button></div><div class="error" id="simError" role="status"></div>';
   if(st===2){var diff=diffLines(SIM_DEFAULT,sim.draft);b.innerHTML='<div class="mini-label">GITHUB DESKTOP → CHANGES</div><h3>Review what you changed</h3><p class="helper">Green = new lines. Red = removed lines. Does the change look right?</p><div class="file-row">▤ <strong>README.md</strong> <span class="tag">Modified</span></div><div class="diff">'+diff+'</div><div class="mock-footer"><button class="button secondary small" id="editAgain">← Edit again</button><button class="button" id="reviewDone">Looks right →</button></div>'}
