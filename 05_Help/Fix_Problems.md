@@ -79,4 +79,4 @@ A chat message alone is **not** proof of saved work or a successful test.
 - [ ] Real output opened/tested.
 - [ ] User or project owner explicitly approves risky changes.
 
-See [Agent Collaboration Guide](../03_Agent_Collaboration/Agent_Collaboration_Guide.md) for prevention and [Desktop Cheat Sheet](../02_Cheat_Sheets/GitHub_Desktop_Cheat_Sheet.md) for fast navigation.
+See [Agent Collaboration Guide](../03_Work_With_AI/AI_Guide.md) for prevention and [Desktop Cheat Sheet](../02_GitHub_Desktop/Quick_Reference.md) for fast navigation.

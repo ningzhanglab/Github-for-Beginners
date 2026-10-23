@@ -27,4 +27,4 @@ This project demonstrates basic descriptive research, version history, collabora
 4. The reviewer inspects the proposed files through [teaching PR #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files).
 5. After merge, GitHub Desktop can pull the accepted version onto the researcher's computer.
 
-**The repository actions here are real GitHub records; the research project, people, and dataset are fictional.** See the [economics tutorial](../../00_Start_Here/Why_GitHub_Matters_Examples.md) for annotated steps.
+**The repository actions here are real GitHub records; the research project, people, and dataset are fictional.** See the [economics tutorial](../../01_Start_Here/Why_GitHub.md) for annotated steps.

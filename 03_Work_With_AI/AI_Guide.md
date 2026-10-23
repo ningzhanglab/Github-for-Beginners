@@ -2,7 +2,7 @@
 
 ![Where local and remote agent edits appear](../assets/illustrations/agent-local-cloud-econ.svg)
 
-For a concrete research example, follow [Agent Reviews an Economics Dataset](../07_Econ_Research/Econ_Agent_Workflow.md), including a real GitHub Issue and reviewed Pull Request using synthetic values.
+For a concrete research example, follow [Agent Reviews an Economics Dataset](../04_Practice/Economics_AI_Example.md), including a real GitHub Issue and reviewed Pull Request using synthetic values.
 
 **Audience:** people who want AI help on an existing GitHub project, without typing Git commands.
 
@@ -73,9 +73,9 @@ A successful commit is not the same as a passed test. A passing test does not gu
 
 ## Two preferred routes
 
-**If you have a local AI editor/agent:** read [Local Agent Workflow](Local_Agent_Workflow.md). It explains opening the exact folder, preparing a branch in Desktop, inspecting the modifications and keeping your `main` stable.
+**If you have a local AI editor/agent:** read [Local Agent Workflow](Local_Agent.md). It explains opening the exact folder, preparing a branch in Desktop, inspecting the modifications and keeping your `main` stable.
 
-**If the agent is connected to GitHub:** read [Cloud Agent Workflow](Cloud_Agent_Workflow.md). It explains GitHub Issues, an agent PR, inspecting the PR in Desktop, reviewing/merging on the website, and syncing locally.
+**If the agent is connected to GitHub:** read [Cloud Agent Workflow](Cloud_Agent.md). It explains GitHub Issues, an agent PR, inspecting the PR in Desktop, reviewing/merging on the website, and syncing locally.
 
 If your chat assistant cannot reach or write to the repository, use it for a copy-paste instruction or patch and apply the change manually with your editor.
 
@@ -90,7 +90,7 @@ If your chat assistant cannot reach or write to the repository, use it for a cop
 
 > Work in `owner/project` on a **new branch** named `agent/short-task-name`. Only edit `docs/` and `README.md`. Do not modify `main`, delete unrelated files, or change repository settings. First inspect the existing structure; then implement the smallest correct change. Provide a list of modified files, what you verified, what remains unverified, and a PR link if your tools support opening one. Stop and ask before expanding scope.
 
-For variants and ready-made copy/paste prompts, see [Prompt Library](Prompt_Library.md).
+For variants and ready-made copy/paste prompts, see [Prompt Library](Copy_Paste_Prompts.md).
 
 ## What about reviewing an agent's code without touching it?
 

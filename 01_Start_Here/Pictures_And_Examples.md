@@ -32,15 +32,15 @@
 
 **Takeaway:** a local agent edits your computer's folder; a remote agent (if authorized) writes to a GitHub branch. **The diff exists in different places.** An agent's chat summary is not proof of a saved, reviewed change.
 
-**Deep dive:** [Economics research with AI Agent](../07_Econ_Research/Econ_Agent_Workflow.md).
+**Deep dive:** [Economics research with AI Agent](../04_Practice/Economics_AI_Example.md).
 
 ## Try it in five minutes
 
 1. Open [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3). Identify the requested files and acceptance criteria.
 2. Open [PR #4 — Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). Count the changed files and verify the synthetic CSV was *not* changed.
-3. Open [current descriptive results](../08_Live_Demo/econ-research-project/draft_results.md). Check the Alpha calculations and the warning against causal interpretation.
+3. Open [current descriptive results](../examples/economics/draft_results.md). Check the Alpha calculations and the warning against causal interpretation.
 4. In **your own practice repository**, repeat the workflow in GitHub Desktop using an ordinary Markdown file.
 
 All people, counties and data used for the economics scenario are fictional. The linked GitHub commits, Issue and PR are real teaching records.
 
-Return to [Why GitHub Matters](Why_GitHub_Matters_Examples.md) or [the README](../README.md).
+Return to [Why GitHub Matters](Why_GitHub.md) or [the README](../README.md).

@@ -51,4 +51,4 @@ This glossary is for operating **GitHub Desktop**. It does not teach the Git com
 
 Links above are primary sources. GitHub changes interface labels and availability over time; features requiring paid plans, permissions, or organization approval may not be available to all readers.
 
-Next: [Cheat Sheet](../02_Cheat_Sheets/GitHub_Desktop_Cheat_Sheet.md).
+Next: [Cheat Sheet](../02_GitHub_Desktop/Quick_Reference.md).

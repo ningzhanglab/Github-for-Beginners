@@ -14,7 +14,7 @@ A student writes a draft about county unemployment and nominal wages. They want 
 
 ### The exact prompt
 
-> Work on `ningzhanglab/Github-for-Beginners`, restricted to `08_Live_Demo/econ-research-project/`. Create a separate branch called `demo/econ-review-checklist`. Explain all variables in the CSV and their units. Check Alpha's unemployment-rate change (5.0% to 4.5%) and nominal wage growth ($25 to $26). Do not alter the underlying CSV, other folders, or `main`. Do not estimate a model or make causal claims. Provide a readable checklist, state what remains unverified, and open a PR for human review if the GitHub connection allows it. Do not merge automatically.
+> Work on `ningzhanglab/Github-for-Beginners`, restricted to `examples/economics/`. Create a separate branch called `demo/econ-review-checklist`. Explain all variables in the CSV and their units. Check Alpha's unemployment-rate change (5.0% to 4.5%) and nominal wage growth ($25 to $26). Do not alter the underlying CSV, other folders, or `main`. Do not estimate a model or make causal claims. Provide a readable checklist, state what remains unverified, and open a PR for human review if the GitHub connection allows it. Do not merge automatically.
 
 This is deliberately **small and testable**. A good AI agent response lists actual files changed and verifiable evidence, not merely "finished".
 
@@ -32,10 +32,10 @@ The example proposed four changes:
 
 | Proposed change | Review question |
 |---|---|
-| Add [data_dictionary.md](../08_Live_Demo/econ-research-project/data_dictionary.md) | Are units and variable meanings consistent with CSV? |
-| Add [verification_checklist.md](../08_Live_Demo/econ-research-project/verification_checklist.md) | Are calculations correctly distinguished from model estimates? |
-| Update [draft_results.md](../08_Live_Demo/econ-research-project/draft_results.md) | Are changes described in percentage points versus percent? |
-| Update [research_log.md](../08_Live_Demo/econ-research-project/research_log.md) | Does the log distinguish actual checks from claims? |
+| Add [data_dictionary.md](../examples/economics/data_dictionary.md) | Are units and variable meanings consistent with CSV? |
+| Add [verification_checklist.md](../examples/economics/verification_checklist.md) | Are calculations correctly distinguished from model estimates? |
+| Update [draft_results.md](../examples/economics/draft_results.md) | Are changes described in percentage points versus percent? |
+| Update [research_log.md](../examples/economics/research_log.md) | Does the log distinguish actual checks from claims? |
 
 **This is a real GitHub PR, not a separate independent AI experiment:** [PR #4 — Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). ChatGPT created it using authorized GitHub tools in response to the tutorial-building request. It illustrates the review workflow; no separate econometric analysis agent was run.
 

@@ -56,4 +56,4 @@ No terminal. Use **GitHub Desktop** to inspect and sync files, a **text editor**
 
 Use a small, non-sensitive Markdown exercise, not an important dataset. Clone → New Branch → edit → review Changes → Commit → Push → draft PR.
 
-Detailed help: [First 15 Minutes](../00_Start_Here/First_15_Minutes.md) · [Recovery](../05_Troubleshooting/Recovery_and_Common_Problems.md) · [Official Desktop docs](https://docs.github.com/en/desktop).
+Detailed help: [First 15 Minutes](../01_Start_Here/First_15_Minutes.md) · [Recovery](../05_Help/Fix_Problems.md) · [Official Desktop docs](https://docs.github.com/en/desktop).

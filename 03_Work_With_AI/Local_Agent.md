@@ -25,7 +25,7 @@ If the agent uses its own separate worktree or copy, have it tell you the exact 
 
 Example:
 
-> You are working in the local clone of `owner/project`. Confirm the folder path and current branch before editing. On `agent/improve-beginner-exercise`, improve only `04_Practice_Labs/Guided_Practice.md`: add one simple exercise on the difference between Commit and Push. Keep all existing exercises. Do not change settings, other files, or `main`. After editing, summarize the changed lines and report verification. Do not commit or push until I review.
+> You are working in the local clone of `owner/project`. Confirm the folder path and current branch before editing. On `agent/improve-beginner-exercise`, improve only `04_Practice/Try_It_Yourself.md`: add one simple exercise on the difference between Commit and Push. Keep all existing exercises. Do not change settings, other files, or `main`. After editing, summarize the changed lines and report verification. Do not commit or push until I review.
 
 **Why?** This lets Desktop show the agent's edits before publication. Some autonomous agents may act on their own unless explicitly constrained or controlled by platform permissions.
 
@@ -80,4 +80,4 @@ For a simple beginner project, **one agent task at a time** is easiest. When two
 
 [Worktree docs](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-worktrees-in-github-desktop) · [Desktop change review](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop).
 
-Return to [Agent Collaboration Guide](Agent_Collaboration_Guide.md).
+Return to [Agent Collaboration Guide](AI_Guide.md).

@@ -36,4 +36,4 @@ This repository teaches **GitHub Desktop graphical workflows** to complete begin
 4. Checks performed: passed / failed / not run / not applicable
 5. Remaining issues and assumptions
 
-Read [Agent Collaboration Guide](03_Agent_Collaboration/Agent_Collaboration_Guide.md) before proposing workflows.
+Read [Agent Collaboration Guide](03_Work_With_AI/AI_Guide.md) before proposing workflows.

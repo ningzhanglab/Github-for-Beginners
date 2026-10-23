@@ -1,127 +1,69 @@
 # GitHub Desktop for Beginners
 
-A practical, **no-command-line** guide to managing projects with **GitHub Desktop** and collaborating safely with **AI agents**.
+**Keep your projects organized, see what changed, and work with people or AI assistants — without typing commands.**
 
-This is a tutorial for people who want to manage actual project files—not become version-control experts. You can use it for research notes, coursework, documentation, spreadsheets, websites, and code projects.
+This guide is for students, researchers, and anyone who has never used GitHub. You do **not** need to know programming.
 
-> **Scope:** GitHub Desktop on Windows or macOS, plus the GitHub website for issues, pull requests (PRs), and reviews. **No terminal commands or command-line Git tutorials.** GitHub Desktop uses version control behind the scenes; you only need the visual workflow.
+> **What is the difference?** **GitHub.com** is where your project is shared online. **GitHub Desktop** is an app that helps you manage and update a copy on your computer. You still edit documents in your usual editor (for example, VS Code or another plain-text editor).
 
-## Start here: See why GitHub is useful (with an economics example)
+## Choose where to start
 
-**Imagine an economics paper with multiple result tables, coauthors, and an AI agent.** GitHub helps you know which files changed, what each change did, and which proposed edits were actually approved.
-
-[**Open the visual walkthrough: Why GitHub? →**](00_Start_Here/Why_GitHub_Matters_Examples.md) · [**Browse all four illustrated examples**](00_Start_Here/Visual_Feature_Gallery.md)
-
-![Why economics researchers use GitHub rather than confusing final-version filenames](assets/illustrations/why-github-econ.svg)
-
-### See the real demonstration, not only explanations
-
-| Real teaching artifact | What it teaches |
-|---|---|
-| [Initial economics research commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) | **Commit / History** — preserve a first draft with synthetic data |
-| [Economics Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) | **Issues** — request a concrete change to the data dictionary |
-| [Economics Pull Request #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) | **Branch / Diff / Review / Merge** — see what was actually added and accepted |
-| [Illustrated Desktop controls](assets/illustrations/desktop-controls-econ.svg) | **Desktop** — where to click for Branch, Changes, Commit and Fetch/Pull |
-| [Local vs cloud agent guide](07_Econ_Research/Econ_Agent_Workflow.md) | **AI agent collaboration** — review real file modifications rather than trusting a completion message |
-
-**These are real GitHub Issues, commits, and pull requests for a fictional economics project.** All data are synthetic, and no statistical or causal result is being claimed.
-
-![Follow one change through Issue, Branch, Commit, PR, Merge and Desktop Pull](assets/illustrations/econ-issue-to-merge.svg)
-
-For the economic research-specific feature guide, see [GitHub Features Through Economics Research Examples](07_Econ_Research/GitHub_Features_Through_Econ_Examples.md). For practical agent instructions, see [Economics Research + Agent Walkthrough](07_Econ_Research/Econ_Agent_Workflow.md).
-
-## Learn by doing
-
-| Time | Where to start | What you will be able to do |
+| | Your goal | Open this |
 |---|---|---|
-| 10 minutes | [Why GitHub Matters — Illustrated Examples](00_Start_Here/Why_GitHub_Matters_Examples.md) | See why economists use GitHub and understand its main features |
-| 15 minutes | [First 15 Minutes](00_Start_Here/First_15_Minutes.md) | Clone, edit, commit, and push one file |
-| 30–60 minutes | [Desktop Beginner Handbook](01_GitHub_Desktop/Beginner_Handbook.md) | Understand changes, history, branches, PRs, and syncing |
-| 10 minutes | [Visual Workflow Maps](01_GitHub_Desktop/Visual_Workflows.md) | Choose the right workflow for your situation |
-| Anytime | [Desktop Cheat Sheet](02_Cheat_Sheets/GitHub_Desktop_Cheat_Sheet.md) | Remember what every important button does |
-| 30 minutes | [AI Agent Collaboration Guide](03_Agent_Collaboration/Agent_Collaboration_Guide.md) | Delegate safely and review AI changes |
-| 20 minutes | [Hands-on Practice Labs](04_Practice_Labs/Guided_Practice.md) | Complete beginner-to-agent exercises |
+| **1 · Understand** | Why use GitHub instead of files named `final_v2` and `final_final`? | [**Why GitHub? See a real example →**](01_Start_Here/README.md) |
+| **2 · Try** | Make one change in GitHub Desktop, from start to finish | [**Your first 15 minutes →**](01_Start_Here/First_15_Minutes.md) |
+| **3 · Work with AI** | Let an AI assistant help, then check its changes before accepting them | [**Work with an AI assistant →**](03_Work_With_AI/README.md) |
 
-## What does each tool do?
+**Completely new? Start with number 1.** You can browse the examples on GitHub.com without installing anything.
 
-| Tool | Main job |
+![Illustration comparing confusing research file versions with GitHub's history](assets/illustrations/why-github-econ.svg)
+
+*Illustration, not a screenshot. All example economics data are made up for teaching.*
+
+## One example explains why GitHub helps
+
+Imagine you and a classmate are writing a short economics paper. You change a table, your classmate updates the explanation, and an AI assistant checks whether your variable definitions make sense.
+
+GitHub helps you answer **what changed, why it changed, and whether to accept it**.
+
+See the actual teaching records (the GitHub changes are real; the research project and data are fictional):
+
+1. [**The original research draft**](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) — a saved checkpoint.
+2. [**The task/request: Issue #3**](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) — what needed to be improved.
+3. [**The reviewed change: Pull Request #4**](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) — see exactly what was added before it was accepted.
+
+[**See all four annotated diagrams →**](01_Start_Here/Pictures_And_Examples.md)
+
+## Five useful features, in plain English
+
+| Feature | Think of it as... | Example |
+|---|---|---|
+| **Repository** | A project folder with history | Your economics paper and supporting files |
+| **Commit / History** | A saved checkpoint and a timeline | "Updated Table 2 notes" |
+| **Branch** | A safe place to try a change | Explore new controls without changing the accepted draft |
+| **Issue** | A clear to-do item | "Explain how unemployment is measured" |
+| **Pull Request** | "Please review these changes" | Check an AI assistant's edited files before accepting them |
+
+**Push** sends your saved changes to GitHub.com. **Pull** brings accepted online changes back to your computer. The tutorials explain which buttons to click.
+
+## Browse the guide
+
+| Section | What you'll learn |
 |---|---|
-| **GitHub Desktop** (installed application) | Manage local copies, inspect changes, save checkpoints (commits), switch branches, sync with GitHub |
-| **File editor** (VS Code, a Markdown editor, etc.) | Actually edit the files in your project |
-| **GitHub website** | Host the shared repository, discuss issues, review and merge pull requests |
-| **AI agent** (local assistant or cloud agent) | Propose and sometimes edit files under the access you give it; **you review and approve** |
+| [**01 · Start here**](01_Start_Here/README.md) | Why GitHub is useful, illustrated examples, and your first change |
+| [**02 · Use GitHub Desktop**](02_GitHub_Desktop/README.md) | The important buttons, everyday work, and a one-page cheat sheet |
+| [**03 · Work with AI**](03_Work_With_AI/README.md) | How to give an agent a small task and review its edits |
+| [**04 · Practice**](04_Practice/README.md) | Small exercises and a fictional economics research example |
+| [**05 · Need help?**](05_Help/README.md) | Find missing changes, fix mistakes, and understand unfamiliar words |
 
-**Important:** GitHub Desktop is *not* an AI agent, and GitHub Desktop alone does not edit your files. A cloud agent's ability to edit your repository depends on its permissions and connected service. Do not assume every AI chat has write access.
+[**Open the example project files →**](examples/README.md)
 
-## Repository guide
+## What this guide does *not* require
 
-```text
-Github-for-Beginners/
-├── README.md
-├── 00_Start_Here/
-│   ├── Why_GitHub_Matters_Examples.md
-│   ├── Visual_Feature_Gallery.md
-│   └── First_15_Minutes.md
-├── 01_GitHub_Desktop/
-│   ├── Beginner_Handbook.md
-│   └── Visual_Workflows.md
-├── 02_Cheat_Sheets/
-│   └── GitHub_Desktop_Cheat_Sheet.md
-├── 03_Agent_Collaboration/
-│   ├── Agent_Collaboration_Guide.md
-│   ├── Local_Agent_Workflow.md
-│   ├── Cloud_Agent_Workflow.md
-│   └── Prompt_Library.md
-├── 04_Practice_Labs/
-│   └── Guided_Practice.md
-├── 05_Troubleshooting/
-│   └── Recovery_and_Common_Problems.md
-├── 06_Reference/
-│   └── Glossary_and_Official_Links.md
-├── 07_Econ_Research/
-│   ├── GitHub_Features_Through_Econ_Examples.md
-│   └── Econ_Agent_Workflow.md
-├── 08_Live_Demo/
-│   ├── econ-research-project/
-│   └── mini-research-project/
-├── assets/illustrations/  # 4 SVG diagrams
-├── .github/
-│   ├── ISSUE_TEMPLATE/agent-task.md
-│   └── PULL_REQUEST_TEMPLATE.md
-└── AGENTS.md
-```
+No terminal, no command-line Git, no coding lessons, and no paid AI tool. You can complete the basic exercises with GitHub Desktop and a regular text editor. Working with a cloud AI agent is optional and depends on the tool's permissions and availability.
 
-## The one mental model to remember
+**Important:** Don't put confidential research data, personal information, passwords, or secret access keys in a public project. An AI assistant's "done" message is not proof its work was saved or checked.
 
-```text
-GitHub website (shared project)
-       ↓ Clone once
-Local project folder ←→ GitHub Desktop ←→ GitHub website
-       ↑ edits                    ↑ review / merge PRs
-       └── Your editor or local AI agent
+---
 
-Cloud AI agent → separate branch + pull request → your review → merge
-```
-
-**Typical solo day:** Fetch/Pull → choose branch → edit → review changes → Commit → Push → PR (when needed).
-
-**Typical agent day:** define a small task → have agent work on a separate branch → inspect changed files → test/open output → approve PR → sync in Desktop.
-
-## Need help now?
-
-- [I don't know what to click](02_Cheat_Sheets/GitHub_Desktop_Cheat_Sheet.md)
-- [I want the AI agent to work on my files](03_Agent_Collaboration/Agent_Collaboration_Guide.md)
-- [I want ready-to-copy prompts](03_Agent_Collaboration/Prompt_Library.md)
-- [I accidentally changed or removed files](05_Troubleshooting/Recovery_and_Common_Problems.md)
-- [I don't understand the words in the interface](06_Reference/Glossary_and_Official_Links.md)
-
-## Official resources
-
-- [Download GitHub Desktop](https://desktop.github.com/)
-- [GitHub Desktop documentation](https://docs.github.com/en/desktop)
-- [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop)
-- [Using a cloud coding agent on GitHub](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview) (depends on subscription, access, and repository settings)
-
-This teaching repository is intentionally editor- and agent-neutral. Menu labels may change; use the linked official documentation to check newer interfaces. Last reviewed: October 2026.
-
-**Safety:** Do not upload passwords, API keys, confidential university records, or private participant/client data to a public repository or to an AI service that is not approved for that data.
+*The screenshots-style drawings here are labeled illustrations; GitHub Desktop's actual menus can change. [Official GitHub Desktop documentation](https://docs.github.com/en/desktop).*
