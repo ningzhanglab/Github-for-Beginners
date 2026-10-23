@@ -23,4 +23,4 @@ When reviewing a paper or other source, record:
 
 **Important:** The checklist is a process aid, not evidence that any sources were actually verified.
 
-**For readers:** open the [teaching Pull Request #1](https://github.com/ningzhanglab/Github-for-Beginners/pull/1) to see how this file was proposed before acceptance.
+**For readers:** open the [teaching Pull Request #2](https://github.com/ningzhanglab/Github-for-Beginners/pull/2) to see how this file was proposed before acceptance.
