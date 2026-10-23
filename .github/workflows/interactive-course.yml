@@ -26,3 +26,11 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Test interactive course in a real browser
         run: node tests/course.spec.cjs
+      - name: Save visual screenshots for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: interactive-course-screenshots
+          path: artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 14
