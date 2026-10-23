@@ -8,6 +8,21 @@ This page is the **complete beginner's overview**. Read straight down to learn t
 
 ---
 
+## 🎮 New: Learn by clicking — interactive HTML course
+
+Want to **practice instead of only reading**? The new six-lesson course lets you click through an illustrated GitHub Desktop simulator:
+
+**Why GitHub? → Your project folder vs Desktop vs website → Create a repo → Edit a README → Review → Commit → Publish → Work with others and AI.**
+
+It's **safe practice**: the simulator does not connect to a real GitHub account or edit real projects. It works as a single standalone HTML file, without installing dependencies.
+
+- **[Open the interactive HTML file](index.html)** — from its GitHub file page, select **Download raw**, then open the downloaded `index.html` in a web browser.
+- **[Publish it as an easy one-click website](INTERACTIVE_COURSE_SETUP.md)** — a repository maintainer can enable GitHub Pages (no extra hosting required).
+
+The rest of this README is a quick written overview; the HTML course is for hands-on learning.
+
+---
+
 ## 1. Why use GitHub?
 
 ### The problem: “Which version is the right one?”
