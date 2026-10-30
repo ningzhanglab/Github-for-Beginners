@@ -1,5 +1,9 @@
 # How to Collaborate With an AI Agent Using GitHub Desktop
 
+> **Level:** after you have made one branch and one Pull Request · **Read first:** [Desktop guide](../02_GitHub_Desktop/Desktop_Guide.md) or [the short AI overview](README.md)
+>
+> **New words on this page:** **Agent** (an AI assistant that can do work, not only chat), **scope** (exactly which files it may touch), **diff** (the added/removed lines), **base branch** (the version a PR wants to change, usually `main`).
+
 ![Where local and remote agent edits appear](../assets/illustrations/agent-local-cloud-econ.svg)
 
 For a concrete research example, follow [Agent Reviews an Economics Dataset](../04_Practice/Economics_AI_Example.md), including a real GitHub Issue and reviewed Pull Request using synthetic values.
@@ -82,7 +86,7 @@ If your chat assistant cannot reach or write to the repository, use it for a cop
 ## Examples from actual research/project maintenance
 
 - **Documentation:** agent drafts a new setup guide; human verifies it in GitHub's Markdown preview.
-- **Data collection:** agent adds one school record with source links; human checks schema, citations and unintended changes.
+- **Data documentation:** agent adds a source note for one county observation; human checks the citation, the column names, and that no data values changed.
 - **Homework/project:** agent proposes a test or review note; human verifies academic integrity requirements and explains their own reasoning.
 - **Website:** agent edits one page on a branch; human previews the site and reviews the diff before merge.
 

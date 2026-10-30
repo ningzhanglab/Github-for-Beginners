@@ -96,33 +96,15 @@ The wage calculation is `(26 / 25 − 1) × 100 = 4.0%`. There is **no regressio
 
 To practice modifying files, create **your own practice repository or fork** rather than pushing exercise commits into the shared tutorial repository.
 
-## 6. Seven features explained as research problems
+## 6. More research problems, one GitHub feature each
 
-| Research problem | GitHub feature | Concrete example |
-|---|---|---|
-| "Which result was the version we submitted?" | **History / Commit** | Inspect the earlier [initial research commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) |
-| "I want to test a new specification without breaking my paper." | **Branch** | Create `robustness/alternative-control` in Desktop |
-| "My coauthor wants me to fix a missing variable definition." | **Issue** | [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) sets clear acceptance criteria |
-| "What exactly did an assistant change?" | **Diff** | [PR #4 → Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) shows added lines |
-| "Should we accept that change?" | **Pull Request + Review** | Compare the proposal and confirm variable units |
-| "The coauthor merged it; why do I still see old files?" | **Fetch + Pull** | In Desktop select `main`, Fetch origin, then Pull origin |
-| "We made a bad shared change. Can we correct it?" | **History + Revert** | Inspect the commit and make a *new* reversing commit, when appropriate |
+Want to see **History, Branch, Issue, Diff, Pull Request, Fetch/Pull and Revert** each solving a specific research problem? They are collected in one place: [GitHub Features Through Economics Research](../04_Practice/Economics_Examples.md).
 
-Other useful features: **README** describes the project; **Issues** track tasks; **PR templates** standardize reviews; **Release tags** can label a submission version (optional, not essential to start).
+## 7. Working with an AI agent
 
-## 7. Working with an agent
+The short version: **a local agent's edits show up in Desktop's Changes; a cloud agent's edits show up as a Pull Request on GitHub.com.** Either way, you review the diff before anything becomes part of `main`.
 
-![Local versus cloud agent file locations](../assets/illustrations/agent-local-cloud-econ.svg)
-
-**Local agent:** it edits the same folder you opened in Desktop. Review **Changes** and **History**. If it already committed, you may need to inspect History instead of Changes.
-
-**Cloud or connected agent:** it may commit to an online branch and open a PR. Check **GitHub.com → Pull requests**. After the PR is reviewed and merged, use Desktop `main` → **Fetch** → **Pull**.
-
-**A scoped agent task you can copy:**
-
-> In my economics research repository, add a `data_dictionary.md` explaining units and variable definitions. Only edit that file and the README links. Work on a new `agent/data-dictionary` branch, never directly on `main`. Keep all data values unchanged. Check relative links, disclose what was not tested, and open a draft PR if you have authorized GitHub access. Do not merge it.
-
-See the [Economics Research + Agent Walkthrough](../04_Practice/Economics_AI_Example.md) for a deeper example.
+Full walkthroughs and a ready-to-copy prompt: [Work with an AI assistant](../03_Work_With_AI/README.md) · [Economics + AI example](../04_Practice/Economics_AI_Example.md).
 
 ## 8. Try it yourself
 

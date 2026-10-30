@@ -1,5 +1,9 @@
 # Local Agent + GitHub Desktop: A Step-by-Step Workflow
 
+> **Level:** after your first branch · **Read first:** [AI collaboration guide](AI_Guide.md)
+>
+> **New words on this page:** **Local agent** (an AI tool that edits files in a folder on your computer), **working directory** (the folder it is working in), **worktree** (an optional extra folder for a second branch — beginners can ignore it).
+
 Use this when your agent can **read or edit a folder on your own computer** (for example through a supported code editor or local agent environment). The agent may not know which GitHub Desktop branch you have selected, so coordinate carefully.
 
 ## Step 1 — Choose the exact folder

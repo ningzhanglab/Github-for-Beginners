@@ -1,5 +1,9 @@
 # GitHub Desktop Beginner Handbook
 
+> **Level:** second step, after your first project · **Read first:** [Your First 15 Minutes](../01_Start_Here/First_15_Minutes.md)
+>
+> **New words on this page:** **Branch** (a separate working version), **Pull Request / PR** (a review page proposing changes), **Checks** (automatic tests GitHub may run on a PR; many beginner projects have none), **worktree** (an optional second working folder — you can skip it).
+
 ![Annotated illustration of GitHub Desktop controls](../assets/illustrations/desktop-controls-econ.svg)
 
 **First-time reader?** Try the [Economics Research Visual Walkthrough](../01_Start_Here/Why_GitHub.md) and its real [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) / [PR #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) examples.
@@ -47,7 +51,7 @@ If you already cloned the project, do not repeatedly clone it to "get the latest
 4. Edit one or two related files; save them in the editor.
 5. Return to Desktop → **Changes**. Read the preview and filenames.
 6. Select only the files intended for this checkpoint.
-7. Write a meaningful short Summary such as `Document tuition data assumptions`.
+7. Write a meaningful short Summary such as `Document wage variable units`.
 8. **Commit to [branch]**. Then **Publish branch** or **Push origin**.
 
 **Commit is not Push.** After commit, the changes may still exist only on your computer. Publishing/pushing makes them available to others.
@@ -73,7 +77,7 @@ The branch is not a separate GitHub repository and it is not necessarily a secon
 1. Finish the branch's local changes, commit, and push/publish the branch.
 2. Select **Preview Pull Request** in Desktop, check what differs from `main`, and open the PR in your browser.
 3. Give it a purpose-focused title and description.
-4. On GitHub, use **Files changed** to examine additions and deletions, **Conversation** to discuss, and **Checks** to see any automated tests.
+4. On GitHub, use **Files changed** to examine additions and deletions, **Conversation** to discuss, and **Checks** to see any automated tests (if your project has none, this tab may be empty — that is normal).
 5. Only approve/merge when the result looks correct; choose **Squash and merge** if it fits the project's policy.
 6. In Desktop, switch to `main` → **Fetch origin → Pull origin** to obtain the accepted changes.
 

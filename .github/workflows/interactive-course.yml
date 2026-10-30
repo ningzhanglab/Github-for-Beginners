@@ -1,13 +1,18 @@
-name: Test interactive beginner course
+name: Test beginner websites
 on:
   push:
+    branches: [main]
     paths:
       - index.html
+      - workflows.html
+      - tests/workflows.spec.cjs
       - tests/course.spec.cjs
       - .github/workflows/interactive-course.yml
   pull_request:
     paths:
       - index.html
+      - workflows.html
+      - tests/workflows.spec.cjs
       - tests/course.spec.cjs
       - .github/workflows/interactive-course.yml
 jobs:
@@ -26,11 +31,14 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Test interactive course in a real browser
         run: node tests/course.spec.cjs
+      - name: Test workflow route map in a real browser
+        if: always()
+        run: node tests/workflows.spec.cjs
       - name: Save visual screenshots for review
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: interactive-course-screenshots
+          name: beginner-website-screenshots
           path: artifacts/*.png
           if-no-files-found: ignore
           retention-days: 14

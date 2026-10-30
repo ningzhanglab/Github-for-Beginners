@@ -25,7 +25,7 @@ Four small exercises. No command line. Use **your own private or public practice
 **Goal:** use a PR before changing the shared version.
 
 1. From Lab 1, open **Preview Pull Request** in Desktop.
-2. Confirm **base: main** and head: `practice/lab-1-note`.
+2. Confirm **base: main** (the version you want to change) and **compare/head: `practice/lab-1-note`** (the branch holding your proposal).
 3. Use a title such as `Add a beginner note`; create a **draft PR** in your browser.
 4. Open **Files changed**. Find your added heading and bullets.
 5. Describe in the PR what you changed and how you checked it.

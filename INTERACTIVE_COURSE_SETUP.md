@@ -1,6 +1,11 @@
-# Publish the Interactive Course as a Website
+# Publish the Websites (Route Map and Interactive Course)
 
-This repository now includes a complete, single-file, interactive course at [`index.html`](index.html). It needs **no build step, API, account connection, or external JavaScript library**. People can also save the HTML file and open it locally.
+This repository includes two single-file websites:
+
+- [`workflows.html`](workflows.html) — the **GitHub route map**, showing every everyday workflow step by step.
+- [`index.html`](index.html) — the **interactive course** with a clickable Desktop simulator.
+
+Neither needs a build step, API, account connection, or external JavaScript library. People can also save either HTML file and open it locally.
 
 ## Turn on GitHub Pages (repository owner/maintainer)
 
@@ -10,9 +15,11 @@ This repository now includes a complete, single-file, interactive course at [`in
 4. Click **Save**.
 5. Once GitHub shows the published address, open:
 
-   **https://ningzhanglab.github.io/Github-for-Beginners/**
+   **https://ningzhanglab.github.io/Github-for-Beginners/** (interactive course)
 
-The URL is the expected address for this repository, **not a confirmed live website until GitHub Pages has been enabled and publishing has succeeded**. In Settings → Pages, use **Visit site** to verify publication.
+   **https://ningzhanglab.github.io/Github-for-Beginners/workflows.html** (route map)
+
+These URLs are the expected addresses for this repository, **not confirmed live websites until GitHub Pages has been enabled and publishing has succeeded**. In Settings → Pages, use **Visit site** to verify publication.
 
 ## Why this is easier for learners
 
@@ -26,8 +33,8 @@ From the repository's [`index.html` file page](index.html), choose **Download ra
 
 ## Editing the course
 
-- Change `index.html` for the lesson experience.
-- A browser-based test lives in `tests/course.spec.cjs` and runs through GitHub Actions.
+- Change `index.html` for the lesson experience and `workflows.html` for the route map. Each route's steps are written as plain data near the top of the page's script.
+- Browser tests live in `tests/course.spec.cjs` and `tests/workflows.spec.cjs` and run through GitHub Actions.
 - Check changes in a Pull Request before merging into `main`.
 - GitHub Pages will republish the updated site after changes are pushed to the configured source.
 
