@@ -6,7 +6,7 @@ const assert = require('node:assert/strict');
 
 (async () => {
   const root = path.join(__dirname, '..');
-  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(root, 'course.html'), 'utf8');
   const inline = html.match(/<script>([\s\S]*?)<\/script>/);
   assert(inline, 'Expected a standalone inline script');
   new vm.Script(inline[1]); // JavaScript syntax check.
@@ -21,7 +21,7 @@ const assert = require('node:assert/strict');
   const page = await browser.newPage({ viewport: { width: 1365, height: 900 } });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('file://' + path.join(root, 'index.html'));
+  await page.goto('file://' + path.join(root, 'course.html'));
   await page.locator('#chapter-0').waitFor({ state: 'visible' });
   await page.screenshot({ path: path.join(outDir, 'lesson-1-desktop.png'), fullPage: true });
 

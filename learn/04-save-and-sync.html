@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Push your work, pull others’ work">
+<title>Lesson 4: Save and sync every day | GitHub for Beginners</title>
+<link rel="icon" href="../assets/icons/branch.svg">
+<style>:root{
+  --bg:#eef1f4; --panel:#fff; --ink:#1b2433; --muted:#566275; --rule:#d3d9e1; --soft:#e3e8ee; --soft2:#f6f8fa;
+  --folder:#a86400; --desktop:#6a4cc2; --web:#2f5bea; --ai:#c0306b; --warn-bg:#fff4e0; --warn-line:#e0a72a;
+  --focus:#f2b705; --radius:14px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#121821; --panel:#1a222e; --ink:#e7ecf3; --muted:#9aa8ba; --rule:#2c3747; --soft:#1f2834; --soft2:#18202a;
+  --warn-bg:#2d2618; --warn-line:#b9862a;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Avenir Next","Segoe UI Variable Text","Segoe UI",Frutiger,"Helvetica Neue",system-ui,sans-serif;font-size:17.5px;line-height:1.6}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+img{max-width:100%;height:auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--panel);padding:8px 12px;z-index:9}
+
+.bar{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;padding:12px 24px;background:var(--panel);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:5}
+.home{display:flex;gap:10px;align-items:center;font-weight:700;text-decoration:none;font-size:17px}
+.home img{border-radius:8px}
+.bar nav{display:flex;gap:4px;flex-wrap:wrap}
+.bar nav a{text-decoration:none;padding:6px 12px;border-radius:999px;font-size:15px;color:var(--muted);font-weight:600}
+.bar nav a:hover{background:var(--soft);color:var(--ink)}
+.bar nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+
+.frame{display:grid;grid-template-columns:280px minmax(0,1fr);gap:40px;max-width:1240px;margin:0 auto;padding:28px 24px 40px;align-items:start}
+.frame-home{display:block;max-width:1120px}
+.side{position:sticky;top:76px;max-height:calc(100vh - 96px);overflow:auto;padding-right:4px}
+.side ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:2px}
+.side a{display:flex;gap:10px;align-items:center;text-decoration:none;padding:6px 8px;border-radius:8px;font-size:15px;line-height:1.3}
+.side a:hover{background:var(--soft)}
+.side a[aria-current="page"]{background:var(--panel);font-weight:700;box-shadow:inset 3px 0 0 var(--ink)}
+.side img{border-radius:6px;flex-shrink:0}
+.nav-group{margin:6px 8px 6px;font-size:13px;color:var(--muted);font-weight:600}
+
+main{min-width:0}
+.lesson{max-width:760px}
+.lesson h1{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.015em;margin:4px 0 18px}
+.lesson h2{font-size:26px;line-height:1.2;margin:42px 0 14px;padding-top:6px}
+.lesson h1 + blockquote{background:var(--panel);border:1px solid var(--rule);border-left:6px solid var(--ink);border-radius:var(--radius);padding:12px 18px;margin:0 0 26px;color:var(--ink)}
+.lesson h1 + blockquote p{margin:0}
+.lesson p,.lesson li{max-width:70ch}
+.lesson code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:.86em;background:var(--soft);padding:1px 5px;border-radius:4px}
+.lesson pre{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;overflow:auto;font-size:14.5px;line-height:1.5}
+.lesson pre code{background:none;padding:0}
+.lesson table{border-collapse:collapse;width:100%;margin:14px 0 22px;background:var(--panel);border-radius:10px;overflow:hidden;font-size:15.5px;display:block;overflow-x:auto}
+.lesson th,.lesson td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+.lesson th{font-size:14px;color:var(--muted);font-weight:600;background:var(--soft2)}
+.lesson td img{vertical-align:-4px;max-width:none}
+.lesson td:first-child:has(> img:only-child){width:44px;padding-right:0}
+.lesson blockquote{margin:16px 0;padding:10px 16px;border-left:4px solid var(--rule);background:var(--soft2);border-radius:0 10px 10px 0}
+.lesson blockquote p{margin:4px 0}
+.lesson p > img,.lesson li > img,.lesson h2 > img{vertical-align:-4px}
+.lesson figure,.lesson p:has(> a > img[src*="routes/"]){margin:18px 0 6px}
+.lesson img[src*="routes/"]{display:block;width:100%;border:1px solid var(--rule);border-radius:12px;background:var(--panel)}
+.lesson img[src*="illustrations/"]{display:block;border-radius:12px;background:#fff}
+.lesson p:has(> a > img[src*="routes/"]) + p em{color:var(--muted);font-size:15px}
+
+.step{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:18px 22px 8px 22px;margin:14px 0}
+.step h3{display:flex;gap:14px;align-items:center;margin:0 0 10px;font-size:21px;line-height:1.25}
+.step h3 img{width:44px;height:44px;flex-shrink:0}
+.where{display:inline-flex;gap:8px;align-items:center;margin:0 0 10px;padding:3px 12px 3px 4px;border-radius:999px;font-size:14px;font-weight:600;background:var(--soft2);border:1px solid var(--rule)}
+.where img{border-radius:6px}
+.where-place-folder{border-color:color-mix(in srgb,var(--folder) 45%,var(--rule))}
+.where-place-desktop{border-color:color-mix(in srgb,var(--desktop) 45%,var(--rule))}
+.where-place-web{border-color:color-mix(in srgb,var(--web) 45%,var(--rule))}
+.where-ai,.where-people{border-style:dashed;border-color:var(--ai)}
+blockquote.watch{background:var(--warn-bg);border-left-color:var(--warn-line)}
+blockquote.watch img{vertical-align:-5px;border-radius:5px}
+
+.lesson details{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 16px;margin:10px 0}
+.lesson summary{cursor:pointer;font-weight:600}
+.lesson details[open] summary{margin-bottom:6px}
+
+.pager{display:flex;justify-content:space-between;gap:12px;margin:44px 0 10px;max-width:760px}
+.pager a{display:flex;flex-direction:column;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 16px;font-weight:700;min-width:0}
+.pager a span{font-size:13px;color:var(--muted);font-weight:500}
+.pager .next{text-align:right;margin-left:auto}
+.pager a:hover{border-color:var(--ink)}
+
+.hero{padding:22px 0 10px}
+.hero h1{font-size:clamp(34px,5.6vw,64px);line-height:1.03;letter-spacing:-.025em;margin:0 0 16px;max-width:16ch}
+.lede{font-size:20px;color:var(--muted);max-width:58ch;margin:0 0 22px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.button{display:inline-block;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:999px;background:var(--ink);color:var(--bg);border:2px solid var(--ink)}
+.button.ghost{background:transparent;color:var(--ink)}
+.hero-route{margin:0}
+.hero-route img{display:block;width:100%;border:1px solid var(--rule);border-radius:16px;background:var(--panel)}
+.hero-route figcaption{font-size:14.5px;color:var(--muted);margin-top:8px;max-width:72ch}
+section{margin-top:44px}
+section h2{font-size:clamp(24px,3vw,32px);line-height:1.15;margin:0 0 16px}
+.place-row{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.place-row li{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 18px;display:grid;gap:4px;align-content:start}
+.place-row img{margin-bottom:6px;border-radius:12px}
+.place-row span,.note{color:var(--muted);font-size:15.5px}
+.path{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.path h3{margin:0 0 2px;font-size:20px}.path > div > p{margin:0 0 12px;color:var(--muted)}
+.cards,.tool-row{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.tool-row{grid-template-columns:repeat(3,1fr)}
+.card{display:flex;gap:14px;align-items:flex-start;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:14px 16px;height:100%}
+.card:hover{border-color:var(--ink)}
+.card img{border-radius:12px;flex-shrink:0}
+.card-text{display:grid;gap:1px}
+.card-text strong{font-size:17px;line-height:1.3}
+.card-text span{color:var(--muted);font-size:15px;line-height:1.4}
+.card-text .card-num{font-size:13px}
+
+.foot{border-top:1px solid var(--rule);padding:20px 24px 36px;color:var(--muted);font-size:14px;max-width:1240px;margin:0 auto}
+.foot p{margin:0 0 6px;max-width:90ch}
+
+@media (max-width:980px){
+  .frame{grid-template-columns:1fr;gap:12px}
+  .side{display:none}
+  .path,.place-row,.tool-row{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .bar{padding:10px 16px}
+  .frame{padding:18px 16px 30px}
+  .step{padding:14px 14px 4px}
+  .step h3{font-size:19px;gap:10px}.step h3 img{width:38px;height:38px}
+  .lede{font-size:18px}
+}
+@media print{.bar,.side,.pager,.foot{display:none}.frame{display:block}.step{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the lesson</a>
+<header class="bar">
+  <a class="home" href="../index.html"><img src="../assets/icons/branch.svg" width="30" height="30" alt="">GitHub for Beginners</a>
+  <nav aria-label="Websites"><a href="../learn/index.html">Lessons</a><a href="../workflows.html">Route map</a><a href="../course.html">Simulator</a></nav>
+</header>
+<div class="frame">
+<nav class="side" aria-label="All lessons"><p class="nav-group">Lessons 1–4: on your own</p><ul><li><a href="../learn/01-what-is-github.html"><img src="../assets/icons/idea.svg" width="26" height="26" alt="">1. What is GitHub?</a></li><li><a href="../learn/02-get-set-up.html"><img src="../assets/icons/install.svg" width="26" height="26" alt="">2. Get set up</a></li><li><a href="../learn/03-your-first-project.html"><img src="../assets/icons/new-repo.svg" width="26" height="26" alt="">3. Your first project</a></li><li><a href="../learn/04-save-and-sync.html" aria-current="page"><img src="../assets/icons/push.svg" width="26" height="26" alt="">4. Save and sync</a></li></ul><p class="nav-group">Lessons 5–8: with others</p><ul><li><a href="../learn/05-branches-and-pull-requests.html"><img src="../assets/icons/branch.svg" width="26" height="26" alt="">5. Branches and pull requests</a></li><li><a href="../learn/06-work-with-other-people.html"><img src="../assets/icons/people.svg" width="26" height="26" alt="">6. Work with other people</a></li><li><a href="../learn/07-work-with-ai.html"><img src="../assets/icons/ai.svg" width="26" height="26" alt="">7. Work with an AI assistant</a></li><li><a href="../learn/08-fix-mistakes.html"><img src="../assets/icons/undo.svg" width="26" height="26" alt="">8. Fix mistakes</a></li></ul><p class="nav-group">Practice and reference</p><ul><li><a href="../learn/practice.html"><img src="../assets/icons/practice.svg" width="26" height="26" alt="">Practise everything</a></li><li><a href="../learn/cheat-sheet.html"><img src="../assets/icons/list.svg" width="26" height="26" alt="">Cheat sheet</a></li><li><a href="../learn/dictionary.html"><img src="../assets/icons/book.svg" width="26" height="26" alt="">Dictionary</a></li><li><a href="../learn/ai-prompts.html"><img src="../assets/icons/ai-chat.svg" width="26" height="26" alt="">AI prompt library</a></li></ul></nav>
+<main id="content" tabindex="-1">
+<article class="lesson"><h1>Lesson 4: Save and sync every day</h1>
+<blockquote>
+<p><strong>You&#39;ll learn:</strong> the two routines you&#39;ll use most: sending your changes up, and bringing other people&#39;s changes down.
+<strong>Time:</strong> 10 minutes. <strong>You need:</strong> a published project from <a href="03-your-first-project.html">Lesson 3</a>.</p>
+</blockquote>
+<h2>Part A: Send your changes up</h2>
+<p><a href="../workflows.html#daily"><img src="../assets/routes/daily.svg" alt="Route picture: each numbered circle is one step, placed in the lane where it happens"></a></p>
+<p><em>Your everyday routine: edit in your folder, commit and push in Desktop. Click the picture to step through it on the route map.</em></p>
+<section class="step"><h3><img src="../assets/icons/branch.svg" width="36" height="36" alt=""> Step 1: Check where you are</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> look at the top bar: <strong>Current Repository</strong> and <strong>Current Branch</strong>.</p>
+<p><strong>You&#39;ll see:</strong> your project name and a branch name, usually <code>main</code>.</p>
+<blockquote class="watch"><p><img src="../assets/icons/warning.svg" width="22" height="22" alt=""> <strong>Watch out:</strong> Most &quot;where did my file go?&quot; moments start with the wrong project or branch selected.</p>
+</blockquote>
+</section>
+<section class="step"><h3><img src="../assets/icons/edit.svg" width="36" height="36" alt=""> Step 2: Edit and save</h3>
+<p class="where where-place-folder"><img src="../assets/icons/place-folder.svg" width="22" height="22" alt=""> In your project folder</p>
+<p><strong>Do this:</strong> open the project (<strong>Repository → Open in</strong> <em>your editor</em>, or <strong>Show in Finder / Show in Explorer</strong>), make your change, and save.</p>
+</section>
+<section class="step"><h3><img src="../assets/icons/changes.svg" width="36" height="36" alt=""> Step 3: Review your changes</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> click <strong>Changes</strong>. Read each file&#39;s diff. Untick any file you don&#39;t want in this checkpoint.</p>
+<p><strong>You&#39;ll see:</strong> only ticked files go into the commit.</p>
+<blockquote class="watch"><p><img src="../assets/icons/warning.svg" width="22" height="22" alt=""> <strong>Watch out:</strong> Look for surprises: deleted files, files you didn&#39;t mean to touch, or passwords.</p>
+</blockquote>
+</section>
+<section class="step"><h3><img src="../assets/icons/commit.svg" width="36" height="36" alt=""> Step 4: Commit</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> write a Summary that says what changed, for example <code>Clarify wage units in table 1</code>, and click <strong>Commit to main</strong>.</p>
+<p><strong>You&#39;ll see:</strong> the top bar now shows <strong>Push origin</strong> with a small number: the checkpoints waiting to upload.</p>
+</section>
+<section class="step"><h3><img src="../assets/icons/push.svg" width="36" height="36" alt=""> Step 5: Push origin</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> click <strong>Push origin</strong>.</p>
+<p><strong>You&#39;ll see:</strong> the number disappears. Your checkpoint is on GitHub.com.</p>
+</section>
+<section class="step"><h3><img src="../assets/icons/view-online.svg" width="36" height="36" alt=""> Step 6: Confirm online (optional)</h3>
+<p class="where where-place-web"><img src="../assets/icons/place-web.svg" width="22" height="22" alt=""> On GitHub.com</p>
+<p><strong>Do this:</strong> <strong>Repository → View on GitHub</strong>, then refresh.</p>
+<blockquote class="watch"><p><img src="../assets/icons/warning.svg" width="22" height="22" alt=""> <strong>Watch out:</strong> Still old? Check the branch selector on the website matches the branch you pushed.</p>
+</blockquote>
+</section>
+<h2>Part B: Bring other people&#39;s changes down</h2>
+<p><a href="../workflows.html#update"><img src="../assets/routes/update.svg" alt="Route picture: each numbered circle is one step, placed in the lane where it happens"></a></p>
+<p><em>When the online copy changed, the route goes the other way: from GitHub.com, through Desktop, into your folder. Click the picture to step through it on the route map.</em></p>
+<p>Your folder <strong>does not update by itself</strong>. When a coauthor, an AI assistant, or you on another computer changes the project online, you bring it down like this:</p>
+<section class="step"><h3><img src="../assets/icons/commit.svg" width="36" height="36" alt=""> Step 1: Finish your own edits first</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> look at <strong>Changes</strong>. If you have unfinished edits, commit them before you continue.</p>
+<blockquote class="watch"><p><img src="../assets/icons/warning.svg" width="22" height="22" alt=""> <strong>Watch out:</strong> Never click <strong>Discard changes</strong> just to make a message go away. It deletes unsaved work.</p>
+</blockquote>
+</section>
+<section class="step"><h3><img src="../assets/icons/branch.svg" width="36" height="36" alt=""> Step 2: Choose the branch</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> <strong>Current Branch → main</strong> (or whichever branch changed).</p>
+</section>
+<section class="step"><h3><img src="../assets/icons/fetch.svg" width="36" height="36" alt=""> Step 3: Fetch origin</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> click <strong>Fetch origin</strong>.</p>
+<p><strong>You&#39;ll see:</strong> if there&#39;s anything new, the button becomes <strong>Pull origin</strong> with a number.</p>
+<p><strong>Fetch only looks.</strong> It doesn&#39;t change your files yet.</p>
+</section>
+<section class="step"><h3><img src="../assets/icons/pull.svg" width="36" height="36" alt=""> Step 4: Pull origin</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> click <strong>Pull origin</strong>.</p>
+<p><strong>You&#39;ll see:</strong> new checkpoints in <strong>History</strong>, and updated files in your folder.</p>
+<blockquote class="watch"><p><img src="../assets/icons/warning.svg" width="22" height="22" alt=""> <strong>Watch out:</strong> If Desktop says there&#39;s a conflict, stop and read <a href="08-fix-mistakes.html">Lesson 8</a>.</p>
+</blockquote>
+</section>
+<h2>Looking back in time</h2>
+<section class="step"><h3><img src="../assets/icons/history.svg" width="36" height="36" alt=""> Use History to see older versions</h3>
+<p class="where where-place-desktop"><img src="../assets/icons/place-desktop.svg" width="22" height="22" alt=""> In GitHub Desktop</p>
+<p><strong>Do this:</strong> click the <strong>History</strong> tab, then click any checkpoint.</p>
+<p><strong>You&#39;ll see:</strong> who saved it, when, the Summary, and exactly which lines changed.</p>
+<p>This is how you answer &quot;which version of table 2 did we submit?&quot; without filenames like <code>table2_final_v3</code>.</p>
+</section>
+<h2>The two-line summary</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>When</th>
+<th>Click</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="../assets/icons/push.svg" width="20" height="20" alt=""></td>
+<td><strong>You</strong> changed something</td>
+<td>Commit → <strong>Push origin</strong></td>
+</tr>
+<tr>
+<td><img src="../assets/icons/pull.svg" width="20" height="20" alt=""></td>
+<td><strong>Someone else</strong> changed something</td>
+<td><strong>Fetch origin</strong> → <strong>Pull origin</strong></td>
+</tr>
+</tbody></table>
+<h2>Check yourself</h2>
+<details><summary>What's the difference between Fetch and Pull?</summary>
+
+<p><strong>Fetch</strong> checks GitHub.com for anything new. <strong>Pull</strong> actually brings it into your folder.</p>
+</details>
+
+<details><summary>You pushed, but the website shows the old file. What do you check?</summary>
+
+<p>That the website is showing the same branch you pushed, and that you refreshed the page.</p>
+</details>
+
+<nav class="pager" aria-label="Previous and next"><a class="prev" href="03-your-first-project.html"><span>Previous</span>Your first project</a><a class="next" href="05-branches-and-pull-requests.html"><span>Next</span>Branches and pull requests</a></nav></article>
+</main>
+</div>
+<footer class="foot"><p>Free, beginner-friendly lessons for GitHub Desktop. No terminal. Every example uses a fictional economics project.</p>
+<p>Button names follow current GitHub Desktop; check the <a href="https://docs.github.com/en/desktop">official documentation</a> if yours look different. <a href="https://github.com/ningzhanglab/Github-for-Beginners">Source on GitHub</a>.</p></footer>
+</body>
+</html>
