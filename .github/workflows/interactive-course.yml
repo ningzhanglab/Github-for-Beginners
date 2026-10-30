@@ -6,7 +6,6 @@ on:
       - index.html
       - course.html
       - workflows.html
-      - learn/**
       - lessons/**
       - assets/**
       - tools/**
@@ -18,7 +17,6 @@ on:
       - index.html
       - course.html
       - workflows.html
-      - learn/**
       - lessons/**
       - assets/**
       - tools/**
@@ -40,19 +38,16 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1 marked@15.0.12
           npx playwright install --with-deps chromium
-      - name: Check the website matches the lessons
+      - name: Check the guide matches the lessons
         run: |
           node tools/build-site.cjs
-          git diff --exit-code -- learn index.html assets || (echo "::error::The website is out of date. Run 'node tools/build-site.cjs' and commit the result." && exit 1)
-      - name: Test the lesson website
+          git diff --exit-code -- index.html assets || (echo "::error::The guide (index.html) is out of date. Run 'node tools/build-site.cjs' and commit the result." && exit 1)
+      - name: Test the one-page guide
         if: always()
         run: node tests/site.spec.cjs
       - name: Test the Desktop simulator
         if: always()
         run: node tests/course.spec.cjs
-      - name: Test the route map
-        if: always()
-        run: node tests/workflows.spec.cjs
       - name: Save screenshots for review
         if: always()
         uses: actions/upload-artifact@v4

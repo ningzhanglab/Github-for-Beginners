@@ -3,9 +3,9 @@
 > **You'll learn:** to create a project, change one file, save a checkpoint, and see it online. This is the whole GitHub idea in six steps.
 > **Time:** 15 minutes. **You need:** [Lesson 2](02-get-set-up.md) done.
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/first.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#first)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/first.svg)
 
-*The route for this lesson. Follow the line: it starts in GitHub Desktop, visits your folder to edit a file, and ends on GitHub.com. Click the picture to step through it on the route map.*
+*The route for this lesson. Follow the line: it starts in GitHub Desktop, visits your folder to edit a file, and ends on GitHub.com.*
 
 > <img src="../assets/icons/lock.svg" width="20" height="20" alt=""> **Practise on your own new project**, not on someone else's shared project. Then nothing you try can affect anyone else.
 
