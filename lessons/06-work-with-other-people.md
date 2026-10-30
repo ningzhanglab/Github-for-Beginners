@@ -3,9 +3,9 @@
 > **You'll learn:** how to join a coauthor's project, write tasks as Issues, and get your work reviewed.
 > **Time:** 20 minutes. **You need:** [Lesson 5](05-branches-and-pull-requests.md), and a coauthor's project (or a friend willing to try).
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/team.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#team)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/team.svg)
 
-*The route for joining someone's project. Dashed stations are steps your teammate does. Click the picture to step through it on the route map.*
+*The route for joining someone's project. Dashed stations are steps your teammate does.*
 
 ## Steps
 

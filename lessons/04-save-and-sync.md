@@ -5,9 +5,9 @@
 
 ## Part A: Send your changes up
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/daily.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#daily)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/daily.svg)
 
-*Your everyday routine: edit in your folder, commit and push in Desktop. Click the picture to step through it on the route map.*
+*Your everyday routine: edit in your folder, commit and push in Desktop.*
 
 ### <img src="../assets/icons/branch.svg" width="36" height="36" alt=""> Step 1: Check where you are
 
@@ -61,9 +61,9 @@
 
 ## Part B: Bring other people's changes down
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/update.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#update)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/update.svg)
 
-*When the online copy changed, the route goes the other way: from GitHub.com, through Desktop, into your folder. Click the picture to step through it on the route map.*
+*When the online copy changed, the route goes the other way: from GitHub.com, through Desktop, into your folder.*
 
 Your folder **does not update by itself**. When a coauthor, an AI assistant, or you on another computer changes the project online, you bring it down like this:
 

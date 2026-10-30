@@ -18,9 +18,9 @@ robustness/      ●────●────●──    your experiment, rev
 new-controls
 ```
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/pr.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#pr)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/pr.svg)
 
-*The route for this lesson. Notice the middle part: the review happens on GitHub.com before anything reaches main. Click the picture to step through it on the route map.*
+*The route for this lesson. Notice the middle part: the review happens on GitHub.com before anything reaches main.*
 
 ## Steps
 

@@ -3,179 +3,498 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Eight short, picture-based lessons for GitHub Desktop beginners, with a route map and a safe simulator.">
-<title>GitHub for Beginners: learn GitHub Desktop step by step</title>
-<link rel="icon" href="assets/icons/branch.svg">
+<meta name="description" content="Learn GitHub by following one small project from start to finish. Every step shows your folder, GitHub Desktop and GitHub.com side by side. No coding, no terminal.">
+<title>GitHub for Beginners: follow one project from start to finish</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ImJyYW5jaCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTUiIGZpbGw9IiM2QTRDQzIiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNCAxNCkgc2NhbGUoMS41KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEuOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSI2IiBjeT0iNSIgcj0iMiIvPjxjaXJjbGUgY3g9IjYiIGN5PSIxOSIgcj0iMiIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMiIvPjxwYXRoIGQ9Ik02IDd2MTBNMTggOGMwIDUtMTIgMy0xMiA5Ii8+PC9nPjwvc3ZnPgo=">
 <style>:root{
-  --bg:#eef1f4; --panel:#fff; --ink:#1b2433; --muted:#566275; --rule:#d3d9e1; --soft:#e3e8ee; --soft2:#f6f8fa;
-  --folder:#a86400; --desktop:#6a4cc2; --web:#2f5bea; --ai:#c0306b; --warn-bg:#fff4e0; --warn-line:#e0a72a;
-  --focus:#f2b705; --radius:14px;
+  --bg:#f1f3f6; --panel:#fff; --ink:#1b2433; --muted:#5a6678; --rule:#d5dbe3; --soft:#e6eaf0; --soft2:#f7f8fa;
+  --folder:#a86400; --desktop:#6a4cc2; --web:#2f5bea; --ai:#c0306b;
+  --add-bg:#e3f6ea; --add-ink:#145c34; --del-bg:#fde8ea; --del-ink:#8f1f2c; --warn-bg:#fff1d6; --warn-line:#e0a72a;
+  --mark:#ffe58a; --focus:#f2b705; --bar:58px; --r:14px;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#121821; --panel:#1a222e; --ink:#e7ecf3; --muted:#9aa8ba; --rule:#2c3747; --soft:#1f2834; --soft2:#18202a;
-  --warn-bg:#2d2618; --warn-line:#b9862a;
+  --bg:#11161e; --panel:#1a212c; --ink:#e7ecf3; --muted:#9ba8b9; --rule:#2d3848; --soft:#222b38; --soft2:#171e28;
+  --add-bg:#163323; --add-ink:#8fe0b0; --del-bg:#3a1a20; --del-ink:#ffadb8; --warn-bg:#33290f; --mark:#7a6516;
 }}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Avenir Next","Segoe UI Variable Text","Segoe UI",Frutiger,"Helvetica Neue",system-ui,sans-serif;font-size:17.5px;line-height:1.6}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Avenir Next","Segoe UI Variable Text","Segoe UI",Frutiger,"Helvetica Neue",system-ui,sans-serif;font-size:17px;line-height:1.6}
+main [id]{scroll-margin-top:calc(var(--bar) + 10px)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-img{max-width:100%;height:auto}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--panel);padding:8px 12px;z-index:9}
+code{font-family:var(--mono);font-size:.86em;background:var(--soft);padding:1px 5px;border-radius:4px}
+mark{background:var(--mark);color:inherit;padding:0 4px;border-radius:4px}
+.ic{display:inline-block;vertical-align:-4px;flex-shrink:0;border-radius:24%}
+.ui{font-weight:700;white-space:normal}
+.muted{color:var(--muted)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--panel);padding:8px 12px;z-index:30}
 
-.bar{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;padding:12px 24px;background:var(--panel);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:5}
-.home{display:flex;gap:10px;align-items:center;font-weight:700;text-decoration:none;font-size:17px}
-.home img{border-radius:8px}
-.bar nav{display:flex;gap:4px;flex-wrap:wrap}
-.bar nav a{text-decoration:none;padding:6px 12px;border-radius:999px;font-size:15px;color:var(--muted);font-weight:600}
-.bar nav a:hover{background:var(--soft);color:var(--ink)}
-.bar nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+/* Top bar */
+.bar{position:sticky;top:0;z-index:20;height:var(--bar);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 22px;background:var(--panel);border-bottom:1px solid var(--rule)}
+.brand{display:flex;gap:10px;align-items:center;font-weight:700;text-decoration:none;white-space:nowrap}
+.jump{display:none;position:relative}
+.jump summary{list-style:none;cursor:pointer;font-weight:700;font-size:14px;padding:7px 14px;border:1px solid var(--rule);border-radius:999px;max-width:62vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jump summary::-webkit-details-marker{display:none}
+.jump nav{position:fixed;left:10px;right:10px;top:calc(var(--bar) + 6px);max-height:calc(100vh - var(--bar) - 20px);overflow:auto;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:12px;box-shadow:0 18px 40px rgba(0,0,0,.2)}
 
-.frame{display:grid;grid-template-columns:280px minmax(0,1fr);gap:40px;max-width:1240px;margin:0 auto;padding:28px 24px 40px;align-items:start}
-.frame-home{display:block;max-width:1120px}
-.side{position:sticky;top:76px;max-height:calc(100vh - 96px);overflow:auto;padding-right:4px}
-.side ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:2px}
-.side a{display:flex;gap:10px;align-items:center;text-decoration:none;padding:6px 8px;border-radius:8px;font-size:15px;line-height:1.3}
-.side a:hover{background:var(--soft)}
-.side a[aria-current="page"]{background:var(--panel);font-weight:700;box-shadow:inset 3px 0 0 var(--ink)}
-.side img{border-radius:6px;flex-shrink:0}
-.nav-group{margin:6px 8px 6px;font-size:13px;color:var(--muted);font-weight:600}
+/* Layout */
+.frame{display:grid;grid-template-columns:250px minmax(0,1fr);gap:36px;max-width:1480px;margin:0 auto;padding:0 22px}
+.side{position:sticky;top:var(--bar);height:calc(100vh - var(--bar));overflow:auto;padding:22px 2px 30px 0}
+.nav,.nav ol{list-style:none;margin:0;padding:0}
+.nav-act{margin-bottom:12px}
+.nav-act > a{display:block;font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:2px 8px 4px}
+.nav ol a{display:flex;gap:8px;align-items:baseline;text-decoration:none;font-size:14px;line-height:1.3;padding:5px 8px;border-radius:8px}
+.nav ol a:hover{background:var(--soft)}
+.nav .n{font-weight:700;color:var(--muted);min-width:1.4em;text-align:right;font-variant-numeric:tabular-nums}
+.nav a[aria-current]{background:var(--panel);font-weight:700;box-shadow:inset 3px 0 0 var(--ink)}
+.nav a[aria-current] .n{color:var(--ink)}
+main{min-width:0;padding:26px 0 40px}
 
-main{min-width:0}
-.lesson{max-width:760px}
-.lesson h1{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.015em;margin:4px 0 18px}
-.lesson h2{font-size:26px;line-height:1.2;margin:42px 0 14px;padding-top:6px}
-.lesson h1 + blockquote{background:var(--panel);border:1px solid var(--rule);border-left:6px solid var(--ink);border-radius:var(--radius);padding:12px 18px;margin:0 0 26px;color:var(--ink)}
-.lesson h1 + blockquote p{margin:0}
-.lesson p,.lesson li{max-width:70ch}
-.lesson code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:.86em;background:var(--soft);padding:1px 5px;border-radius:4px}
-.lesson pre{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;overflow:auto;font-size:14.5px;line-height:1.5}
-.lesson pre code{background:none;padding:0}
-.lesson table{border-collapse:collapse;width:100%;margin:14px 0 22px;background:var(--panel);border-radius:10px;overflow:hidden;font-size:15.5px;display:block;overflow-x:auto}
-.lesson th,.lesson td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
-.lesson th{font-size:14px;color:var(--muted);font-weight:600;background:var(--soft2)}
-.lesson td img{vertical-align:-4px;max-width:none}
-.lesson td:first-child:has(> img:only-child){width:44px;padding-right:0}
-.lesson blockquote{margin:16px 0;padding:10px 16px;border-left:4px solid var(--rule);background:var(--soft2);border-radius:0 10px 10px 0}
-.lesson blockquote p{margin:4px 0}
-.lesson p > img,.lesson li > img,.lesson h2 > img{vertical-align:-4px}
-.lesson figure,.lesson p:has(> a > img[src*="routes/"]){margin:18px 0 6px}
-.lesson img[src*="routes/"]{display:block;width:100%;border:1px solid var(--rule);border-radius:12px;background:var(--panel)}
-.lesson img[src*="illustrations/"]{display:block;border-radius:12px;background:#fff}
-.lesson p:has(> a > img[src*="routes/"]) + p em{color:var(--muted);font-size:15px}
+/* Intro */
+.intro{max-width:900px}
+.intro h1{font-size:clamp(32px,4.8vw,54px);line-height:1.05;letter-spacing:-.025em;margin:4px 0 14px}
+.lede{font-size:19.5px;color:var(--muted);max-width:62ch;margin:0 0 22px}
+.places{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 16px}
+.place{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--rule);border-top:5px solid var(--c);border-radius:var(--r);padding:14px}
+.place-folder{--c:var(--folder)}.place-desktop{--c:var(--desktop)}.place-web{--c:var(--web)}
+.place div{display:grid;gap:2px;line-height:1.35}
+.place span{color:var(--muted);font-size:15px}
+.how{color:var(--muted);font-size:15.5px;max-width:75ch}
+.ln.inline{display:inline;padding:1px 6px;border-radius:4px;font-family:var(--mono);font-size:13px}
+.cast{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.cast div{display:flex;gap:10px;align-items:flex-start}
+.cast p{margin:0;font-size:15px;line-height:1.4;color:var(--muted)}
+.cast b{display:block;color:var(--ink)}
+.before{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:12px 16px}
+.before summary{cursor:pointer;font-weight:700;display:flex;gap:10px;align-items:center}
+.before ol{margin:12px 0 6px}
+.start{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.button{display:inline-block;text-decoration:none;font-weight:700;padding:12px 24px;border-radius:999px;background:var(--ink);color:var(--bg)}
 
-.step{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:18px 22px 8px 22px;margin:14px 0}
-.step h3{display:flex;gap:14px;align-items:center;margin:0 0 10px;font-size:21px;line-height:1.25}
-.step h3 img{width:44px;height:44px;flex-shrink:0}
-.where{display:inline-flex;gap:8px;align-items:center;margin:0 0 10px;padding:3px 12px 3px 4px;border-radius:999px;font-size:14px;font-weight:600;background:var(--soft2);border:1px solid var(--rule)}
-.where img{border-radius:6px}
-.where-place-folder{border-color:color-mix(in srgb,var(--folder) 45%,var(--rule))}
-.where-place-desktop{border-color:color-mix(in srgb,var(--desktop) 45%,var(--rule))}
-.where-place-web{border-color:color-mix(in srgb,var(--web) 45%,var(--rule))}
-.where-ai,.where-people{border-style:dashed;border-color:var(--ai)}
-blockquote.watch{background:var(--warn-bg);border-left-color:var(--warn-line)}
-blockquote.watch img{vertical-align:-5px;border-radius:5px}
+/* Parts */
+.act{margin:70px 0 6px;padding-top:22px;border-top:3px solid var(--ink);max-width:900px}
+.act h2{font-size:clamp(26px,3.4vw,38px);line-height:1.1;letter-spacing:-.015em;margin:0 0 6px}
+.act p{margin:0;color:var(--muted);font-size:17.5px}
 
-.lesson details{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 16px;margin:10px 0}
-.lesson summary{cursor:pointer;font-weight:600}
-.lesson details[open] summary{margin-bottom:6px}
+/* A step */
+.step{margin:34px 0 0;padding:26px 0 0;border-top:1px solid var(--rule)}
+.act + .step{border-top:0}
+.step-text{max-width:820px}
+.step-head{display:flex;gap:14px;align-items:center;margin:0 0 8px}
+.step-num{font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--muted);min-width:1.1em;font-variant-numeric:tabular-nums}
+.kicker{margin:0;font-size:13.5px;color:var(--muted);font-weight:600}
+.step-head h3{margin:0;font-size:clamp(22px,2.6vw,28px);line-height:1.15}
+.who{display:inline-flex;gap:8px;align-items:center;font-size:14px;font-weight:700;padding:3px 12px 3px 4px;border:1.5px dashed var(--ai);border-radius:999px;margin:4px 0 6px}
+.story{font-size:18px;margin:6px 0 12px;max-width:68ch}
+.do{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:12px 18px 6px;margin:0 0 12px}
+.do-label{margin:0 0 4px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center}
+.do ol{margin:0 0 8px;padding-left:22px}
+.do li{padding:2px 0}
+.why{margin:0 0 10px;max-width:72ch}
+.watch{display:flex;gap:10px;align-items:flex-start;background:var(--warn-bg);border-left:4px solid var(--warn-line);border-radius:0 10px 10px 0;padding:10px 14px;margin:0 0 10px;max-width:76ch}
+.watch .ic{margin-top:3px}
 
-.pager{display:flex;justify-content:space-between;gap:12px;margin:44px 0 10px;max-width:760px}
-.pager a{display:flex;flex-direction:column;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 16px;font-weight:700;min-width:0}
-.pager a span{font-size:13px;color:var(--muted);font-weight:500}
-.pager .next{text-align:right;margin-left:auto}
-.pager a:hover{border-color:var(--ink)}
+/* The three screens */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 0;align-items:start}
+.pane{margin:0;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;opacity:.6;transition:opacity .2s;font-size:13.5px;line-height:1.45}
+.pane:hover{opacity:1}
+.pane.active{opacity:1;border:2px solid var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 18%,transparent)}
+.pane-folder{--c:var(--folder)}.pane-desktop{--c:var(--desktop)}.pane-web{--c:var(--web)}
+.pane-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid var(--rule);background:var(--soft2)}
+.pane-head > span:first-of-type{flex:1;min-width:0}
+.here{font-size:11.5px;font-weight:700;color:#fff;background:var(--c);border-radius:999px;padding:1px 9px}
+.flag{font-size:11.5px;font-weight:700;color:var(--del-ink);background:var(--del-bg);border-radius:999px;padding:1px 9px}
+.branch-chip{font-family:var(--mono);font-size:11.5px;font-weight:600;background:var(--soft);border:1px solid var(--rule);border-radius:6px;padding:0 6px}
+.branch-chip::before{content:"\2387 ";}
+.new{background-color:var(--mark)!important;box-shadow:0 0 0 2px var(--mark)}
+.flash{box-shadow:0 0 0 3px var(--mark)}
+.empty{color:var(--muted);margin:0;padding:12px}
+.page.empty-page{color:var(--muted);padding:8px 12px 10px}
+.empty-page p{margin:4px 0}
+.files{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 4px}
+.file{font-family:var(--mono);font-size:12px;padding:2px 8px;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+.file::before{content:"\25A4 ";color:var(--muted)}
+.file.open{border-color:var(--ink);font-weight:700}
+.doc,.pr-file{margin:8px 12px 12px;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.doc.stale{border-style:dashed}
+.doc-name{font-family:var(--mono);font-size:11.5px;font-weight:700;padding:4px 8px;background:var(--soft2);border-bottom:1px solid var(--rule)}
+.code{margin:0;padding:4px 0;font-family:var(--mono);font-size:11.5px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.ln{display:block;padding:0 8px 0 22px;text-indent:-14px;min-height:1.55em}
+.ln.add{background:var(--add-bg);color:var(--add-ink)}
+.ln.del{background:var(--del-bg);color:var(--del-ink)}
+.ln.warn{background:var(--warn-bg)}
+.pr-file.warn{border:2px solid var(--warn-line)}
 
-.hero{padding:22px 0 10px}
-.hero h1{font-size:clamp(34px,5.6vw,64px);line-height:1.03;letter-spacing:-.025em;margin:0 0 16px;max-width:16ch}
-.lede{font-size:20px;color:var(--muted);max-width:58ch;margin:0 0 22px}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
-.button{display:inline-block;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:999px;background:var(--ink);color:var(--bg);border:2px solid var(--ink)}
-.button.ghost{background:transparent;color:var(--ink)}
-.hero-route{margin:0}
-.hero-route img{display:block;width:100%;border:1px solid var(--rule);border-radius:16px;background:var(--panel)}
-.hero-route figcaption{font-size:14.5px;color:var(--muted);margin-top:8px;max-width:72ch}
-section{margin-top:44px}
-section h2{font-size:clamp(24px,3vw,32px);line-height:1.15;margin:0 0 16px}
-.place-row{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.place-row li{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 18px;display:grid;gap:4px;align-content:start}
-.place-row img{margin-bottom:6px;border-radius:12px}
-.place-row span,.note{color:var(--muted);font-size:15.5px}
-.path{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.path h3{margin:0 0 2px;font-size:20px}.path > div > p{margin:0 0 12px;color:var(--muted)}
-.cards,.tool-row{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.tool-row{grid-template-columns:repeat(3,1fr)}
-.card{display:flex;gap:14px;align-items:flex-start;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:14px 16px;height:100%}
-.card:hover{border-color:var(--ink)}
-.card img{border-radius:12px;flex-shrink:0}
-.card-text{display:grid;gap:1px}
-.card-text strong{font-size:17px;line-height:1.3}
-.card-text span{color:var(--muted);font-size:15px;line-height:1.4}
-.card-text .card-num{font-size:13px}
+.app-bar{display:grid;grid-template-columns:1fr .85fr 1.25fr;border-bottom:1px solid var(--rule)}
+.seg{padding:6px 8px;border-right:1px solid var(--rule);min-width:0;display:grid}
+.seg:last-child{border-right:0}
+.seg small{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.seg b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seg.btn b{color:var(--desktop)}
+.tabs{display:flex;border-bottom:1px solid var(--rule);font-size:12.5px}
+.tabs span{flex:1;text-align:center;padding:5px 6px;color:var(--muted)}
+.tabs span.on{color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--c)}
+.app-body{padding:4px 0 8px}
+.chg{display:flex;gap:6px;align-items:center;padding:6px 12px 2px;font-family:var(--mono);font-size:12px;font-weight:700}
+.chg .tick{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:4px;background:var(--desktop);color:#fff;font-size:10px}
+.app-body .code{margin:4px 12px;border:1px solid var(--rule);border-radius:6px}
+.commit-box{display:flex;gap:6px;align-items:center;margin:8px 12px 2px}
+.commit-box .field{flex:1;font-size:12px;border:1px solid var(--rule);border-radius:6px;padding:3px 8px;background:var(--soft2);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cbtn{font-size:12px;font-weight:700;color:#fff;background:var(--desktop);border-radius:6px;padding:4px 8px;white-space:nowrap}
+.history{list-style:none;margin:0;padding:4px 0}
+.history li{padding:5px 12px;border-bottom:1px solid var(--soft);font-weight:600;font-size:12.5px;display:flex;justify-content:space-between;gap:8px}
+.history li small{color:var(--muted);font-weight:500}
+.history li.bad{color:var(--del-ink);text-decoration:line-through}
+.history li.earlier{color:var(--muted);font-weight:500;border-bottom:0}
 
-.foot{border-top:1px solid var(--rule);padding:20px 24px 36px;color:var(--muted);font-size:14px;max-width:1240px;margin:0 auto}
-.foot p{margin:0 0 6px;max-width:90ch}
+.browser.new{box-shadow:inset 0 0 0 3px var(--mark)}
+.url{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:8px 12px 0;padding:3px 10px;border-radius:999px;background:var(--soft2);border:1px solid var(--rule);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.page{padding:6px 0 4px}
+.repo-head,.pr-title{padding:4px 12px 2px;font-size:13.5px}
+.pill{font-size:11px;border:1px solid var(--rule);border-radius:999px;padding:0 7px;margin-left:6px;color:var(--muted)}
+.repo-meta,.pr-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:2px 12px;font-size:12px;color:var(--muted)}
+.latest{padding:2px 12px;font-size:12px;color:var(--muted)}
+.status{font-weight:700;color:#fff;border-radius:999px;padding:1px 9px;font-size:11.5px}
+.status.open{background:#1e8e5a}.status.merged{background:#6a4cc2}.status.changes{background:#b4462f}
+.page .tabs{margin:6px 0 0}
+.comment{margin:6px 12px 10px;padding:6px 10px;border:1px solid var(--rule);border-radius:8px;font-size:12.5px;background:var(--soft2)}
+.comment.warn{border-color:var(--warn-line);background:var(--warn-bg)}
+.web-note{margin:4px 12px 8px;font-size:12px;color:var(--muted)}
 
-@media (max-width:980px){
-  .frame{grid-template-columns:1fr;gap:12px}
+/* After the story */
+.recap,.rules,.help,.further{margin-top:70px;padding-top:22px;border-top:3px solid var(--ink);max-width:1000px}
+.recap h2,.rules h2,.help h2,.further h2{font-size:clamp(24px,3vw,34px);margin:0 0 6px}
+.recap > p{color:var(--muted);margin:0 0 12px}
+.table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--r);background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-size:13.5px;color:var(--muted);background:var(--soft2);font-weight:600}
+tr:last-child td{border-bottom:0}
+td:first-child:has(> .ic:only-child){width:44px}
+.rule-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
+.rule-grid div{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:14px}
+.rule-grid p{margin:0}
+.further-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+.further-grid a{display:flex;gap:12px;align-items:flex-start;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:14px}
+.further-grid a:hover{border-color:var(--ink)}
+.further-grid span{display:grid;color:var(--muted);font-size:15px;line-height:1.4}
+.further-grid b{color:var(--ink);font-size:16.5px}
+.foot{margin-top:60px;padding-top:16px;border-top:1px solid var(--rule);color:var(--muted);font-size:14px;max-width:1000px}
+.foot p{margin:0 0 6px}
+
+@media (max-width:1240px){
+  .frame{display:block}
   .side{display:none}
-  .path,.place-row,.tool-row{grid-template-columns:1fr}
+  .jump{display:block}
+}
+@media (max-width:900px){
+  .board{grid-template-columns:1fr}
+  .pane{opacity:1}
+  .pane.active{order:-1}
+  .places,.cast,.rule-grid,.further-grid{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   body{font-size:16.5px}
-  .bar{padding:10px 16px}
-  .frame{padding:18px 16px 30px}
-  .step{padding:14px 14px 4px}
-  .step h3{font-size:19px;gap:10px}.step h3 img{width:38px;height:38px}
-  .lede{font-size:18px}
+  .frame,.bar{padding:0 14px}
+  .brand span{display:none}
+  .step-num{font-size:36px}
+  .story{font-size:17px}
 }
-@media print{.bar,.side,.pager,.foot{display:none}.frame{display:block}.step{break-inside:avoid}}
+@media print{.bar,.side{display:none}.frame{display:block}.pane{opacity:1}.step{break-inside:avoid}}
 </style>
 </head>
-<body>
-<a class="skip" href="#content">Skip to the lesson</a>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-place-folder" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#A86400"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/></g></symbol><symbol id="i-place-desktop" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></g></symbol><symbol id="i-place-web" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M6.5 6.5h.01M9.5 6.5h.01"/></g></symbol><symbol id="i-account" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c0-4 3.4-6 7.5-6s7.5 2 7.5 6"/></g></symbol><symbol id="i-install" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"/></g></symbol><symbol id="i-new-repo" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M12 10.5v6M9 13.5h6"/></g></symbol><symbol id="i-open-folder" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#A86400"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/></g></symbol><symbol id="i-edit" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#A86400"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4.5L19.5 9 15 4.5 4 15.5z"/><path d="M12.5 7l4.5 4.5"/></g></symbol><symbol id="i-changes" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M12 9v6M9 17.5h6"/></g></symbol><symbol id="i-commit" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6M16 12h6"/><circle cx="12" cy="12" r="4"/></g></symbol><symbol id="i-publish" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.2 3 3.2 15 0 18M12 3c-3.2 3-3.2 15 0 18"/></g></symbol><symbol id="i-push" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 9a4.5 4.5 0 0 1 .5 9"/><path d="M12 12.5v8M9 15.5l3-3 3 3"/></g></symbol><symbol id="i-fetch" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 3.5V9h-5.5"/></g></symbol><symbol id="i-pull" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 7a4.5 4.5 0 0 1 .5 9"/><path d="M12 11v9M9 17l3 3 3-3"/></g></symbol><symbol id="i-branch" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 7v10M18 8c0 5-12 3-12 9"/></g></symbol><symbol id="i-clone" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5.5A2 2 0 0 0 13.5 3.5h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></g></symbol><symbol id="i-history" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#6A4CC2"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol><symbol id="i-pull-request" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M6 7v10M18 17V9a3 3 0 0 0-3-3h-4"/><path d="M13 3.5 10.5 6 13 8.5"/></g></symbol><symbol id="i-review" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></g></symbol><symbol id="i-merge" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="13" r="2"/><path d="M6 7v10M6 8.5c0 3.5 5 4.5 10 4.5"/></g></symbol><symbol id="i-issue" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.6"/></g></symbol><symbol id="i-view-online" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M6.5 6.5h.01M9.5 6.5h.01"/></g></symbol><symbol id="i-people" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#2F5BEA"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.8.2 4.5 2.2 4.5 5.4"/></g></symbol><symbol id="i-ai" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#C0306B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3l1.8 4.7L17.5 9.5l-4.7 1.8L11 16l-1.8-4.7L4.5 9.5l4.7-1.8z"/><path d="M18 14.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></g></symbol><symbol id="i-ai-chat" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#C0306B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9.5L5 20v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></g></symbol><symbol id="i-check" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#A86400"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></g></symbol><symbol id="i-warning" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#5B6676"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></g></symbol><symbol id="i-undo" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#5B6676"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14.5 4 9.5l5-5"/><path d="M4 9.5h10.5a6 6 0 0 1 0 12H11"/></g></symbol><symbol id="i-revert" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#5B6676"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 3.5V9h5.5"/><path d="M9 12h6"/></g></symbol><symbol id="i-conflict" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#5B6676"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h13M12.5 4.5 16 8l-3.5 3.5M21 16H8M11.5 12.5 8 16l3.5 3.5"/></g></symbol><symbol id="i-lock" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#5B6676"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></g></symbol><symbol id="i-idea" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#17767B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.7.7 .8 1.4.8 2.4h6c0-1 .1-1.7.8-2.4A6 6 0 0 0 12 3z"/></g></symbol><symbol id="i-map" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#17767B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/></g></symbol><symbol id="i-practice" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#17767B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></g></symbol><symbol id="i-book" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#17767B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h11.5A1.5 1.5 0 0 1 18 6v14H7a2 2 0 0 1-2-2z"/><path d="M5 18a2 2 0 0 1 2-2h11"/></g></symbol><symbol id="i-question" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#5B6676"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.7v.6M12 16.8v.4"/></g></symbol><symbol id="i-list" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#17767B"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></g></symbol></svg>
+<a class="skip" href="#story">Skip to the story</a>
 <header class="bar">
-  <a class="home" href="index.html"><img src="assets/icons/branch.svg" width="30" height="30" alt="">GitHub for Beginners</a>
-  <nav aria-label="Websites"><a href="learn/index.html">Lessons</a><a href="workflows.html">Route map</a><a href="course.html">Simulator</a></nav>
+  <a class="brand" href="#top"><svg class="ic" width="28" height="28" aria-hidden="true"><use href="#i-branch"/></svg><span>GitHub for Beginners</span></a>
+  <details class="jump"><summary id="jumpLabel">All 16 steps</summary><nav aria-label="All steps"><ol class="nav"><li class="nav-act"><a href="#part-1">On your own</a><ol><li><a href="#step-1" data-nav="step-1"><span class="n">1</span>Create a project</a></li><li><a href="#step-2" data-nav="step-2"><span class="n">2</span>Write a note</a></li><li><a href="#step-3" data-nav="step-3"><span class="n">3</span>Commit: save a checkpoint</a></li><li><a href="#step-4" data-nav="step-4"><span class="n">4</span>Publish to GitHub.com</a></li><li><a href="#step-5" data-nav="step-5"><span class="n">5</span>Edit, commit, push: the everyday routine</a></li></ol></li><li class="nav-act"><a href="#part-2">With a coauthor</a><ol><li><a href="#step-6" data-nav="step-6"><span class="n">6</span>A coauthor changes the online copy</a></li><li><a href="#step-7" data-nav="step-7"><span class="n">7</span>Fetch and pull: bring the changes home</a></li><li><a href="#step-8" data-nav="step-8"><span class="n">8</span>Make a branch to try something</a></li><li><a href="#step-9" data-nav="step-9"><span class="n">9</span>Add the table, commit, publish the branch</a></li><li><a href="#step-10" data-nav="step-10"><span class="n">10</span>Open a pull request</a></li><li><a href="#step-11" data-nav="step-11"><span class="n">11</span>Review and merge</a></li><li><a href="#step-12" data-nav="step-12"><span class="n">12</span>Switch back to main and pull</a></li></ol></li><li class="nav-act"><a href="#part-3">With an AI assistant</a><ol><li><a href="#step-13" data-nav="step-13"><span class="n">13</span>Give an AI assistant a small task</a></li><li><a href="#step-14" data-nav="step-14"><span class="n">14</span>Review the AI’s work, and catch a mistake</a></li><li><a href="#step-15" data-nav="step-15"><span class="n">15</span>Fixed, merged, pulled</a></li></ol></li><li class="nav-act"><a href="#part-4">When something goes wrong</a><ol><li><a href="#step-16" data-nav="step-16"><span class="n">16</span>Undo a mistake that was already pushed</a></li></ol></li></ol></nav></details>
 </header>
-<div class="frame frame-home">
 
-<main id="content" tabindex="-1">
+<div class="frame">
+<nav class="side" aria-label="All steps"><ol class="nav"><li class="nav-act"><a href="#part-1">On your own</a><ol><li><a href="#step-1" data-nav="step-1"><span class="n">1</span>Create a project</a></li><li><a href="#step-2" data-nav="step-2"><span class="n">2</span>Write a note</a></li><li><a href="#step-3" data-nav="step-3"><span class="n">3</span>Commit: save a checkpoint</a></li><li><a href="#step-4" data-nav="step-4"><span class="n">4</span>Publish to GitHub.com</a></li><li><a href="#step-5" data-nav="step-5"><span class="n">5</span>Edit, commit, push: the everyday routine</a></li></ol></li><li class="nav-act"><a href="#part-2">With a coauthor</a><ol><li><a href="#step-6" data-nav="step-6"><span class="n">6</span>A coauthor changes the online copy</a></li><li><a href="#step-7" data-nav="step-7"><span class="n">7</span>Fetch and pull: bring the changes home</a></li><li><a href="#step-8" data-nav="step-8"><span class="n">8</span>Make a branch to try something</a></li><li><a href="#step-9" data-nav="step-9"><span class="n">9</span>Add the table, commit, publish the branch</a></li><li><a href="#step-10" data-nav="step-10"><span class="n">10</span>Open a pull request</a></li><li><a href="#step-11" data-nav="step-11"><span class="n">11</span>Review and merge</a></li><li><a href="#step-12" data-nav="step-12"><span class="n">12</span>Switch back to main and pull</a></li></ol></li><li class="nav-act"><a href="#part-3">With an AI assistant</a><ol><li><a href="#step-13" data-nav="step-13"><span class="n">13</span>Give an AI assistant a small task</a></li><li><a href="#step-14" data-nav="step-14"><span class="n">14</span>Review the AI’s work, and catch a mistake</a></li><li><a href="#step-15" data-nav="step-15"><span class="n">15</span>Fixed, merged, pulled</a></li></ol></li><li class="nav-act"><a href="#part-4">When something goes wrong</a><ol><li><a href="#step-16" data-nav="step-16"><span class="n">16</span>Undo a mistake that was already pushed</a></li></ol></li></ol></nav>
+<main>
+<section class="intro">
+  <h1>Learn GitHub by following one small project</h1>
+  <p class="lede">Watch Mia keep her research notes in GitHub, from creating the project to working with a coauthor and an AI assistant. Every step shows what happens in all three places, so you can see exactly what changed and where.</p>
+  <div class="places">
+    <div class="place place-folder"><svg class="ic" width="40" height="40" aria-hidden="true"><use href="#i-place-folder"/></svg><div><b>Your folder</b><span>The files on Mia’s computer. She edits them with her usual editor.</span></div></div><div class="place place-desktop"><svg class="ic" width="40" height="40" aria-hidden="true"><use href="#i-place-desktop"/></svg><div><b>GitHub Desktop</b><span>The free app that shows what changed, saves checkpoints, and syncs.</span></div></div><div class="place place-web"><svg class="ic" width="40" height="40" aria-hidden="true"><use href="#i-place-web"/></svg><div><b>GitHub.com</b><span>The online copy, where people review and accept changes.</span></div></div>
+  </div>
+  <p class="how">In every step, the place where you act is <b>highlighted</b>, and anything that just changed is <mark>marked like this</mark>. Lines that were added show <span class="ln add inline">+ in green</span>, removed lines <span class="ln del inline">− in red</span>.</p>
+  <div class="cast"><div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-account"/></svg><p><b>Mia</b> That’s you: a researcher writing notes for a small wage study</p></div><div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-people"/></svg><p><b>Sam</b> Mia’s coauthor, who joins in part 2</p></div><div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-ai"/></svg><p><b>An AI assistant</b> Helps in part 3, and makes one mistake</p></div></div>
+  <details class="before"><summary><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-install"/></svg> Before you start: get a free account and the app (5 minutes)</summary>
+    <ol><li>Create a free account at <a href="https://github.com/signup">github.com/signup</a>.</li>
+    <li>Download <a href="https://desktop.github.com/">GitHub Desktop</a> for Mac or Windows, install it, and open it.</li>
+    <li>Click <b class="ui">Sign in to GitHub.com</b> on the welcome screen. (Later: <b class="ui">GitHub Desktop → Settings… → Accounts</b> on Mac, <b class="ui">File → Options… → Accounts</b> on Windows.)</li></ol>
+    <p>You never need to type commands. Everything is buttons.</p></details>
+  <p class="start"><a class="button" href="#step-1">Start the story</a> <span class="muted">16 steps, about 30 minutes to read. Steps 1 to 5 are all you need for personal work.</span></p>
+</section>
 
-<section class="hero">
-  <h1>Learn GitHub one picture at a time</h1>
-  <p class="lede">Keep versions of your work, collaborate with coauthors, and check what an AI assistant changed. Eight short lessons with an icon for every step. No coding, no terminal.</p>
-  <p class="cta"><a class="button" href="learn/01-what-is-github.html">Start lesson 1</a><a class="button ghost" href="workflows.html">See every workflow</a></p>
-  <figure class="hero-route"><a href="workflows.html#pr"><img src="assets/routes/pr.svg" alt="Route picture of proposing a change: start in GitHub Desktop, edit in your folder, commit and publish in Desktop, review and merge on GitHub.com, then pull back into Desktop."></a>
-  <figcaption>This is how every lesson shows a workflow: each circle is a step, placed in the band where it happens. This one is lesson 5, proposing a change for review.</figcaption></figure>
+<div id="story">
+<section class="act" id="part-1"><h2>Part 1: On your own</h2><p>Create a project, save checkpoints, and put it online. This is all you need for personal work.</p></section>
+<section class="step" id="step-1" data-step="1" aria-labelledby="step-1-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">1</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-new-repo"/></svg><div><p class="kicker">Step 1 of 16</p><h3 id="step-1-title">Create a project</h3></div></header>
+  
+  <p class="story">Mia starts a project called <code>wage-study</code>. GitHub calls a project a <b class="ui">repository</b>: a folder that remembers its history.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>In GitHub Desktop choose <b class="ui">File → New repository…</b></li><li>Name: <code>wage-study</code></li><li>Tick <b class="ui">Initialize this repository with a README</b></li><li>Click <b class="ui">Create repository</b></li></ol></div>
+  <p class="why"><b>What changed:</b> A new folder appears on her computer. Nothing is online yet.</p>
+  
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file new">README.md</span></div><p class="empty">Only a README so far.</p></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Publish repository</b></div></div><div class="tabs"><span class="on">Changes</span><span class="">History</span></div><div class="app-body"><p class="empty">No local changes</p></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com</div><div class="page empty-page"><p><b>Not online yet.</b></p><p>This project only exists on Mia’s computer.</p></div></div></figure></div>
 </section>
-<section class="places" aria-labelledby="placesTitle">
-  <h2 id="placesTitle">Every step happens in one of three places</h2>
-  <ol class="place-row">
-    <li><img src="assets/icons/place-folder.svg" width="56" height="56" alt=""><strong>Your project folder</strong><span>You edit files with your usual editor.</span></li>
-    <li><img src="assets/icons/place-desktop.svg" width="56" height="56" alt=""><strong>GitHub Desktop</strong><span>You see what changed, save checkpoints, and sync.</span></li>
-    <li><img src="assets/icons/place-web.svg" width="56" height="56" alt=""><strong>GitHub.com</strong><span>You and others review and accept changes.</span></li>
-  </ol>
-  <p class="note">The icon colours in every lesson match these three places, so you always know where you are.</p>
+<section class="step" id="step-2" data-step="2" aria-labelledby="step-2-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">2</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-edit"/></svg><div><p class="kicker">Step 2 of 16</p><h3 id="step-2-title">Write a note</h3></div></header>
+  
+  <p class="story">Mia writes her first finding in a new file, <code>notes.md</code>, using her usual text editor.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-folder"/></svg> Do this, in your folder</p><ol><li>In Desktop choose <b class="ui">Repository → Show in Finder</b> (Mac) or <b class="ui">Show in Explorer</b> (Windows)</li><li>Create <code>notes.md</code> in that folder, type the note, and <b class="ui">save</b></li></ol></div>
+  <p class="why"><b>What changed:</b> GitHub Desktop notices the saved file by itself and lists it under <b class="ui">Changes</b>, with new lines in green.</p>
+  
+</div>
+<div class="board" data-order="folder desktop web"><figure class="pane pane-folder active" aria-label="Your folder (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span><span class="here">This step</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open new">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln add">+ # Wage study notes</span><span class="ln add">+ Unemployment fell from 5.0% to 4.5%.</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Publish repository</b></div></div><div class="tabs"><span class="on">Changes 1</span><span class="">History</span></div><div class="app-body"><div class="chg"><span class="tick" aria-hidden="true">✓</span>notes.md</div><pre class="code"><span class="ln add">+ # Wage study notes</span><span class="ln add">+ Unemployment fell from 5.0% to 4.5%.</span></pre><div class="commit-box"><span class="field">Add first note</span><span class="cbtn">Commit to main</span></div></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com</div><div class="page empty-page"><p><b>Not online yet.</b></p><p>This project only exists on Mia’s computer.</p></div></div></figure></div>
 </section>
-<section aria-labelledby="pathTitle">
-  <h2 id="pathTitle">The learning path</h2>
-  <div class="path">
-    <div><h3>On your own</h3><p>Lessons 1 to 4 are all you need for a personal project.</p><ol class="cards"><li><a class="card" href="learn/01-what-is-github.html"><img src="assets/icons/idea.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 1, 10 min</span><strong>What is GitHub?</strong><span>The three places and six key words</span></span></a></li><li><a class="card" href="learn/02-get-set-up.html"><img src="assets/icons/install.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 2, 10 min</span><strong>Get set up</strong><span>Account, GitHub Desktop, sign in</span></span></a></li><li><a class="card" href="learn/03-your-first-project.html"><img src="assets/icons/new-repo.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 3, 15 min</span><strong>Your first project</strong><span>Create, edit, commit and publish</span></span></a></li><li><a class="card" href="learn/04-save-and-sync.html"><img src="assets/icons/push.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 4, 10 min</span><strong>Save and sync</strong><span>Push your work, pull others’ work</span></span></a></li></ol></div>
-    <div><h3>With others</h3><p>Add coauthors, AI assistants, and a safety net.</p><ol class="cards"><li><a class="card" href="learn/05-branches-and-pull-requests.html"><img src="assets/icons/branch.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 5, 20 min</span><strong>Branches and pull requests</strong><span>Try changes safely, accept after review</span></span></a></li><li><a class="card" href="learn/06-work-with-other-people.html"><img src="assets/icons/people.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 6, 20 min</span><strong>Work with other people</strong><span>Join a project, Issues, reviews</span></span></a></li><li><a class="card" href="learn/07-work-with-ai.html"><img src="assets/icons/ai.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 7, 20 min</span><strong>Work with an AI assistant</strong><span>Let AI help; you decide</span></span></a></li><li><a class="card" href="learn/08-fix-mistakes.html"><img src="assets/icons/undo.svg" width="48" height="48" alt=""><span class="card-text"><span class="card-num">Lesson 8, 15 min</span><strong>Fix mistakes</strong><span>Undo safely at every stage</span></span></a></li></ol></div>
+<section class="step" id="step-3" data-step="3" aria-labelledby="step-3-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">3</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-commit"/></svg><div><p class="kicker">Step 3 of 16</p><h3 id="step-3-title">Commit: save a checkpoint</h3></div></header>
+  
+  <p class="story">Mia saves a named checkpoint, called a <b class="ui">commit</b>, so she can always come back to this version.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>In the <b class="ui">Summary</b> box type <code>Add first note</code></li><li>Click <b class="ui">Commit to main</b></li></ol></div>
+  <p class="why"><b>What changed:</b> The checkpoint appears in <b class="ui">History</b>. It is saved on her computer only: GitHub.com still has nothing.</p>
+  <p class="watch"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-warning"/></svg> <span><b>Watch out:</b> Commit is not the same as uploading. Until she publishes or pushes, nobody else can see it.</span></p>
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell from 5.0% to 4.5%.</span></pre></div></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Publish repository</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com</div><div class="page empty-page"><p><b>Not online yet.</b></p><p>Still only on Mia’s computer.</p></div></div></figure></div>
+</section>
+<section class="step" id="step-4" data-step="4" aria-labelledby="step-4-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">4</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-publish"/></svg><div><p class="kicker">Step 4 of 16</p><h3 id="step-4-title">Publish to GitHub.com</h3></div></header>
+  
+  <p class="story">Mia puts the project online, so it’s backed up and she can share it later.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-web"/></svg> Do this, in GitHub.com</p><ol><li>Click <b class="ui">Publish repository</b> in the top bar</li><li>Keep <b class="ui">Keep this code private</b> ticked</li><li>Click <b class="ui">Publish repository</b></li></ol></div>
+  <p class="why"><b>What changed:</b> GitHub.com now has the same files and checkpoints. The Desktop button changes to <b class="ui">Fetch origin</b>.</p>
+  
+</div>
+<div class="board" data-order="web folder desktop"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell from 5.0% to 4.5%.</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn new"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web active" aria-label="GitHub.com (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span><span class="here">This step</span></figcaption><div class="browser new"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>2 commits</span></div><div class="latest">Latest: Add first note</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell from 5.0% to 4.5%.</span></pre></div></div></div></figure></div>
+</section>
+<section class="step" id="step-5" data-step="5" aria-labelledby="step-5-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">5</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-push"/></svg><div><p class="kicker">Step 5 of 16</p><h3 id="step-5-title">Edit, commit, push: the everyday routine</h3></div></header>
+  
+  <p class="story">The next day Mia adds a second finding. She repeats the routine she’ll use every day.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>Edit <code>notes.md</code> and <b class="ui">save</b></li><li>Check <b class="ui">Changes</b></li><li>Commit with Summary <code>Add wage change</code></li><li>Click <b class="ui">Push origin</b> to upload</li></ol></div>
+  <p class="why"><b>What changed:</b> Edit, commit, push. Now her folder, Desktop and GitHub.com all match.</p>
+  
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell from 5.0% to 4.5%.</span><span class="ln add">+ Wages rose from $25 to $26 (+4%).</span></pre></div></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Add wage change</li><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>3 commits</span></div><div class="latest">Latest: Add wage change</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell from 5.0% to 4.5%.</span><span class="ln add">+ Wages rose from $25 to $26 (+4%).</span></pre></div></div></div></figure></div>
+</section><section class="act" id="part-2"><h2>Part 2: With a coauthor</h2><p>Get someone else’s changes, and propose your own for review.</p></section>
+<section class="step" id="step-6" data-step="6" aria-labelledby="step-6-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">6</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-people"/></svg><div><p class="kicker">Step 6 of 16</p><h3 id="step-6-title">A coauthor changes the online copy</h3></div></header>
+  <span class="who"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-people"/></svg>Sam does this</span>
+  <p class="story">Mia invites Sam (<b class="ui">Settings → Collaborators → Add people</b> on GitHub.com). Sam notices that 5.0% to 4.5% is a fall of 0.5 <b class="ui">percentage points</b>, and fixes the line directly on GitHub.com.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-web"/></svg> Do this, in GitHub.com</p><ol><li>Nothing for Mia to do yet. Sam edits and commits on the website</li></ol></div>
+  <p class="why"><b>What changed:</b> GitHub.com now has Sam’s fix, but Mia’s folder still has the old line. Her computer does not update by itself.</p>
+  
+</div>
+<div class="board" data-order="web folder desktop"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span><span class="flag">Out of date</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc stale"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell from 5.0% to 4.5%.</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="">Add wage change</li><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web active" aria-label="GitHub.com (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span><span class="here">This step</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>4 commits</span></div><div class="latest">Latest: Clarify percentage points (Sam)</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln add">+ Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div></div></div></figure></div>
+</section>
+<section class="step" id="step-7" data-step="7" aria-labelledby="step-7-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">7</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-pull"/></svg><div><p class="kicker">Step 7 of 16</p><h3 id="step-7-title">Fetch and pull: bring the changes home</h3></div></header>
+  
+  <p class="story">Mia brings Sam’s fix down to her computer.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>Click <b class="ui">Fetch origin</b> to check for news</li><li>It turns into <b class="ui">Pull origin</b>. Click it</li></ol></div>
+  <p class="why"><b>What changed:</b> <b class="ui">Fetch</b> only looks; <b class="ui">Pull</b> actually updates her folder. Everything matches again.</p>
+  
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln add">+ Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>4 commits</span></div><div class="latest">Latest: Clarify percentage points (Sam)</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div></div></div></figure></div>
+</section>
+<section class="step" id="step-8" data-step="8" aria-labelledby="step-8-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">8</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-branch"/></svg><div><p class="kicker">Step 8 of 16</p><h3 id="step-8-title">Make a branch to try something</h3></div></header>
+  
+  <p class="story">Mia wants to add a summary table, but she wants Sam to check it first. She works on a <b class="ui">branch</b>: a separate working version, so <code>main</code> stays untouched.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>Click <b class="ui">Current Branch → New branch</b></li><li>Name it <code>add-table</code></li><li>Click <b class="ui">Create branch</b></li></ol></div>
+  <p class="why"><b>What changed:</b> Same folder, same files. Only the branch name changed. Anything she commits now goes to <code>add-table</code>, not <code>main</code>.</p>
+  
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">add-table</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg new"><small>Current branch</small><b>add-table</b></div><div class="seg btn"><small>&nbsp;</small><b>Publish branch</b></div></div><div class="tabs"><span class="on">Changes</span><span class="">History</span></div><div class="app-body"><p class="empty">No local changes</p></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>4 commits</span></div><div class="latest">Latest: Clarify percentage points (Sam)</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div></div></div></figure></div>
+</section>
+<section class="step" id="step-9" data-step="9" aria-labelledby="step-9-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">9</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-publish"/></svg><div><p class="kicker">Step 9 of 16</p><h3 id="step-9-title">Add the table, commit, publish the branch</h3></div></header>
+  
+  <p class="story">Mia adds the table to <code>notes.md</code>, commits it to her branch, and publishes the branch.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-folder"/></svg> Do this, in your folder</p><ol><li>Edit <code>notes.md</code> and <b class="ui">save</b></li><li>Commit with Summary <code>Add summary table</code>: the button now says <b class="ui">Commit to add-table</b></li><li>Click <b class="ui">Publish branch</b></li></ol></div>
+  <p class="why"><b>What changed:</b> The branch is on GitHub.com too, but <code>main</code> there is still the version without the table.</p>
+  
+</div>
+<div class="board" data-order="folder desktop web"><figure class="pane pane-folder active" aria-label="Your folder (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">add-table</span><span class="here">This step</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln add">+  </span><span class="ln add">+ | Year | Unemployment | Wage |</span><span class="ln add">+ | 2024 | 5.0%         | $25  |</span><span class="ln add">+ | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>add-table</b></div><div class="seg btn new"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>4 commits</span></div><div class="latest">Latest: Clarify percentage points (Sam)</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span></pre></div><p class="web-note">Branch add-table was just published.</p></div></div></figure></div>
+</section>
+<section class="step" id="step-10" data-step="10" aria-labelledby="step-10-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">10</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-pull-request"/></svg><div><p class="kicker">Step 10 of 16</p><h3 id="step-10-title">Open a pull request</h3></div></header>
+  
+  <p class="story">Mia asks Sam to review the table. A <b class="ui">pull request</b> is a review page that shows exactly what the branch would change.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-web"/></svg> Do this, in GitHub.com</p><ol><li>Click <b class="ui">Preview Pull Request</b>, then <b class="ui">Create pull request</b></li><li>In the browser check <b class="ui">base: main</b> and <b class="ui">compare: add-table</b></li><li>Add a title and click <b class="ui">Create pull request</b></li></ol></div>
+  <p class="why"><b>What changed:</b> Nothing in <code>main</code> has changed yet. A pull request is only a proposal.</p>
+  
+</div>
+<div class="board" data-order="web folder desktop"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">add-table</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>add-table</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web active" aria-label="GitHub.com (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span><span class="here">This step</span></figcaption><div class="browser new"><div class="url">github.com/mia/wage-study/pull/1</div><div class="page"><div class="pr-title"><b>Add summary table</b> <span class="muted">#1</span></div><div class="pr-meta"><span class="status open">Open</span><span>Mia wants to merge <code>add-table</code> into <code>main</code></span></div><div class="tabs"><span>Conversation</span><span class="on">Files changed 1</span></div><div class="pr-file"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln add">+  </span><span class="ln add">+ | Year | Unemployment | Wage |</span><span class="ln add">+ | 2024 | 5.0%         | $25  |</span><span class="ln add">+ | 2025 | 4.5%         | $26  |</span></pre></div></div></div></figure></div>
+</section>
+<section class="step" id="step-11" data-step="11" aria-labelledby="step-11-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">11</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-merge"/></svg><div><p class="kicker">Step 11 of 16</p><h3 id="step-11-title">Review and merge</h3></div></header>
+  <span class="who"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-people"/></svg>Sam does this</span>
+  <p class="story">Sam reads <b class="ui">Files changed</b>, checks the numbers, and accepts the proposal by <b class="ui">merging</b> it.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-web"/></svg> Do this, in GitHub.com</p><ol><li>Sam opens the <b class="ui">Files changed</b> tab and reads every line</li><li>He clicks <b class="ui">Merge pull request</b>, then <b class="ui">Confirm merge</b></li></ol></div>
+  <p class="why"><b>What changed:</b> Now <code>main</code> on GitHub.com includes the table. Merging is the moment a change is accepted.</p>
+  
+</div>
+<div class="board" data-order="web folder desktop"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">add-table</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>add-table</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="">Initial commit</li></ol></div></div></figure><figure class="pane pane-web active" aria-label="GitHub.com (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span><span class="here">This step</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study/pull/1</div><div class="page"><div class="pr-title"><b>Add summary table</b> <span class="muted">#1</span></div><div class="pr-meta"><span class="status merged flash">Merged</span><span>Mia wants to merge <code>add-table</code> into <code>main</code></span></div><div class="tabs"><span>Conversation</span><span class="on">Files changed 1</span></div><div class="pr-file"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln add">+  </span><span class="ln add">+ | Year | Unemployment | Wage |</span><span class="ln add">+ | 2024 | 5.0%         | $25  |</span><span class="ln add">+ | 2025 | 4.5%         | $26  |</span></pre></div><div class="comment"><b>Sam:</b> Numbers match the data. Merging.</div></div></div></figure></div>
+</section>
+<section class="step" id="step-12" data-step="12" aria-labelledby="step-12-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">12</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-pull"/></svg><div><p class="kicker">Step 12 of 16</p><h3 id="step-12-title">Switch back to main and pull</h3></div></header>
+  
+  <p class="story">Mia updates her own <code>main</code> so it has the accepted table.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>Click <b class="ui">Current Branch → main</b></li><li>Click <b class="ui">Fetch origin</b>, then <b class="ui">Pull origin</b></li></ol></div>
+  <p class="why"><b>What changed:</b> Her folder’s <code>main</code> now matches the accepted version on GitHub.com.</p>
+  
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln add">+  </span><span class="ln add">+ | Year | Unemployment | Wage |</span><span class="ln add">+ | 2024 | 5.0%         | $25  |</span><span class="ln add">+ | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg new"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Merge pull request #1<small>Sam</small></li><li class="">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="earlier">and 1 earlier</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>6 commits</span></div><div class="latest">Latest: Merge pull request #1 (Sam)</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></div></div></figure></div>
+</section><section class="act" id="part-3"><h2>Part 3: With an AI assistant</h2><p>Let AI help, and check its work before you accept it.</p></section>
+<section class="step" id="step-13" data-step="13" aria-labelledby="step-13-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">13</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-ai"/></svg><div><p class="kicker">Step 13 of 16</p><h3 id="step-13-title">Give an AI assistant a small task</h3></div></header>
+  
+  <p class="story">Mia asks an AI assistant connected to GitHub to write a data dictionary. She sets clear limits, and the AI opens its own pull request.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-web"/></svg> Do this, in GitHub.com</p><ol><li>Write the task as an <b class="ui">Issue</b> (<b class="ui">Issues → New issue</b>)</li><li>Tell the AI: <em>only add <code>dictionary.md</code>; don’t change <code>notes.md</code>; work on a new branch; don’t merge</em></li></ol></div>
+  <p class="why"><b>What changed:</b> The AI works on its own branch, <code>agent/dictionary</code>, so nothing reaches <code>main</code> without Mia’s review.</p>
+  
+</div>
+<div class="board" data-order="web folder desktop"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="">Merge pull request #1<small>Sam</small></li><li class="">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="earlier">and 1 earlier</li></ol></div></div></figure><figure class="pane pane-web active" aria-label="GitHub.com (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span><span class="here">This step</span></figcaption><div class="browser new"><div class="url">github.com/mia/wage-study/pull/3</div><div class="page"><div class="pr-title"><b>Add data dictionary</b> <span class="muted">#3</span></div><div class="pr-meta"><span class="status open">Open</span><span>AI assistant wants to merge <code>agent/dictionary</code> into <code>main</code></span></div><div class="latest">Fixes issue #2</div><div class="tabs"><span>Conversation</span><span class="on">Files changed 2</span></div><div class="pr-file"><div class="doc-name">dictionary.md (new)</div><pre class="code"><span class="ln add">+ # Data dictionary</span><span class="ln add">+ unemployment: % of the labour force</span><span class="ln add">+ wage: US dollars per hour</span></pre></div><div class="pr-file"><div class="doc-name">notes.md</div><pre class="code"><span class="ln del">− | 2025 | 4.5%         | $26  |</span><span class="ln add">+ | 2025 | 4.6%         | $26  |</span></pre></div></div></div></figure></div>
+</section>
+<section class="step" id="step-14" data-step="14" aria-labelledby="step-14-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">14</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-review"/></svg><div><p class="kicker">Step 14 of 16</p><h3 id="step-14-title">Review the AI’s work, and catch a mistake</h3></div></header>
+  
+  <p class="story">The AI says it’s done. Mia doesn’t take its word for it: she reads <b class="ui">Files changed</b> and spots that it also changed a number in <code>notes.md</code>, from 4.5% to 4.6%.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-web"/></svg> Do this, in GitHub.com</p><ol><li>Open <b class="ui">Files changed</b> and read every file</li><li>Comment on the wrong line and choose <b class="ui">Request changes</b></li></ol></div>
+  <p class="why"><b>What changed:</b> This is why AI work goes through a pull request. &quot;Done&quot; is a claim; the diff is the proof.</p>
+  <p class="watch"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-warning"/></svg> <span><b>Watch out:</b> Always check files the AI was told not to touch.</span></p>
+</div>
+<div class="board" data-order="web folder desktop"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln">  Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="">Merge pull request #1<small>Sam</small></li><li class="">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="">Add wage change</li><li class="">Add first note</li><li class="earlier">and 1 earlier</li></ol></div></div></figure><figure class="pane pane-web active" aria-label="GitHub.com (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span><span class="here">This step</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study/pull/3</div><div class="page"><div class="pr-title"><b>Add data dictionary</b> <span class="muted">#3</span></div><div class="pr-meta"><span class="status changes flash">Changes requested</span><span>AI assistant wants to merge <code>agent/dictionary</code> into <code>main</code></span></div><div class="latest">Fixes issue #2</div><div class="tabs"><span>Conversation</span><span class="on">Files changed 2</span></div><div class="pr-file"><div class="doc-name">dictionary.md (new)</div><pre class="code"><span class="ln add">+ # Data dictionary</span><span class="ln add">+ unemployment: % of the labour force</span><span class="ln add">+ wage: US dollars per hour</span></pre></div><div class="pr-file warn"><div class="doc-name">notes.md</div><pre class="code"><span class="ln del">− | 2025 | 4.5%         | $26  |</span><span class="ln add">+ | 2025 | 4.6%         | $26  |</span></pre></div><div class="comment warn"><b>Mia:</b> Please don’t change notes.md. 2025 unemployment is 4.5%.</div></div></div></figure></div>
+</section>
+<section class="step" id="step-15" data-step="15" aria-labelledby="step-15-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">15</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-check"/></svg><div><p class="kicker">Step 15 of 16</p><h3 id="step-15-title">Fixed, merged, pulled</h3></div></header>
+  
+  <p class="story">The AI undoes its change to <code>notes.md</code>. Now only the new dictionary is in the pull request, so Mia merges it and pulls.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-folder"/></svg> Do this, in your folder</p><ol><li>Check <b class="ui">Files changed</b> again: only <code>dictionary.md</code></li><li>Click <b class="ui">Merge pull request → Confirm merge</b></li><li>In Desktop: <b class="ui">Fetch origin</b>, then <b class="ui">Pull origin</b></li></ol></div>
+  <p class="why"><b>What changed:</b> The dictionary is in her folder, and her numbers are untouched.</p>
+  
+</div>
+<div class="board" data-order="folder desktop web"><figure class="pane pane-folder active" aria-label="Your folder (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span><span class="here">This step</span></figcaption><div class="files"><span class="file">README.md</span><span class="file">notes.md</span><span class="file open new">dictionary.md</span></div><div class="doc"><div class="doc-name">dictionary.md</div><pre class="code"><span class="ln add">+ # Data dictionary</span><span class="ln add">+ unemployment: % of the labour force</span><span class="ln add">+ wage: US dollars per hour</span></pre></div></figure><figure class="pane pane-desktop" aria-label="GitHub Desktop"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Merge pull request #3</li><li class="new">Add data dictionary<small>AI assistant</small></li><li class="">Merge pull request #1<small>Sam</small></li><li class="">Add summary table</li><li class="">Clarify percentage points<small>Sam</small></li><li class="earlier">and 3 earlier</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study/pull/3</div><div class="page"><div class="pr-title"><b>Add data dictionary</b> <span class="muted">#3</span></div><div class="pr-meta"><span class="status merged flash">Merged</span><span>AI assistant wants to merge <code>agent/dictionary</code> into <code>main</code></span></div><div class="latest">Fixes issue #2</div><div class="tabs"><span>Conversation</span><span class="on">Files changed 1</span></div><div class="pr-file"><div class="doc-name">dictionary.md (new)</div><pre class="code"><span class="ln add">+ # Data dictionary</span><span class="ln add">+ unemployment: % of the labour force</span><span class="ln add">+ wage: US dollars per hour</span></pre></div><div class="comment"><b>AI assistant:</b> Restored notes.md. Only dictionary.md changes now.</div></div></div></figure></div>
+</section><section class="act" id="part-4"><h2>Part 4: When something goes wrong</h2><p>Undo a mistake safely.</p></section>
+<section class="step" id="step-16" data-step="16" aria-labelledby="step-16-title">
+<div class="step-text">
+  <header class="step-head"><span class="step-num">16</span><svg class="ic" width="44" height="44" aria-hidden="true"><use href="#i-revert"/></svg><div><p class="kicker">Step 16 of 16</p><h3 id="step-16-title">Undo a mistake that was already pushed</h3></div></header>
+  
+  <p class="story">While tidying up, Mia accidentally deletes the wage line, commits <code>Tidy notes</code>, and pushes. Sam already has it. She needs a safe undo.</p>
+  <div class="do"><p class="do-label"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-place-desktop"/></svg> Do this, in GitHub Desktop</p><ol><li>Open <b class="ui">History</b> and right-click <code>Tidy notes</code></li><li>Choose <b class="ui">Revert changes in commit</b></li><li>Click <b class="ui">Push origin</b></li></ol></div>
+  <p class="why"><b>What changed:</b> Revert adds a new checkpoint that cancels the bad one. The line is back, and the history honestly shows what happened.</p>
+  <p class="watch"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-warning"/></svg> <span><b>Watch out:</b> Not pushed yet? Right after committing, the <b class="ui">Undo</b> button is simpler. Never &quot;force push&quot; to hide a shared mistake.</span></p>
+</div>
+<div class="board" data-order="desktop folder web"><figure class="pane pane-folder" aria-label="Your folder"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-folder"/></svg><span>Your folder</span><span class="branch-chip">main</span></figcaption><div class="files"><span class="file">README.md</span><span class="file open">notes.md</span><span class="file">dictionary.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln add">+ Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></figure><figure class="pane pane-desktop active" aria-label="GitHub Desktop (this step happens here)"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-desktop"/></svg><span>GitHub Desktop</span><span class="here">This step</span></figcaption><div class="app"><div class="app-bar"><div class="seg"><small>Current repository</small><b>wage-study</b></div><div class="seg"><small>Current branch</small><b>main</b></div><div class="seg btn"><small>&nbsp;</small><b>Fetch origin</b></div></div><div class="tabs"><span class="">Changes</span><span class="on">History</span></div><div class="app-body"><ol class="history"><li class="new">Revert &quot;Tidy notes&quot;</li><li class="bad">Tidy notes</li><li class="">Merge pull request #3</li><li class="">Add data dictionary<small>AI assistant</small></li><li class="">Merge pull request #1<small>Sam</small></li><li class="earlier">and 5 earlier</li></ol></div></div></figure><figure class="pane pane-web" aria-label="GitHub.com"><figcaption class="pane-head"><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-place-web"/></svg><span>GitHub.com</span></figcaption><div class="browser"><div class="url">github.com/mia/wage-study</div><div class="page"><div class="repo-head"><b>mia / wage-study</b><span class="pill">Private</span></div><div class="repo-meta"><span class="branch-chip">main</span><span>10 commits</span></div><div class="latest">Latest: Revert &quot;Tidy notes&quot;</div><div class="files"><span class="file">README.md</span><span class="file">notes.md</span><span class="file">dictionary.md</span></div><div class="doc"><div class="doc-name">notes.md</div><pre class="code"><span class="ln">  # Wage study notes</span><span class="ln">  Unemployment fell 0.5 percentage points (5.0% to 4.5%).</span><span class="ln add">+ Wages rose from $25 to $26 (+4%).</span><span class="ln">   </span><span class="ln">  | Year | Unemployment | Wage |</span><span class="ln">  | 2024 | 5.0%         | $25  |</span><span class="ln">  | 2025 | 4.5%         | $26  |</span></pre></div></div></div></figure></div>
+</section>
+</div>
+
+<section class="recap" id="recap">
+  <h2>The whole story on one table</h2>
+  <p>Come back to this whenever you forget which button to press.</p>
+  <div class="table-wrap"><table><thead><tr><th></th><th>Step</th><th>Where</th><th>Key click</th></tr></thead><tbody><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-new-repo"/></svg></td><td><a href="#step-1">1. Create a project</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>Click <b class="ui">Create repository</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-edit"/></svg></td><td><a href="#step-2">2. Write a note</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-folder"/></svg> Your folder</td><td>Create <code>notes.md</code> in that folder, type the note, and <b class="ui">save</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-commit"/></svg></td><td><a href="#step-3">3. Commit: save a checkpoint</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>Click <b class="ui">Commit to main</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-publish"/></svg></td><td><a href="#step-4">4. Publish to GitHub.com</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-web"/></svg> GitHub.com</td><td>Click <b class="ui">Publish repository</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-push"/></svg></td><td><a href="#step-5">5. Edit, commit, push: the everyday routine</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>Click <b class="ui">Push origin</b> to upload</td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-people"/></svg></td><td><a href="#step-6">6. A coauthor changes the online copy</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-web"/></svg> GitHub.com</td><td>Nothing for Mia to do yet. Sam edits and commits on the website</td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-pull"/></svg></td><td><a href="#step-7">7. Fetch and pull: bring the changes home</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>It turns into <b class="ui">Pull origin</b>. Click it</td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-branch"/></svg></td><td><a href="#step-8">8. Make a branch to try something</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>Click <b class="ui">Create branch</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-publish"/></svg></td><td><a href="#step-9">9. Add the table, commit, publish the branch</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-folder"/></svg> Your folder</td><td>Click <b class="ui">Publish branch</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-pull-request"/></svg></td><td><a href="#step-10">10. Open a pull request</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-web"/></svg> GitHub.com</td><td>Add a title and click <b class="ui">Create pull request</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-merge"/></svg></td><td><a href="#step-11">11. Review and merge</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-web"/></svg> GitHub.com</td><td>He clicks <b class="ui">Merge pull request</b>, then <b class="ui">Confirm merge</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-pull"/></svg></td><td><a href="#step-12">12. Switch back to main and pull</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>Click <b class="ui">Fetch origin</b>, then <b class="ui">Pull origin</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-ai"/></svg></td><td><a href="#step-13">13. Give an AI assistant a small task</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-web"/></svg> GitHub.com</td><td>Tell the AI: <em>only add <code>dictionary.md</code>; don’t change <code>notes.md</code>; work on a new branch; don’t merge</em></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-review"/></svg></td><td><a href="#step-14">14. Review the AI’s work, and catch a mistake</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-web"/></svg> GitHub.com</td><td>Comment on the wrong line and choose <b class="ui">Request changes</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-check"/></svg></td><td><a href="#step-15">15. Fixed, merged, pulled</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-folder"/></svg> Your folder</td><td>In Desktop: <b class="ui">Fetch origin</b>, then <b class="ui">Pull origin</b></td></tr><tr><td><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-revert"/></svg></td><td><a href="#step-16">16. Undo a mistake that was already pushed</a></td><td><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-place-desktop"/></svg> GitHub Desktop</td><td>Click <b class="ui">Push origin</b></td></tr></tbody></table></div>
+</section>
+
+<section class="rules" id="rules">
+  <h2>Four things people mix up</h2>
+  <div class="rule-grid">
+    <div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-commit"/></svg><p><b>Commit is not push.</b> Commit saves on your computer (step 3). Push puts it online (step 5).</p></div>
+    <div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-fetch"/></svg><p><b>Fetch is not pull.</b> Fetch only checks for news. Pull brings it into your folder (step 7).</p></div>
+    <div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-pull-request"/></svg><p><b>A pull request is not a merge.</b> It’s a proposal (step 10). Merging accepts it (step 11).</p></div>
+    <div><svg class="ic" width="32" height="32" aria-hidden="true"><use href="#i-ai"/></svg><p><b>"Done" is not proof.</b> Read the AI’s changes yourself (step 14).</p></div>
   </div>
 </section>
-<section class="tools" aria-labelledby="toolsTitle">
-  <h2 id="toolsTitle">Two ways to practise</h2>
-  <ul class="tool-row">
-    <li><a class="card" href="workflows.html"><img src="assets/icons/map.svg" width="48" height="48" alt=""><span class="card-text"><strong>Route map</strong><span>Step through all eight workflows and see where each step happens.</span></span></a></li>
-    <li><a class="card" href="course.html"><img src="assets/icons/practice.svg" width="48" height="48" alt=""><span class="card-text"><strong>Desktop simulator</strong><span>Click through a safe, pretend GitHub Desktop. Nothing real changes.</span></span></a></li>
-    <li><a class="card" href="learn/cheat-sheet.html"><img src="assets/icons/list.svg" width="48" height="48" alt=""><span class="card-text"><strong>Cheat sheet</strong><span>Every button you need, on one page.</span></span></a></li>
-  </ul>
+
+<section class="help" id="help">
+  <h2>If something looks wrong</h2>
+  <div class="table-wrap"><table><thead><tr><th>What you see</th><th>Usually means</th><th>Do this</th></tr></thead><tbody>
+    <tr><td>GitHub.com shows the old file</td><td>You committed but didn’t push, or the website shows another branch</td><td><b class="ui">Push origin</b>; check the branch on the website</td></tr>
+    <tr><td>Your folder shows the old file</td><td>Someone changed it online (like step 6)</td><td><b class="ui">Fetch origin</b>, then <b class="ui">Pull origin</b></td></tr>
+    <tr><td>Files "disappeared"</td><td>You’re on a different branch</td><td>Check <b class="ui">Current Branch</b> before anything else</td></tr>
+    <tr><td>An AI says it’s done, but nothing changed</td><td>It worked on GitHub.com, or in another folder</td><td>Ask for the pull request link</td></tr>
+    <tr><td>Desktop says there’s a conflict</td><td>Two people changed the same lines</td><td>Open the file, keep the right text, remove the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers, save, then <b class="ui">Continue merge</b></td></tr>
+  </tbody></table></div>
+  <p class="muted">Never click <b class="ui">Discard changes</b>, delete branches, or "force push" just to make a message go away.</p>
 </section>
+
+<section class="further" id="more">
+  <h2>Ready for more?</h2>
+  <div class="further-grid">
+    <a href="https://github.com/ningzhanglab/Github-for-Beginners/blob/main/lessons/README.md"><svg class="ic" width="36" height="36" aria-hidden="true"><use href="#i-book"/></svg><span><b>Detailed lessons</b>The same ideas in eight longer lessons, with quizzes</span></a>
+    <a href="course.html"><svg class="ic" width="36" height="36" aria-hidden="true"><use href="#i-practice"/></svg><span><b>Practice simulator</b>Click through a safe, pretend GitHub Desktop</span></a>
+    <a href="https://github.com/ningzhanglab/Github-for-Beginners/blob/main/lessons/ai-prompts.md"><svg class="ic" width="36" height="36" aria-hidden="true"><use href="#i-ai-chat"/></svg><span><b>AI instructions to copy</b>Safe ways to ask an AI assistant for help</span></a>
+    <a href="https://github.com/ningzhanglab/Github-for-Beginners/blob/main/lessons/dictionary.md"><svg class="ic" width="36" height="36" aria-hidden="true"><use href="#i-list"/></svg><span><b>Dictionary</b>Every GitHub word in plain English</span></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Mia, Sam and the wage numbers are made up. Button names follow current GitHub Desktop; if yours look different, see the <a href="https://docs.github.com/en/desktop">official GitHub Desktop documentation</a>. The screens on this page are simplified drawings, not screenshots.</p>
+  <p>This page doesn’t connect to your GitHub account. <a href="https://github.com/ningzhanglab/Github-for-Beginners">Source on GitHub</a>.</p>
+</footer>
 </main>
 </div>
-<footer class="foot"><p>Free, beginner-friendly lessons for GitHub Desktop. No terminal. Every example uses a fictional economics project.</p>
-<p>Button names follow current GitHub Desktop; check the <a href="https://docs.github.com/en/desktop">official documentation</a> if yours look different. <a href="https://github.com/ningzhanglab/Github-for-Beginners">Source on GitHub</a>.</p></footer>
+<script>(function () {
+  "use strict";
+  var steps = Array.prototype.slice.call(document.querySelectorAll("section.step"));
+  var links = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+  var label = document.getElementById("jumpLabel");
+  var jump = document.querySelector(".jump");
+  var total = steps.length, current = null;
+
+  // Highlight the step you are reading, in the contents and in the phone menu label.
+  function setCurrent(sec) {
+    var id = sec ? sec.id : null;
+    if (id === current) return;
+    current = id;
+    links.forEach(function (a) {
+      if (a.getAttribute("data-nav") === id) a.setAttribute("aria-current", "step"); else a.removeAttribute("aria-current");
+    });
+    if (label) {
+      if (!sec) label.textContent = "All " + total + " steps";
+      else label.textContent = "Step " + sec.getAttribute("data-step") + " of " + total + ": " + sec.querySelector("h3").textContent;
+    }
+  }
+  function onScroll() {
+    var line = window.innerHeight * 0.35, best = null;
+    for (var i = 0; i < steps.length; i++) {
+      if (steps[i].getBoundingClientRect().top <= line) best = steps[i]; else break;
+    }
+    var recap = document.getElementById("recap");
+    if (best && recap && recap.getBoundingClientRect().top <= line) best = null;
+    setCurrent(best);
+  }
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }
+  }, { passive: true });
+  onScroll();
+
+  if (jump) jump.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) jump.open = false; });
+
+})();
+</script>
 </body>
 </html>

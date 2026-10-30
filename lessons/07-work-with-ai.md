@@ -21,9 +21,9 @@ Not sure? Ask it: "Can you edit files in my project, and where?" If it can't sho
 
 ## Part A: An assistant that edits your folder
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/localai.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#localai)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/localai.svg)
 
-*Local AI route. The dashed station is the step the AI does; every other step is you checking and accepting. Click the picture to step through it on the route map.*
+*Local AI route. The dashed station is the step the AI does; every other step is you checking and accepting.*
 
 ### <img src="../assets/icons/branch.svg" width="36" height="36" alt=""> Step 1: Make a branch for the AI
 
@@ -73,9 +73,9 @@ Not sure? Ask it: "Can you edit files in my project, and where?" If it can't sho
 
 ## Part B: An assistant that works on GitHub.com
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/cloudai.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#cloudai)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/cloudai.svg)
 
-*Cloud AI route. Almost everything happens on GitHub.com; your folder only changes when you pull at the end. Click the picture to step through it on the route map.*
+*Cloud AI route. Almost everything happens on GitHub.com; your folder only changes when you pull at the end.*
 
 Some assistants connect to GitHub and open pull requests by themselves. What's available depends on the product, your plan and the project's permissions.
 

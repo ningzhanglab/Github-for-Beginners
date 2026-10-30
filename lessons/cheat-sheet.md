@@ -45,6 +45,6 @@ Print this or keep it open. The icon colour tells you where: <img src="../assets
 
 ---
 
-See every route step by step on the [route map](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html). [All lessons](README.md) · [Dictionary](dictionary.md)
+[All lessons](README.md) · [Dictionary](dictionary.md)
 
 *Labels follow current GitHub Desktop; check the [official docs](https://docs.github.com/en/desktop) if yours differ.*

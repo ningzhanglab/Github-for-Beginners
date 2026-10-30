@@ -5,9 +5,9 @@
 
 **First rule:** don't panic-click **Discard**, delete branches, or follow advice to "force push". Find out where you are first.
 
-[![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/fix.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#fix)
+![Route picture: each numbered circle is one step, placed in the lane where it happens](../assets/routes/fix.svg)
 
-*The recovery route. Work down it and stop at the first step that matches your situation. Click the picture to step through it on the route map.*
+*The recovery route. Work down it and stop at the first step that matches your situation.*
 
 ## Steps
 

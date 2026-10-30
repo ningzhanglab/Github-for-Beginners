@@ -34,7 +34,7 @@ A dashed circle on a route picture means someone else (a teammate or an AI) does
 | <img src="../assets/icons/list.svg" width="20" height="20" alt=""> | [Cheat sheet](cheat-sheet.md) | Find the right button fast |
 | <img src="../assets/icons/book.svg" width="20" height="20" alt=""> | [Dictionary](dictionary.md) | Look up any GitHub word |
 | <img src="../assets/icons/ai-chat.svg" width="20" height="20" alt=""> | [AI prompt library](ai-prompts.md) | Copy safe instructions for an AI assistant |
-| <img src="../assets/icons/map.svg" width="20" height="20" alt=""> | [Route map website](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html) | Step through every workflow interactively |
+| <img src="../assets/icons/map.svg" width="20" height="20" alt=""> | [The guide website](https://ningzhanglab.github.io/Github-for-Beginners/) | Follow one small project from start to finish, step by step |
 
 ---
 
