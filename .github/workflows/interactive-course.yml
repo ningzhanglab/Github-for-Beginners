@@ -36,13 +36,13 @@ jobs:
           node-version: '22'
       - name: Install tools
         run: |
-          npm install --no-save playwright@1.56.1 marked@15.0.12
+          npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Check the guide matches the lessons
+      - name: Check the guide page is up to date
         run: |
-          node tools/build-site.cjs
-          git diff --exit-code -- index.html assets || (echo "::error::The guide (index.html) is out of date. Run 'node tools/build-site.cjs' and commit the result." && exit 1)
-      - name: Test the one-page guide
+          node tools/build-guide.cjs
+          git diff --exit-code -- index.html assets || (echo "::error::The guide (index.html) is out of date. Run 'node tools/build-guide.cjs' and commit the result." && exit 1)
+      - name: Test the guide page
         if: always()
         run: node tests/site.spec.cjs
       - name: Test the Desktop simulator

@@ -2,7 +2,7 @@
 
 *This page is for the repository's maintainer. Learners don't need any of it.*
 
-The whole guide is **one web page**, [`index.html`](index.html). It is a single self-contained file: icons and pictures are embedded, so it also works when downloaded and opened offline. An optional extra page, [`course.html`](course.html), is the clickable Desktop simulator.
+The guide is **one web page**, [`index.html`](index.html): a single story (Mia's wage-study notes) followed through 16 steps, each showing her folder, GitHub Desktop and GitHub.com side by side. It is one self-contained file, so it also works when downloaded and opened offline. The optional practice simulator is [`course.html`](course.html).
 
 ## Turn on GitHub Pages (once)
 
@@ -11,29 +11,28 @@ The whole guide is **one web page**, [`index.html`](index.html). It is a single 
 3. Select **Branch: `main`** and **Folder: `/ (root)`**, then click **Save**.
 4. After a minute or two, use **Visit site** to check. The guide's address is https://ningzhanglab.github.io/Github-for-Beginners/
 
-The address only works once Pages is on and publishing has succeeded. Old links to `workflows.html` automatically forward to the matching lesson.
+The address only works once Pages is on and publishing has succeeded. Old links to `workflows.html` forward to the matching step.
 
-## Update the guide after editing a lesson
+## Change the guide
 
-The lessons in [`lessons/`](lessons/README.md) are the source. **Edit those, never `index.html`, `assets/icons/` or `assets/routes/`**, which are generated.
-
-After editing, rebuild the page. This needs [Node.js](https://nodejs.org/) and runs in a terminal, so it's a maintainer task (an AI coding assistant can also do it):
-
-```text
-npm install --no-save marked@15
-node tools/build-site.cjs
-```
-
-Commit the rebuilt `index.html` together with your lesson edit. The automatic checks on every pull request rebuild the page and fail if it doesn't match the lessons, so a forgotten rebuild is caught before merging.
+`index.html` is generated. **Don't edit it by hand.** Edit the sources below, then rebuild.
 
 | To change… | Edit |
 |---|---|
-| A lesson's words | `lessons/*.md` |
-| The order of sections, titles and times | the list at the top of `tools/build-site.cjs` |
-| The page's look | `tools/site.css` |
-| Contents highlighting, progress ticks | `tools/site.js` |
-| An icon | `tools/icons.cjs` |
-| A workflow's steps (route pictures) | `tools/routes.cjs` |
+| A step's words, or what a place shows in a step | [`tools/story.cjs`](tools/story.cjs) |
+| The page's look | [`tools/guide.css`](tools/guide.css) |
+| Contents highlighting and the phone step menu | [`tools/guide.js`](tools/guide.js) |
+| The page's layout, intro and closing sections | [`tools/build-guide.cjs`](tools/build-guide.cjs) |
+| An icon | [`tools/icons.cjs`](tools/icons.cjs) |
+| The route pictures in the Markdown lessons | [`tools/routes.cjs`](tools/routes.cjs) |
+
+Rebuilding needs [Node.js](https://nodejs.org/) and runs in a terminal, so it's a maintainer task (an AI coding assistant can also do it). Nothing needs installing:
+
+```text
+node tools/build-guide.cjs
+```
+
+Commit the rebuilt `index.html` with your change. The automatic checks on every pull request rebuild the page and fail if it doesn't match the sources, so a forgotten rebuild is caught before merging.
 
 ## Automatic checks
 
