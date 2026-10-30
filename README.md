@@ -1,186 +1,181 @@
 # GitHub Desktop for Beginners
 
-**Understand GitHub, manage your work, and collaborate with AI — no coding or terminal required.**
+**Learn to keep versions of your work, collaborate with people, and review an AI assistant's changes, using the GitHub Desktop app. No coding, no terminal.**
 
-This page is the **complete beginner's overview**. Read straight down to learn the main ideas. Each section gives you a simple example, what the feature does, and **one link to a full step-by-step lesson** when you're ready.
-
-**Who is this for?** Students, researchers, people writing papers or documentation, and anyone who has never used GitHub. We focus on the **GitHub Desktop app** for Windows and Mac, not Git commands.
+**Who it's for:** students, researchers, and anyone writing papers, notes or documentation who has never used GitHub. Every example uses a small, made-up economics project.
 
 ---
 
-## 🌐 Two websites: see every workflow, then practise
+## Start here
 
-| Website | What it's for | Open it |
+Pick the way you like to learn. All three cover the same ideas.
+
+| If you want to… | Open | Time |
 |---|---|---|
-| **GitHub route map** | Every everyday workflow (first project, daily save, getting updates, branch and Pull Request, joining a teammate, local AI, cloud AI, fixing mistakes) drawn as a step-by-step route through your folder, GitHub Desktop and GitHub.com | [ningzhanglab.github.io/Github-for-Beginners/workflows.html](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html) |
-| **Interactive course** | Six short lessons with a clickable GitHub Desktop simulator | [ningzhanglab.github.io/Github-for-Beginners](https://ningzhanglab.github.io/Github-for-Beginners/) |
+| **See every workflow at a glance**, step by step | [GitHub route map](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html) (website) | Browse freely |
+| **Practise clicking** in a safe GitHub Desktop simulator | [Interactive course](https://ningzhanglab.github.io/Github-for-Beginners/) (website) | About 20 minutes |
+| **Do it for real** with your own first project | [Your First 15 Minutes](01_Start_Here/First_15_Minutes.md) (written lesson) | About 15 minutes |
 
-Both are **safe**: they never connect to a GitHub account or change real files.
+The two websites never connect to a GitHub account or change real files.
 
-**If a link above doesn't open yet**, the site hasn't been switched on. A maintainer can turn it on in one minute by following [Publish the websites](INTERACTIVE_COURSE_SETUP.md). Until then, open [`workflows.html`](workflows.html) or [`index.html`](index.html) on GitHub, choose **Download raw file**, and double-click the downloaded file to open it in your browser.
+> **Website link not opening?** GitHub Pages may not be switched on yet; a maintainer can follow [Publish the websites](INTERACTIVE_COURSE_SETUP.md). Meanwhile, open [`workflows.html`](workflows.html) or [`index.html`](index.html) here on GitHub, choose **Download raw file**, and double-click the downloaded file.
 
-The rest of this README is a written overview of the same ideas.
+Not sure? Read the short overview below first. Each section ends with a link to its route on the map and to the full lesson.
 
 ---
 
 ## 1. Why use GitHub?
 
-### The problem: “Which version is the right one?”
+You have `paper_final.docx`, `paper_final_v2.docx` and `paper_final_revised.docx`. A classmate fixed a table and an AI assistant rewrote a paragraph. Which version is right, and who approved what?
 
-Imagine working on an economics paper. You have `paper_final.docx`, `paper_final_v2.docx`, and `paper_final_revised.docx`. A classmate fixes the table, and an AI assistant rewrites the explanation. Now it's hard to remember **what changed, which version was correct, and what was approved**.
-
-**GitHub helps keep a history of your project.** Instead of relying only on filenames, you can see earlier saved versions, inspect changes, and decide whether to accept a collaborator's proposal.
+**GitHub keeps a history of your project.** Instead of guessing from filenames, you can see every saved version, read exactly what changed, and decide whether to accept someone's proposed edit.
 
 ![Version history compared with confusing final-version filenames](assets/illustrations/why-github-econ.svg)
 
 *Illustration using a fictional economics project; not a screenshot or a real research result.*
 
-### When is GitHub useful?
+**Good fit:** revising papers and notes over time, working with coauthors, checking what an AI assistant changed, keeping text files such as Markdown, LaTeX, Python or R organized.
 
-- **Writing and revising:** save checkpoints as a paper or project develops.
-- **Working with others:** let a classmate suggest a change without immediately replacing your accepted version.
-- **Working with AI:** check exactly which files an assistant changed before accepting them.
-- **Research projects:** organize notes, scripts, small examples, and documentation in one place.
+**Not the best fit:** editing the same document at the same moment with others (Google Docs is easier); comparing changes inside Word files or PDFs (GitHub can store them but can't show edits clearly); storing confidential research data or passwords (never upload these without authorization).
 
-**It's not the best tool for everything.** Google Docs is usually easier for editing the same document simultaneously. Ordinary GitHub history works best for **text-based files** (such as Markdown, LaTeX, Python, or R); changes inside Word files or PDFs are harder to compare. Never upload private research data or credentials without appropriate authorization.
-
-**Want the longer explanation?** [Read: Why GitHub? — an economics research story](01_Start_Here/Why_GitHub.md).
+**Read more:** [Why GitHub? An economics research story](01_Start_Here/Why_GitHub.md)
 
 ---
 
-## 2. How does GitHub actually work?
+## 2. The three places, and the six words you need
 
-You only need to understand **three places**:
-
-| Place | In plain English | What you do there |
+| Place | What it is | What you do there |
 |---|---|---|
-| **Your computer's project folder** | The files you are working on | Open and edit your paper or notes with your usual editor |
-| **GitHub Desktop** | The app that tracks and shares changes | Look at changed files, save a checkpoint, and sync |
-| **GitHub.com** | The shared online version of the project | View files, discuss tasks, and review proposed updates |
+| **Your project folder** | The files on your computer | Edit with your usual editor |
+| **GitHub Desktop** | The app that tracks and syncs changes | Review changes, save checkpoints, upload and download |
+| **GitHub.com** | The shared online copy | View files, discuss tasks, review and accept proposals |
 
-**A typical personal workflow:** Open your project folder → edit a file → review it in Desktop → **Commit** (save a checkpoint) → **Push** (upload to GitHub.com).
-
-**When someone else changes the online project:** use **Pull** in Desktop to bring those updates back to your computer.
-
-### The six words you'll see most often
-
-| Term | What it really means | Economics example |
+| Word | Meaning | Economics example |
 |---|---|---|
-| **Repository (repo)** | A project folder with a recorded history | All files for one economics paper |
-| **Clone** | Make a connected copy of an online project on your computer | Download the shared research project so you can keep it updated |
-| **Changes** | Show what's different since the last saved checkpoint | A paragraph or table note was edited |
-| **Commit** | Save a named checkpoint | “Explain wage variable units” |
-| **Push** | Send your saved changes to GitHub.com | Publish your updated notes |
-| **Pull** | Bring online changes into your local project | Receive a teammate's accepted corrections |
+| **Repository (repo)** | A project folder with a recorded history | All files for one paper |
+| **Clone** | A connected copy of an online project on your computer | Download the shared project so you can keep it updated |
+| **Commit** | Save a named checkpoint (on your computer) | "Explain wage variable units" |
+| **Push** | Upload your checkpoints to GitHub.com | Share your updated notes |
+| **Pull** | Download online changes into your folder | Receive a coauthor's accepted corrections |
+| **Changes** | What's different since your last checkpoint | One paragraph edited |
 
-**Want a visual explanation?** [Read: GitHub Desktop — beginner guide](02_GitHub_Desktop/Desktop_Guide.md).
+**Commit is not Push.** A commit stays on your computer until you push it.
+
+More words: [Plain-English dictionary](05_Help/Simple_Dictionary.md)
 
 ---
 
-## 3. Your first project in GitHub Desktop
+## 3. Your first project
 
-You don't need to understand branches or pull requests to start. Your first goal is simply to **create a project, edit one file, and see it online**.
+You don't need branches or pull requests to start. The goal is to create a project, edit one file, and see it online.
 
 ![Illustrated map of important GitHub Desktop controls](assets/illustrations/desktop-controls-econ.svg)
 
-*Simplified interface drawing, not an actual screenshot. Button labels or positions can differ by app version.*
+*Simplified drawing, not an actual screenshot. Button positions can differ by app version.*
 
-### Try these five steps
+1. **Create:** install [GitHub Desktop](https://desktop.github.com/), sign in, choose **File → New repository…**, name it `my-first-notes`, tick **Initialize this repository with a README**.
+2. **Edit:** choose **Repository → Show in Finder** (Mac) or **Show in Explorer** (Windows), open `README.md` in a plain-text editor, add a sentence, save.
+3. **Check:** back in Desktop, click **Changes** to see exactly what you changed.
+4. **Save:** type a Summary such as `Add my first note` and click **Commit to main**.
+5. **Publish:** click **Publish repository** and keep it **private**.
 
-1. **Create:** Download [GitHub Desktop](https://desktop.github.com/), sign in, and choose **File → New repository…**. Name it `my-first-notes` and initialize it with a README.
-2. **Edit:** Open the project folder using **Repository → Show in Finder / Explorer**. Open `README.md` in any plain-text editor, add one sentence, and save it.
-3. **Check:** Return to Desktop → **Changes**. You can see exactly what you changed.
-4. **Save:** Type a short Summary, such as `Add my first note`, and click **Commit to main**.
-5. **Publish:** Click **Publish repository**, keep it **private** for practice, and view it on GitHub.com.
+After that, your everyday routine is: edit → **Commit** → **Push origin**. When someone else changed the online copy: **Fetch origin** → **Pull origin**.
 
-**That's your first complete GitHub workflow.** Next time, make another edit, Commit, and use **Push origin** to upload your new checkpoint.
+**See it as a route:** [Create my first project](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#first) · [Save and upload a change](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#daily) · [Get changes someone else made](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#update)
 
-**Want the full click-by-click instructions?** [Read: Your First 15 Minutes](01_Start_Here/First_15_Minutes.md).
+**Full lesson:** [Your First 15 Minutes](01_Start_Here/First_15_Minutes.md) · [GitHub Desktop guide](02_GitHub_Desktop/README.md)
 
 ---
 
-## 4. What are branches, tasks, and pull requests?
+## 4. Working with others: branches, issues and pull requests
 
-These features become useful **when more than one person — or an AI assistant — works on a project**. You can learn them after your first personal edit.
+Learn these once you've done a first personal edit. They matter when a coauthor or an AI assistant is involved.
 
-### Branch = a safe place to try changes
-
-Suppose your current economics paper is correct, but you want to try a different regression specification. Create a **Branch**: a separate line of work where you can experiment without changing the accepted `main` version immediately.
-
-### Issue = a task or question
-
-Instead of saying “please fix the dataset,” create an **Issue**, such as: “Explain whether the unemployment change is measured in percent or percentage points.” Now everyone knows what needs to be done.
-
-### Pull Request (PR) = a proposal to review
-
-Your classmate or agent makes changes on a branch and opens a **Pull Request**. You can compare the old and new lines, request corrections, and choose whether to **Merge** (accept) the proposal into `main`.
+- **Branch:** a separate working version, so you can try a new specification without touching the accepted `main` version.
+- **Issue:** a written task on GitHub.com, such as "Say whether the unemployment change is in percent or percentage points."
+- **Pull Request (PR):** a review page proposing changes from a branch. You read the exact added and removed lines, then **Merge** (accept) or ask for fixes.
 
 ![From an Issue to a reviewed change and an updated project](assets/illustrations/econ-issue-to-merge.svg)
 
-**Real demonstration:** [Issue #3 — the task](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) → [PR #4 — see what changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). The GitHub records are real teaching examples, but the counties and economic data are fictional.
+**A real example in this repository:** [Issue #3, the task](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) → [PR #4, what changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). The GitHub records are real; the counties and numbers are fictional.
 
-**Want more examples of each feature?** [Read: GitHub Features Through Economics Research](04_Practice/Economics_Examples.md).
+**See it as a route:** [Propose a change for review](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#pr) · [Join a teammate's project](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#team)
+
+**Full lesson:** [GitHub features through economics research](04_Practice/Economics_Examples.md)
 
 ---
 
-## 5. How can an AI assistant work with you?
+## 5. Working with an AI assistant
 
-An AI assistant can draft notes, document variables, or propose edits. **But you should see and check its work before treating it as finished.**
-
-### There are two common situations
+An AI assistant can draft notes, document variables, or propose edits. **You still check its work before it becomes part of your project.**
 
 ![Where local and cloud AI assistants make their edits](assets/illustrations/agent-local-cloud-econ.svg)
 
-- **Local assistant:** edits files in the project folder on your computer. Look in GitHub Desktop's **Changes** or **History** to see its work.
-- **Cloud/connected assistant:** may edit a branch on GitHub.com and open a Pull Request, if it has permission. Check **Pull requests** on GitHub.com; then use Desktop to pull the accepted changes after merging.
+| Your AI assistant… | Where its work shows up |
+|---|---|
+| Edits files on **your computer** | GitHub Desktop **Changes** (or **History** if it already committed) |
+| Works on **GitHub.com** | A **Pull Request**; after you merge it, use **Pull origin** in Desktop |
+| Can **only chat** | Nowhere until you paste its text into your file and commit it yourself |
 
-Some AI chats can **only suggest text**, not directly access your repository. In that case, paste the suggestion into your editor, check it in Desktop, and commit it yourself.
-
-### A simple collaboration example
-
-Ask the agent to explain the variables in your economics dataset. Don't let it silently change the data:
+**An instruction you can copy:**
 
 > Please add a short data dictionary explaining my variables and their units. **Do not change the original CSV or `main`.** Use a separate branch if you can edit the repository. Tell me exactly which files you changed and what you verified. **Do not merge anything without my approval.** If you cannot edit files, give me the text to paste myself.
 
-**The important lesson:** AI can propose the work; **you review the differences and approve the result**.
+When an assistant says "done," ask which files, branch or pull request changed. A message is not proof.
 
-**Want a detailed local/cloud workflow and more ready-made prompts?** [Read: Working With AI](03_Work_With_AI/README.md).
+**See it as a route:** [AI edits my folder](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#localai) · [AI works on GitHub.com](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#cloudai)
+
+**Full lesson:** [Work with an AI assistant](03_Work_With_AI/README.md) · [Copy-paste prompts](03_Work_With_AI/Copy_Paste_Prompts.md)
 
 ---
 
-## 6. See a whole economics example, then practice
+## 6. A complete example to inspect
 
-Here is a small, fictional study of wages and unemployment in four counties across two years. The values are **invented** so you can learn the workflow without using real private research data.
+A small, fictional study of wages and unemployment in four counties over two years. The values are **invented** so you can learn safely.
 
-| What happened | What you can inspect | Why it matters |
+| Step | Inspect it | What it shows |
 |---|---|---|
-| Initial research files were saved | [First project commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) | A checkpoint preserves what existed before an edit |
-| A documentation problem was reported | [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) | A specific task is easier to delegate |
-| An improved explanation was proposed | [PR #4 — Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) | You can see what was added or removed before accepting |
-| The proposed change was merged | [Current example results](examples/economics/draft_results.md) | The accepted version is now part of the project |
+| First research files saved | [First commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) | A checkpoint preserves what existed before any edit |
+| A problem reported | [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) | A specific task is easier to hand to someone |
+| A fix proposed | [PR #4, Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) | You can see every added and removed line before accepting |
+| The fix accepted | [Current results](examples/economics/draft_results.md) | The reviewed version is now part of the project |
 
-In the example, unemployment drops from **5.0% to 4.5%**, which is **0.5 percentage points**, while a fictional hourly wage rises from **$25 to $26**, or **4%**. This is arithmetic on made-up numbers — **not an economic estimate or causal finding**.
+In the example, unemployment falls from **5.0% to 4.5%** (**0.5 percentage points**) and the hourly wage rises from **$25 to $26** (**4%**). This is arithmetic on made-up numbers, **not an economic estimate or causal finding**.
 
-**Want to try this yourself?** [Read: Practice exercises and economics examples](04_Practice/README.md).
-
----
-
-## 7. Quick help when something looks wrong
-
-**“I saved a change, but I don't see it on GitHub.com.”** A Commit saves it locally; you may still need **Push origin**. Also check you're looking at the correct online branch.
-
-**“The agent says it finished, but my computer's files haven't changed.”** It might have worked on an online branch. Find the actual Pull Request, check whether it was merged, then use **Fetch / Pull** in Desktop.
-
-**“My files disappeared after I changed branches.”** Check the **Current Branch** selector first. Different branches can show different versions of the same project. Don't delete files or discard changes until you're sure.
-
-**Need more help?** [Read: Common Problems and Plain-English Dictionary](05_Help/README.md).
+**Practise it yourself:** [Four hands-on labs](04_Practice/Try_It_Yourself.md) · [Economics + AI walkthrough](04_Practice/Economics_AI_Example.md)
 
 ---
 
-### Where to go next
+## 7. When something looks wrong
 
-If you've only read the overview, your best next step is **[Your First 15 Minutes](01_Start_Here/First_15_Minutes.md)**. You'll make one real project using the Desktop app, and the rest of the guide will feel much more familiar.
+| What you see | First thing to check |
+|---|---|
+| "I committed, but GitHub.com still shows the old file." | Did you click **Push origin**? Is the website showing the same branch? |
+| "The AI says it finished, but my files haven't changed." | It may have worked on GitHub.com. Find its Pull Request, merge it if it's right, then **Fetch origin → Pull origin**. |
+| "My files disappeared after switching branches." | Check **Current Branch** first. Different branches show different versions. |
 
-**Extra resources (optional):** [Route map of every workflow](workflows.html) · [Four illustrated explanations](01_Start_Here/Pictures_And_Examples.md) · [Quick Desktop cheat sheet](02_GitHub_Desktop/Quick_Reference.md) · [Example project files](examples/README.md) · [Official GitHub Desktop help](https://docs.github.com/en/desktop).
+Don't click **Discard**, delete branches or force-push just to make an error go away.
 
-*This guide teaches graphical GitHub Desktop workflows; no terminal commands. All interface images above are explicitly illustrative, and exact layouts can change. Don't publish confidential information or grant AI assistants more access than they need.*
+**See it as a route:** [Fix a mistake](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#fix)
+
+**Full lesson:** [Fix problems](05_Help/Fix_Problems.md) · [One-page cheat sheet](02_GitHub_Desktop/Quick_Reference.md)
+
+---
+
+## What's in this repository
+
+| Folder or file | What's inside |
+|---|---|
+| [`workflows.html`](workflows.html) | The GitHub route map website |
+| [`index.html`](index.html) | The interactive course website |
+| [`01_Start_Here/`](01_Start_Here/README.md) | Why GitHub, your first 15 minutes, illustrated examples |
+| [`02_GitHub_Desktop/`](02_GitHub_Desktop/README.md) | The Desktop guide, workflow diagrams and cheat sheet |
+| [`03_Work_With_AI/`](03_Work_With_AI/README.md) | Working with local and cloud AI assistants, ready-made prompts |
+| [`04_Practice/`](04_Practice/README.md) | Hands-on labs and economics examples |
+| [`05_Help/`](05_Help/README.md) | Fixing problems and a plain-English dictionary |
+| [`examples/`](examples/README.md) | The fictional economics project and a reading-notes example |
+| [`AGENTS.md`](AGENTS.md) | Rules for AI assistants that edit this repository |
+
+**Official help:** [GitHub Desktop documentation](https://docs.github.com/en/desktop)
+
+*This guide teaches GitHub Desktop, not Git commands. Interface images are illustrations, and exact layouts can change. Don't publish confidential information or give AI assistants more access than they need.*
