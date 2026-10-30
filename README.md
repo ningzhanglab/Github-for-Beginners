@@ -8,18 +8,18 @@ This page is the **complete beginner's overview**. Read straight down to learn t
 
 ---
 
-## 🎮 New: Learn by clicking — interactive HTML course
+## 🌐 Two websites: see every workflow, then practise
 
-Want to **practice instead of only reading**? The new six-lesson course lets you click through an illustrated GitHub Desktop simulator:
+| Website | What it's for | Open it |
+|---|---|---|
+| **GitHub route map** | Every everyday workflow (first project, daily save, getting updates, branch and Pull Request, joining a teammate, local AI, cloud AI, fixing mistakes) drawn as a step-by-step route through your folder, GitHub Desktop and GitHub.com | [ningzhanglab.github.io/Github-for-Beginners/workflows.html](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html) |
+| **Interactive course** | Six short lessons with a clickable GitHub Desktop simulator | [ningzhanglab.github.io/Github-for-Beginners](https://ningzhanglab.github.io/Github-for-Beginners/) |
 
-**Why GitHub? → Your project folder vs Desktop vs website → Create a repo → Edit a README → Review → Commit → Publish → Work with others and AI.**
+Both are **safe**: they never connect to a GitHub account or change real files.
 
-It's **safe practice**: the simulator does not connect to a real GitHub account or edit real projects. It works as a single standalone HTML file, without installing dependencies.
+**If a link above doesn't open yet**, the site hasn't been switched on. A maintainer can turn it on in one minute by following [Publish the websites](INTERACTIVE_COURSE_SETUP.md). Until then, open [`workflows.html`](workflows.html) or [`index.html`](index.html) on GitHub, choose **Download raw file**, and double-click the downloaded file to open it in your browser.
 
-- **[Open the interactive HTML file](index.html)** — from its GitHub file page, select **Download raw**, then open the downloaded `index.html` in a web browser.
-- **[Publish it as an easy one-click website](INTERACTIVE_COURSE_SETUP.md)** — a repository maintainer can enable GitHub Pages (no extra hosting required).
-
-The rest of this README is a quick written overview; the HTML course is for hands-on learning.
+The rest of this README is a written overview of the same ideas.
 
 ---
 
@@ -181,6 +181,6 @@ In the example, unemployment drops from **5.0% to 4.5%**, which is **0.5 percent
 
 If you've only read the overview, your best next step is **[Your First 15 Minutes](01_Start_Here/First_15_Minutes.md)**. You'll make one real project using the Desktop app, and the rest of the guide will feel much more familiar.
 
-**Extra resources (optional):** [Four illustrated explanations](01_Start_Here/Pictures_And_Examples.md) · [Quick Desktop cheat sheet](02_GitHub_Desktop/Quick_Reference.md) · [Example project files](examples/README.md) · [Official GitHub Desktop help](https://docs.github.com/en/desktop).
+**Extra resources (optional):** [Route map of every workflow](workflows.html) · [Four illustrated explanations](01_Start_Here/Pictures_And_Examples.md) · [Quick Desktop cheat sheet](02_GitHub_Desktop/Quick_Reference.md) · [Example project files](examples/README.md) · [Official GitHub Desktop help](https://docs.github.com/en/desktop).
 
 *This guide teaches graphical GitHub Desktop workflows; no terminal commands. All interface images above are explicitly illustrative, and exact layouts can change. Don't publish confidential information or grant AI assistants more access than they need.*

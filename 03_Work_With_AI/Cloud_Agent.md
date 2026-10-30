@@ -1,5 +1,9 @@
 # Cloud Agent + GitHub Desktop: From Task to Approved PR
 
+> **Level:** optional / advanced · **Read first:** [AI collaboration guide](AI_Guide.md)
+>
+> **New words on this page:** **Cloud agent** (an AI that works on GitHub.com, not on your computer), **Assignees** (the box on an Issue that says who should do it), **draft PR** (a proposal marked "not ready yet"), **Checks** (automatic tests; may be absent).
+
 This is for an agent that **works on GitHub remotely**, not inside your current local folder. Examples include GitHub Copilot cloud agent when available, or a third-party/connected service that has permission to make branches and pull requests.
 
 > Some agent features require a subscription, repository enablement, access approval, or a specific connector. A normal chat assistant may have only read access. Do not assume every agent can make commits or PRs.

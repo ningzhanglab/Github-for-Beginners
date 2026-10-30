@@ -1,5 +1,7 @@
 # Visual Gallery — GitHub Desktop and Economics Research
 
+*Quick review page: these are the same four pictures used across the guide, collected in one place. If you already read [Why GitHub?](Why_GitHub.md), skim this as a recap.*
+
 **Four annotated illustrations** show why GitHub matters and how its important features work in a small economics research project. Every diagram is intentionally simplified and is **not an actual GitHub Desktop screenshot**.
 
 ## 1. Why would an economics researcher use GitHub?
