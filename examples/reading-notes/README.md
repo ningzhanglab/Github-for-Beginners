@@ -20,4 +20,4 @@ How should a two-person student team organize a short reading summary using GitH
 
 These roles are fictional. Any GitHub issues and pull requests associated with this teaching example are demonstrations; they do not imply a real independent human collaborator or an autonomous agent reviewed the result.
 
-**Explore the [illustrated tutorial](../../01_Start_Here/Why_GitHub.md) for the meaning behind the actions.**
+**Explore the [picture-based lessons](../../lessons/README.md) for the meaning behind the actions.**

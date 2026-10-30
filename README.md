@@ -1,181 +1,70 @@
-# GitHub Desktop for Beginners
+# GitHub for Beginners
 
-**Learn to keep versions of your work, collaborate with people, and review an AI assistant's changes, using the GitHub Desktop app. No coding, no terminal.**
+**Learn GitHub one picture at a time.** Keep versions of your work, collaborate with coauthors, and check what an AI assistant changed, using the free GitHub Desktop app. No coding, no terminal.
 
-**Who it's for:** students, researchers, and anyone writing papers, notes or documentation who has never used GitHub. Every example uses a small, made-up economics project.
+**For:** students, researchers and anyone writing papers, notes or documentation who has never used GitHub. Every example uses a small, made-up economics project.
 
----
+[![The route for proposing a change: each numbered circle is one step, placed in the band where it happens](assets/routes/pr.svg)](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#pr)
 
-## Start here
+*Every lesson shows its workflow as a route like this one: each circle is a step, placed in the band where it happens.*
 
-Pick the way you like to learn. All three cover the same ideas.
+## Every step happens in one of three places
 
-| If you want to… | Open | Time |
+| | Place | What you do there |
 |---|---|---|
-| **See every workflow at a glance**, step by step | [GitHub route map](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html) (website) | Browse freely |
-| **Practise clicking** in a safe GitHub Desktop simulator | [Interactive course](https://ningzhanglab.github.io/Github-for-Beginners/) (website) | About 20 minutes |
-| **Do it for real** with your own first project | [Your First 15 Minutes](01_Start_Here/First_15_Minutes.md) (written lesson) | About 15 minutes |
+| <img src="assets/icons/place-folder.svg" width="28" height="28" alt=""> | **Your project folder** | Edit files with your usual editor |
+| <img src="assets/icons/place-desktop.svg" width="28" height="28" alt=""> | **GitHub Desktop** | See what changed, save checkpoints, upload and download |
+| <img src="assets/icons/place-web.svg" width="28" height="28" alt=""> | **GitHub.com** | Review and accept changes with others |
 
-The two websites never connect to a GitHub account or change real files.
+The icon colours in every lesson match these places, so you always know where a step happens.
 
-> **Website link not opening?** GitHub Pages may not be switched on yet; a maintainer can follow [Publish the websites](INTERACTIVE_COURSE_SETUP.md). Meanwhile, open [`workflows.html`](workflows.html) or [`index.html`](index.html) here on GitHub, choose **Download raw file**, and double-click the downloaded file.
+## The eight lessons
 
-Not sure? Read the short overview below first. Each section ends with a link to its route on the map and to the full lesson.
+| | Lesson | You'll be able to… | Time |
+|---|---|---|---|
+| <img src="assets/icons/idea.svg" width="28" height="28" alt=""> | [1. What is GitHub?](lessons/01-what-is-github.md) | Explain the three places and six key words | 10 min |
+| <img src="assets/icons/install.svg" width="28" height="28" alt=""> | [2. Get set up](lessons/02-get-set-up.md) | Have an account and GitHub Desktop ready | 10 min |
+| <img src="assets/icons/new-repo.svg" width="28" height="28" alt=""> | [3. Your first project](lessons/03-your-first-project.md) | Create, edit, commit and publish a project | 15 min |
+| <img src="assets/icons/push.svg" width="28" height="28" alt=""> | [4. Save and sync every day](lessons/04-save-and-sync.md) | Push your work and pull others' work | 10 min |
+| <img src="assets/icons/branch.svg" width="28" height="28" alt=""> | [5. Branches and pull requests](lessons/05-branches-and-pull-requests.md) | Try changes safely and accept them after review | 20 min |
+| <img src="assets/icons/people.svg" width="28" height="28" alt=""> | [6. Work with other people](lessons/06-work-with-other-people.md) | Join a project, write Issues, get reviews | 20 min |
+| <img src="assets/icons/ai.svg" width="28" height="28" alt=""> | [7. Work with an AI assistant](lessons/07-work-with-ai.md) | Let AI help while you decide what's accepted | 20 min |
+| <img src="assets/icons/undo.svg" width="28" height="28" alt=""> | [8. Fix mistakes](lessons/08-fix-mistakes.md) | Undo safely at every stage | 15 min |
 
----
+Lessons 1 to 4 are all you need for a personal project.
 
-## 1. Why use GitHub?
+**Also:** <img src="assets/icons/practice.svg" width="20" height="20" alt=""> [Practise everything](lessons/practice.md) · <img src="assets/icons/list.svg" width="20" height="20" alt=""> [Cheat sheet](lessons/cheat-sheet.md) · <img src="assets/icons/book.svg" width="20" height="20" alt=""> [Dictionary](lessons/dictionary.md) · <img src="assets/icons/ai-chat.svg" width="20" height="20" alt=""> [AI prompt library](lessons/ai-prompts.md)
 
-You have `paper_final.docx`, `paper_final_v2.docx` and `paper_final_revised.docx`. A classmate fixed a table and an AI assistant rewrote a paragraph. Which version is right, and who approved what?
+## Prefer a website?
 
-**GitHub keeps a history of your project.** Instead of guessing from filenames, you can see every saved version, read exactly what changed, and decide whether to accept someone's proposed edit.
+The same lessons are published as a website, together with two interactive tools. None of them connect to a GitHub account or change real files.
 
-![Version history compared with confusing final-version filenames](assets/illustrations/why-github-econ.svg)
-
-*Illustration using a fictional economics project; not a screenshot or a real research result.*
-
-**Good fit:** revising papers and notes over time, working with coauthors, checking what an AI assistant changed, keeping text files such as Markdown, LaTeX, Python or R organized.
-
-**Not the best fit:** editing the same document at the same moment with others (Google Docs is easier); comparing changes inside Word files or PDFs (GitHub can store them but can't show edits clearly); storing confidential research data or passwords (never upload these without authorization).
-
-**Read more:** [Why GitHub? An economics research story](01_Start_Here/Why_GitHub.md)
-
----
-
-## 2. The three places, and the six words you need
-
-| Place | What it is | What you do there |
+| | Website | What it's for |
 |---|---|---|
-| **Your project folder** | The files on your computer | Edit with your usual editor |
-| **GitHub Desktop** | The app that tracks and syncs changes | Review changes, save checkpoints, upload and download |
-| **GitHub.com** | The shared online copy | View files, discuss tasks, review and accept proposals |
+| <img src="assets/icons/book.svg" width="28" height="28" alt=""> | [Lesson website](https://ningzhanglab.github.io/Github-for-Beginners/) | The eight lessons with easy next/previous navigation |
+| <img src="assets/icons/map.svg" width="28" height="28" alt=""> | [Route map](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html) | Step through all eight workflows interactively |
+| <img src="assets/icons/practice.svg" width="28" height="28" alt=""> | [Desktop simulator](https://ningzhanglab.github.io/Github-for-Beginners/course.html) | Click through a safe, pretend GitHub Desktop |
 
-| Word | Meaning | Economics example |
-|---|---|---|
-| **Repository (repo)** | A project folder with a recorded history | All files for one paper |
-| **Clone** | A connected copy of an online project on your computer | Download the shared project so you can keep it updated |
-| **Commit** | Save a named checkpoint (on your computer) | "Explain wage variable units" |
-| **Push** | Upload your checkpoints to GitHub.com | Share your updated notes |
-| **Pull** | Download online changes into your folder | Receive a coauthor's accepted corrections |
-| **Changes** | What's different since your last checkpoint | One paragraph edited |
+> **Website not opening?** GitHub Pages may not be switched on yet; see [Publish the website](INTERACTIVE_COURSE_SETUP.md). The Markdown lessons above always work.
 
-**Commit is not Push.** A commit stays on your computer until you push it.
+## A real example to look at
 
-More words: [Plain-English dictionary](05_Help/Simple_Dictionary.md)
-
----
-
-## 3. Your first project
-
-You don't need branches or pull requests to start. The goal is to create a project, edit one file, and see it online.
-
-![Illustrated map of important GitHub Desktop controls](assets/illustrations/desktop-controls-econ.svg)
-
-*Simplified drawing, not an actual screenshot. Button positions can differ by app version.*
-
-1. **Create:** install [GitHub Desktop](https://desktop.github.com/), sign in, choose **File → New repository…**, name it `my-first-notes`, tick **Initialize this repository with a README**.
-2. **Edit:** choose **Repository → Show in Finder** (Mac) or **Show in Explorer** (Windows), open `README.md` in a plain-text editor, add a sentence, save.
-3. **Check:** back in Desktop, click **Changes** to see exactly what you changed.
-4. **Save:** type a Summary such as `Add my first note` and click **Commit to main**.
-5. **Publish:** click **Publish repository** and keep it **private**.
-
-After that, your everyday routine is: edit → **Commit** → **Push origin**. When someone else changed the online copy: **Fetch origin** → **Pull origin**.
-
-**See it as a route:** [Create my first project](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#first) · [Save and upload a change](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#daily) · [Get changes someone else made](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#update)
-
-**Full lesson:** [Your First 15 Minutes](01_Start_Here/First_15_Minutes.md) · [GitHub Desktop guide](02_GitHub_Desktop/README.md)
-
----
-
-## 4. Working with others: branches, issues and pull requests
-
-Learn these once you've done a first personal edit. They matter when a coauthor or an AI assistant is involved.
-
-- **Branch:** a separate working version, so you can try a new specification without touching the accepted `main` version.
-- **Issue:** a written task on GitHub.com, such as "Say whether the unemployment change is in percent or percentage points."
-- **Pull Request (PR):** a review page proposing changes from a branch. You read the exact added and removed lines, then **Merge** (accept) or ask for fixes.
-
-![From an Issue to a reviewed change and an updated project](assets/illustrations/econ-issue-to-merge.svg)
-
-**A real example in this repository:** [Issue #3, the task](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) → [PR #4, what changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files). The GitHub records are real; the counties and numbers are fictional.
-
-**See it as a route:** [Propose a change for review](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#pr) · [Join a teammate's project](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#team)
-
-**Full lesson:** [GitHub features through economics research](04_Practice/Economics_Examples.md)
-
----
-
-## 5. Working with an AI assistant
-
-An AI assistant can draft notes, document variables, or propose edits. **You still check its work before it becomes part of your project.**
-
-![Where local and cloud AI assistants make their edits](assets/illustrations/agent-local-cloud-econ.svg)
-
-| Your AI assistant… | Where its work shows up |
-|---|---|
-| Edits files on **your computer** | GitHub Desktop **Changes** (or **History** if it already committed) |
-| Works on **GitHub.com** | A **Pull Request**; after you merge it, use **Pull origin** in Desktop |
-| Can **only chat** | Nowhere until you paste its text into your file and commit it yourself |
-
-**An instruction you can copy:**
-
-> Please add a short data dictionary explaining my variables and their units. **Do not change the original CSV or `main`.** Use a separate branch if you can edit the repository. Tell me exactly which files you changed and what you verified. **Do not merge anything without my approval.** If you cannot edit files, give me the text to paste myself.
-
-When an assistant says "done," ask which files, branch or pull request changed. A message is not proof.
-
-**See it as a route:** [AI edits my folder](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#localai) · [AI works on GitHub.com](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#cloudai)
-
-**Full lesson:** [Work with an AI assistant](03_Work_With_AI/README.md) · [Copy-paste prompts](03_Work_With_AI/Copy_Paste_Prompts.md)
-
----
-
-## 6. A complete example to inspect
-
-A small, fictional study of wages and unemployment in four counties over two years. The values are **invented** so you can learn safely.
-
-| Step | Inspect it | What it shows |
-|---|---|---|
-| First research files saved | [First commit](https://github.com/ningzhanglab/Github-for-Beginners/commit/ef5dc6484fa1b9027c1e28eed92f9d2a7fccf6b4) | A checkpoint preserves what existed before any edit |
-| A problem reported | [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) | A specific task is easier to hand to someone |
-| A fix proposed | [PR #4, Files changed](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) | You can see every added and removed line before accepting |
-| The fix accepted | [Current results](examples/economics/draft_results.md) | The reviewed version is now part of the project |
-
-In the example, unemployment falls from **5.0% to 4.5%** (**0.5 percentage points**) and the hourly wage rises from **$25 to $26** (**4%**). This is arithmetic on made-up numbers, **not an economic estimate or causal finding**.
-
-**Practise it yourself:** [Four hands-on labs](04_Practice/Try_It_Yourself.md) · [Economics + AI walkthrough](04_Practice/Economics_AI_Example.md)
-
----
-
-## 7. When something looks wrong
-
-| What you see | First thing to check |
-|---|---|
-| "I committed, but GitHub.com still shows the old file." | Did you click **Push origin**? Is the website showing the same branch? |
-| "The AI says it finished, but my files haven't changed." | It may have worked on GitHub.com. Find its Pull Request, merge it if it's right, then **Fetch origin → Pull origin**. |
-| "My files disappeared after switching branches." | Check **Current Branch** first. Different branches show different versions. |
-
-Don't click **Discard**, delete branches or force-push just to make an error go away.
-
-**See it as a route:** [Fix a mistake](https://ningzhanglab.github.io/Github-for-Beginners/workflows.html#fix)
-
-**Full lesson:** [Fix problems](05_Help/Fix_Problems.md) · [One-page cheat sheet](02_GitHub_Desktop/Quick_Reference.md)
-
----
+This repository contains a fictional economics project with real GitHub records: [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) asked for variable definitions, and [Pull Request #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) proposed them for review before they were accepted. The project files are in [examples/economics](examples/economics/README.md). The counties and numbers are invented.
 
 ## What's in this repository
 
 | Folder or file | What's inside |
 |---|---|
-| [`workflows.html`](workflows.html) | The GitHub route map website |
-| [`index.html`](index.html) | The interactive course website |
-| [`01_Start_Here/`](01_Start_Here/README.md) | Why GitHub, your first 15 minutes, illustrated examples |
-| [`02_GitHub_Desktop/`](02_GitHub_Desktop/README.md) | The Desktop guide, workflow diagrams and cheat sheet |
-| [`03_Work_With_AI/`](03_Work_With_AI/README.md) | Working with local and cloud AI assistants, ready-made prompts |
-| [`04_Practice/`](04_Practice/README.md) | Hands-on labs and economics examples |
-| [`05_Help/`](05_Help/README.md) | Fixing problems and a plain-English dictionary |
+| [`lessons/`](lessons/README.md) | **The lessons.** Edit these to change the guide. |
+| [`learn/`](learn/) and [`index.html`](index.html) | The lesson website, generated from `lessons/` |
+| [`workflows.html`](workflows.html) | The route map website |
+| [`course.html`](course.html) | The Desktop simulator website |
+| [`assets/`](assets/) | Icons, route pictures and illustrations |
 | [`examples/`](examples/README.md) | The fictional economics project and a reading-notes example |
+| [`tools/`](tools/) | The script that builds the website, icons and route pictures |
+| `01_Start_Here/` … `05_Help/` | Older pages, kept only so old links still work. Each points to its new lesson. |
 | [`AGENTS.md`](AGENTS.md) | Rules for AI assistants that edit this repository |
 
-**Official help:** [GitHub Desktop documentation](https://docs.github.com/en/desktop)
+**Maintainers:** after editing a lesson, rebuild the website as described in [Publish the website](INTERACTIVE_COURSE_SETUP.md#update-the-website-after-editing-a-lesson). Automatic checks will flag a pull request if the website is out of date.
 
-*This guide teaches GitHub Desktop, not Git commands. Interface images are illustrations, and exact layouts can change. Don't publish confidential information or give AI assistants more access than they need.*
+*This guide teaches GitHub Desktop, not Git commands. Pictures are illustrations, and exact button positions can change; see the [official GitHub Desktop documentation](https://docs.github.com/en/desktop). Don't publish confidential information or give AI assistants more access than they need.*
