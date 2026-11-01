@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - index.html
+      - help.html
       - course.html
       - workflows.html
       - lessons/**
@@ -15,6 +16,7 @@ on:
   pull_request:
     paths:
       - index.html
+      - help.html
       - course.html
       - workflows.html
       - lessons/**
@@ -38,10 +40,10 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Check the guide page is up to date
+      - name: Check the guide and help pages are up to date
         run: |
           node tools/build-guide.cjs
-          git diff --exit-code -- index.html assets || (echo "::error::The guide (index.html) is out of date. Run 'node tools/build-guide.cjs' and commit the result." && exit 1)
+          git diff --exit-code -- index.html help.html assets || (echo "::error::The guide (index.html or help.html) is out of date. Run 'node tools/build-guide.cjs' and commit the result." && exit 1)
       - name: Test the guide page
         if: always()
         run: node tests/site.spec.cjs

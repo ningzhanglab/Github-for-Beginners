@@ -4,7 +4,7 @@
 
 ## 👉 [Open the guide](https://ningzhanglab.github.io/Github-for-Beginners/)
 
-On one page, you follow Mia as she keeps the notes for a small wage study:
+On one page, you follow Mia as she keeps the notes for a small wage study. Already know what you need? The guide opens with “jump to what you need” cards, ticks off the steps you finish, and explains each GitHub word the first time it appears.
 
 | Part | What happens | Steps |
 |---|---|---|
@@ -25,6 +25,7 @@ Steps 1 to 5 are all you need for personal work.
 
 ## Want more?
 
+- **Quick answers**: a searchable [help page](https://ningzhanglab.github.io/Github-for-Beginners/help.html) for “push was rejected”, “my files disappeared”, “undo my commit”, an “I want to…” lookup, and a plain-English dictionary. You can print it.
 - **Detailed lessons** you can read here on GitHub: [start with Lesson 1](lessons/01-what-is-github.md), or see [all lessons](lessons/README.md).
 - **A practice simulator**: a safe, pretend GitHub Desktop to click through ([open it](https://ningzhanglab.github.io/Github-for-Beginners/course.html)).
 - **A real example**: this repository's [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) and [Pull Request #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) show a reviewed change to a fictional [economics project](examples/economics/README.md).
@@ -39,6 +40,8 @@ Copyright (c) 2026 Ning Zhang. Everything in this repository is licensed under t
 |---|---|
 | [`index.html`](index.html) | **The guide page.** Generated; don't edit it by hand |
 | [`tools/story.cjs`](tools/story.cjs) | **The story**: every step's words and what each place shows. Edit this to change the guide |
+| [`tools/extras.cjs`](tools/extras.cjs) | The “jump to what you need” cards, pop-up word definitions, and everything on the help page |
+| [`help.html`](help.html) | **The help page.** Generated; searchable quick answers, “I want to…” lookup and a dictionary |
 | [`tools/guide.css`](tools/guide.css), [`tools/guide.js`](tools/guide.js) | The page's look and its small script |
 | [`lessons/`](lessons/README.md) | The detailed lessons in Markdown |
 | [`course.html`](course.html) | The practice simulator |
