@@ -4,12 +4,13 @@
 // Run from the repository root after changing the story, the look, or an icon:
 //   node tools/build-guide.cjs
 // No installation needed. Edit tools/story.cjs (words) or tools/guide.css (look), never index.html.
-// It also rebuilds the icons and route pictures used by the Markdown lessons.
+// It also builds help.html (tools/build-help.cjs), and rebuilds the icons and route pictures used by the Markdown lessons.
 const fs = require('node:fs');
 const path = require('node:path');
 const { PLACES, G, ICONS } = require('./icons.cjs');
 const assets = require('./build-assets.cjs');
 const story = require('./story.cjs');
+const extras = require('./extras.cjs');
 
 const root = path.join(__dirname, '..');
 const REPO = 'https://github.com/ningzhanglab/Github-for-Beginners';
@@ -27,6 +28,16 @@ const cls = (...c) => c.filter(Boolean).join(' ');
 function sprite() {
   return `<svg width="0" height="0" style="position:absolute" aria-hidden="true">${Object.entries(ICONS).map(([name, [glyph, place]]) =>
     `<symbol id="i-${name}" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="${PLACES[place].color}"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${G[glyph]}</g></symbol>`).join('')}</svg>`;
+}
+
+// The top bar, shared by the guide and the help page. `current` is 'guide' or 'help'.
+function topbar(current, middle = '') {
+  const link = (href, label, key) => `<a href="${href}"${current === key ? ' aria-current="page"' : ''}>${label}</a>`;
+  return `<header class="bar">
+  <a class="brand" href="${current === 'guide' ? '#top' : 'index.html'}">${icon('branch', 28)}<span>GitHub for Beginners</span></a>
+  <nav class="top-links" aria-label="Site">${link('index.html', 'Guide', 'guide')}${link('course.html', 'Practice', 'practice')}${link('help.html', 'Help', 'help')}${link(REPO + '/blob/main/lessons/README.md', 'Lessons', 'lessons')}</nav>
+  ${middle}
+</header>`;
 }
 
 function codeLines(ls) {
@@ -99,6 +110,7 @@ function stepSection(s, i, n) {
   <div class="do"><p class="do-label">${icon(PLACE[s.active].icon, 20)} Do this, in ${s.active === 'folder' ? 'your folder' : PLACE[s.active].name}</p><ol>${s.do.map(d => `<li>${fmt(d)}</li>`).join('')}</ol></div>
   <p class="why"><b>What changed:</b> ${fmt(s.why)}</p>
   ${s.watch ? `<p class="watch">${icon('warning', 20)} <span><b>Watch out:</b> ${fmt(s.watch)}</span></p>` : ''}
+  <p class="done-row"><button type="button" class="done-btn" data-done="${i + 1}" aria-pressed="false">Mark step ${i + 1} done</button>${i + 1 < n ? `<a class="next-link" href="#step-${i + 2}">Next: ${esc(story.steps[i + 1].title)} →</a>` : '<a class="next-link" href="#recap">See the whole story on one table →</a>'}</p>
 </div>
 <div class="board" data-order="${order.join(' ')}">${['folder', 'desktop', 'web'].map(k => pane(k, s[k], k === s.active)).join('')}</div>
 </section>`;
@@ -124,6 +136,9 @@ function page() {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Learn GitHub by following one small project from start to finish. Every step shows your folder, GitHub Desktop and GitHub.com side by side. No coding, no terminal.">
+<meta property="og:title" content="GitHub for Beginners">
+<meta property="og:description" content="No coding, no terminal: learn GitHub Desktop by following one small project. Pick what you need, or start at step 1.">
+<meta name="theme-color" content="#6a4cc2">
 <title>GitHub for Beginners: follow one project from start to finish</title>
 <link rel="icon" href="data:image/svg+xml;base64,${fs.readFileSync(path.join(root, 'assets/icons/branch.svg')).toString('base64')}">
 <style>${css}</style>
@@ -131,10 +146,8 @@ function page() {
 <body id="top">
 ${sprite()}
 <a class="skip" href="#story">Skip to the story</a>
-<header class="bar">
-  <a class="brand" href="#top">${icon('branch', 28)}<span>GitHub for Beginners</span></a>
-  <details class="jump"><summary id="jumpLabel">All ${n} steps</summary><nav aria-label="All steps"><ol class="nav">${navSteps}</ol></nav></details>
-</header>
+${topbar('guide', `<div class="progress" id="progress" hidden><span id="progressText"></span><span class="meter" aria-hidden="true"><i id="progressFill"></i></span></div>
+  <details class="jump"><summary id="jumpLabel">All ${n} steps</summary><nav aria-label="All steps"><ol class="nav"><li class="nav-more"><a href="course.html">Practice simulator</a><a href="help.html">Help</a><a href="${REPO}/blob/main/lessons/README.md">Lessons</a></li>${navSteps}</ol></nav></details>`)}
 
 <div class="frame">
 <nav class="side" aria-label="All steps"><ol class="nav">${navSteps}</ol></nav>
@@ -142,6 +155,9 @@ ${sprite()}
 <section class="intro">
   <h1>Learn GitHub by following one small project</h1>
   <p class="lede">Watch Mia keep her research notes in GitHub, from creating the project to working with a coauthor and an AI assistant. Every step shows what happens in all three places, so you can see exactly what changed and where.</p>
+  <p class="start"><a class="button" id="startBtn" href="#step-1">Start at step 1</a><a class="button continue" id="continueBtn" href="#step-1" hidden></a><span class="muted">${n} steps, about 30 minutes to read. Steps 1 to 5 are all you need for personal work.</span></p>
+  <h2 class="goals-title" id="goals">Or jump to what you need</h2>
+  <div class="goals">${extras.goals.map(g => `<a class="goal" href="${g.href || '#step-' + g.step}">${icon(g.icon, 36)}<span><b>${esc(g.title)}</b>${esc(g.hint)}</span></a>`).join('')}</div>
   <div class="places">
     ${['folder', 'desktop', 'web'].map(k => `<div class="place place-${k}">${icon(PLACE[k].icon, 40)}<div><b>${PLACE[k].name}</b><span>${{ folder: 'The files on Mia’s computer. She edits them with her usual editor.', desktop: 'The free app that shows what changed, saves checkpoints, and syncs.', web: 'The online copy, where people review and accept changes.' }[k]}</span></div></div>`).join('')}
   </div>
@@ -152,7 +168,6 @@ ${sprite()}
     <li>Download <a href="https://desktop.github.com/">GitHub Desktop</a> for Mac or Windows, install it, and open it.</li>
     <li>Click <b class="ui">Sign in to GitHub.com</b> on the welcome screen. (Later: <b class="ui">GitHub Desktop → Settings… → Accounts</b> on Mac, <b class="ui">File → Options… → Accounts</b> on Windows.)</li></ol>
     <p>You never need to type commands. Everything is buttons.</p></details>
-  <p class="start"><a class="button" href="#step-1">Start the story</a> <span class="muted">${n} steps, about 30 minutes to read. Steps 1 to 5 are all you need for personal work.</span></p>
 </section>
 
 <div id="story">
@@ -203,6 +218,7 @@ ${body}
 </footer>
 </main>
 </div>
+<script type="application/json" id="glossary">${JSON.stringify(extras.glossary).replace(/</g, '\\u003c')}</script>
 <script>${js}</script>
 </body>
 </html>
@@ -212,9 +228,10 @@ ${body}
 function build() {
   const a = assets.build();
   fs.writeFileSync(path.join(root, 'index.html'), page());
+  fs.writeFileSync(path.join(root, 'help.html'), require('./build-help.cjs').page({ esc, fmt, icon, sprite, topbar, REPO, extras }));
   const kb = Math.round(fs.statSync(path.join(root, 'index.html')).size / 1024);
-  console.log(`Built index.html (${kb} KB): ${story.steps.length} story steps; ${a.icons} icons and ${a.routes} route pictures for the lessons.`);
+  console.log(`Built index.html (${kb} KB) and help.html: ${story.steps.length} story steps; ${a.icons} icons and ${a.routes} route pictures for the lessons.`);
 }
 
-module.exports = { story };
+module.exports = { story, extras };
 if (require.main === module) build();

@@ -195,3 +195,102 @@ td:first-child:has(> .ic:only-child){width:44px}
   .story{font-size:17px}
 }
 @media print{.bar,.side{display:none}.frame{display:block}.pane{opacity:1}.step{break-inside:avoid}}
+
+/* ---- Redesign: navigation, goals, progress, pop-up definitions, help page ---- */
+:root{--ok:#1e8e5a}
+@media (prefers-color-scheme:dark){:root{--ok:#5fd39b}}
+[hidden]{display:none!important}
+.top-links{display:flex;gap:2px;margin:0 auto 0 18px;flex:1}
+.top-links a{font-size:15px;font-weight:600;text-decoration:none;padding:6px 12px;border-radius:999px;color:var(--muted)}
+.top-links a:hover{background:var(--soft);color:var(--ink)}
+.top-links a[aria-current]{color:var(--ink);background:var(--soft)}
+.progress{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;white-space:nowrap}
+.meter{display:inline-block;width:96px;height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .3s}
+.nav-more{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 10px;margin:0 0 8px;border-bottom:1px solid var(--rule)}
+.nav-more a{border:1px solid var(--rule);border-radius:999px;padding:5px 12px!important;font-weight:600}
+.nav a.done::after{content:"\2713";margin-left:auto;color:var(--ok);font-weight:800}
+.nav a.done .n{color:var(--ok)}
+
+.start .button.continue{background:var(--ok);color:#fff}
+.start{gap:12px 14px}
+.goals-title{font-size:20px;margin:30px 0 10px;letter-spacing:-.01em}
+.goals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 26px}
+.goal{display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:12px 14px;transition:border-color .15s,transform .15s}
+.goal:hover{border-color:var(--ink);transform:translateY(-1px)}
+.goal span{display:grid;font-size:13.5px;line-height:1.3;color:var(--muted)}
+.goal b{font-size:15.5px;color:var(--ink);line-height:1.25}
+
+.done-row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:14px 0 0}
+.done-btn{font:inherit;font-size:15px;font-weight:700;cursor:pointer;color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:999px;padding:8px 18px}
+.done-btn:hover{background:var(--soft)}
+.done-btn[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.done-btn[aria-pressed="true"]::before{content:"\2713\00a0"}
+.next-link{font-weight:600;color:var(--muted)}
+.step.is-done .step-num{color:var(--ok)}
+
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1.5px dotted var(--muted)}
+.term:hover,.term:focus-visible{background:var(--soft);border-bottom-color:var(--ink)}
+#tip{position:absolute;z-index:40;max-width:270px;background:var(--ink);color:var(--bg);padding:9px 13px;border-radius:10px;font-size:14.5px;line-height:1.4;box-shadow:0 10px 28px rgba(0,0,0,.28);pointer-events:none}
+#tip b{display:block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;opacity:.75;margin-bottom:2px}
+
+/* Help page */
+.wrap{max-width:1000px;margin:0 auto;padding:26px 22px 60px}
+.wrap h1{font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.025em;margin:4px 0 12px}
+.search{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:14px 16px;margin:0 0 16px}
+.search label{display:block;font-weight:700;font-size:14px;margin:0 0 6px}
+.search-row{display:flex;gap:10px}
+.search input{flex:1;min-width:0;font:inherit;font-size:18px;padding:10px 14px;border:2px solid var(--rule);border-radius:12px;background:var(--bg);color:var(--ink)}
+.search input:focus{outline:none;border-color:var(--desktop);box-shadow:0 0 0 3px color-mix(in srgb,var(--desktop) 25%,transparent)}
+.search p{margin:6px 0 0;min-height:1.4em;font-size:14px}
+.ghost{font:inherit;font-weight:600;font-size:15px;cursor:pointer;color:var(--ink);background:transparent;border:1.5px solid var(--rule);border-radius:12px;padding:8px 14px;white-space:nowrap}
+.ghost:hover{border-color:var(--ink)}
+.rule-first{display:flex;gap:10px;align-items:flex-start;background:var(--warn-bg);border-left:4px solid var(--warn-line);border-radius:0 10px 10px 0;padding:10px 14px;margin:0 0 16px}
+.rule-first .ic{margin-top:3px}
+.rule-first p,.rule-first span{margin:0}
+.hnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.hnav a{font-weight:600;font-size:15px;text-decoration:none;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--panel)}
+.hnav a:hover{border-color:var(--ink)}
+.hsec{margin-top:34px;max-width:none}
+.hsec h2{font-size:clamp(22px,2.8vw,30px);margin:0 0 10px}
+.ic-cell{width:44px}
+.seelink{display:inline-block;margin-left:6px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.none{margin:30px 0;padding:18px;border:1px dashed var(--rule);border-radius:var(--r);text-align:center;color:var(--muted)}
+.rule-grid.three{grid-template-columns:repeat(3,1fr)}
+.help-page .rules{max-width:none}
+.help-page .foot{max-width:none}
+tr[hidden]{display:none}
+
+@media (max-width:900px){
+  .top-links{display:none}
+  .help-page .top-links{display:flex;margin-left:8px}
+  .help-page .top-links a{padding:6px 9px;font-size:14.5px}
+  .bar{justify-content:space-between}
+  .goals{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rule-grid.three{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .help-page thead{display:none}
+  .help-page table,.help-page tbody,.help-page tr,.help-page td{display:block;width:auto}
+  .help-page tr{padding:10px 12px;border-bottom:1px solid var(--rule)}
+  .help-page tr:last-child{border-bottom:0}
+  .help-page td{border:0;padding:3px 0}
+  .help-page td.ic-cell{display:none}
+  .help-page td[data-label]::before{content:attr(data-label);display:block;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .search-row{flex-direction:column}
+  .meter{width:56px}
+}
+@media (max-width:560px){
+  .goals{grid-template-columns:1fr}
+  .wrap{padding:20px 14px 50px}
+  .progress #progressText{font-size:12.5px}
+}
+@media print{
+  .top-links,.progress,.goals,.goals-title,.done-row,.search,.hnav,.start{display:none!important}
+  .help-page{background:#fff;color:#000;font-size:11.5pt}
+  .help-page .hsec{break-before:auto}
+  .help-page tr{break-inside:avoid}
+  .help-page .table-wrap{border:0}
+  .help-page a{text-decoration:none}
+  .rule-first{break-inside:avoid}
+}
