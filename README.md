@@ -29,6 +29,10 @@ Steps 1 to 5 are all you need for personal work.
 - **A practice simulator**: a safe, pretend GitHub Desktop to click through ([open it](https://ningzhanglab.github.io/Github-for-Beginners/course.html)).
 - **A real example**: this repository's [Issue #3](https://github.com/ningzhanglab/Github-for-Beginners/issues/3) and [Pull Request #4](https://github.com/ningzhanglab/Github-for-Beginners/pull/4/files) show a reviewed change to a fictional [economics project](examples/economics/README.md).
 
+## License
+
+Copyright (c) 2026 Ning Zhang. Everything in this repository is licensed under the [MIT License](LICENSE). You may use, copy, modify, and share it for any purpose, including commercially, as long as you keep the copyright notice and license text with the files.
+
 ## For maintainers
 
 | File or folder | What it is |
@@ -42,6 +46,7 @@ Steps 1 to 5 are all you need for personal work.
 | [`examples/`](examples/README.md) | The fictional example projects |
 | `01_Start_Here/` … `05_Help/` | Old pages, kept only so old links still work |
 | [`AGENTS.md`](AGENTS.md) | Rules for AI assistants that edit this repository |
+| [`LICENSE`](LICENSE) | The MIT License |
 
 How to publish and update the guide: [INTERACTIVE_COURSE_SETUP.md](INTERACTIVE_COURSE_SETUP.md).
 
